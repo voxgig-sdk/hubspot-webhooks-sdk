@@ -268,7 +268,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.WebhooksBatchResponseSubscription().create({
-    "2026_09_id": 1,  # int
+    "app_id": 1,  # int
     "completedAt": "example_completedAt",  # str
     "inputs": [],  # list
     "results": [],  # list
@@ -520,7 +520,7 @@ webhooks_setting = client.WebhooksSetting()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.WebhooksSetting().load({"2026_09_id": 1})
+result = client.WebhooksSetting().load({"app_id": 1})
 ```
 
 #### `update(reqdata, ctrl=None) -> dict`
@@ -529,7 +529,7 @@ Update an existing entity. The data must include the entity `id`. Returns the up
 
 ```python
 result = client.WebhooksSetting().update({
-    "2026_09_id": 1,
+    "app_id": 1,
     # Fields to update
 })
 ```
@@ -659,7 +659,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.WebhooksSubscription().create({
-    "2026_09_id": 1,  # int
+    "app_id": 1,  # int
     "active": True,  # bool
     "createdAt": "example_createdAt",  # str
     "eventType": "example_eventType",  # str
@@ -672,7 +672,7 @@ result = client.WebhooksSubscription().create({
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.WebhooksSubscription().load({"id": 1, "2026_09_id": 1})
+result = client.WebhooksSubscription().load({"id": 1, "app_id": 1})
 ```
 
 #### `update(reqdata, ctrl=None) -> dict`
@@ -682,7 +682,7 @@ Update an existing entity. The data must include the entity `id`. Returns the up
 ```python
 result = client.WebhooksSubscription().update({
     "id": 1,
-    "2026_09_id": 1,
+    "app_id": 1,
     # Fields to update
 })
 ```
@@ -742,7 +742,7 @@ webhooks_subscription_list = client.WebhooksSubscriptionList()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.WebhooksSubscriptionList().list({"2026_09_id": 1})
+results = client.WebhooksSubscriptionList().list({"app_id": 1})
 for webhooks_subscription_list in results:
     print(webhooks_subscription_list)
 ```

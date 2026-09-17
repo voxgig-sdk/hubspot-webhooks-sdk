@@ -27,12 +27,12 @@ class WebhooksSubscriptionDirectTest extends TestCase
         $params = [];
         $query = [];
         if (!$setup["live"]) {
-            $params["2026_09_id"] = "direct01";
+            $params["app_id"] = "direct01";
             $params["id"] = "direct02";
         }
 
         $result = $client->direct([
-            "path" => "app-webhooks/2026-09/{2026_09_id}/subscriptions/{id}",
+            "path" => "app-webhooks/2026-09/{app_id}/subscriptions/{id}",
             "method" => "GET",
             "params" => $params,
             "query" => $query,

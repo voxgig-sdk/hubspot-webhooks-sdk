@@ -12,7 +12,7 @@ main: kit: flow: BasicWebhooksBatchResponseSubscriptionFlow:
       }
 
       match: {
-        "2026_09_id": "2026_0901"
+        app_id: "app01"
       }
 
       op: "create"

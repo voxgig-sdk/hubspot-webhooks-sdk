@@ -273,7 +273,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:WebhooksBatchResponseSubscription():create({
-  ["2026_09_id"] = --[[ number ]],
+  app_id = --[[ number ]],
   completedAt = --[[ string ]],
   inputs = --[[ table ]],
   results = --[[ table ]],
@@ -527,7 +527,7 @@ local webhooks_setting = client:WebhooksSetting(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:WebhooksSetting():load({ ["2026_09_id"] = 1 })
+local result, err = client:WebhooksSetting():load({ app_id = 1 })
 ```
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -536,7 +536,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```lua
 local result, err = client:WebhooksSetting():update({
-  ["2026_09_id"] = 1,
+  app_id = 1,
   -- Fields to update
 })
 ```
@@ -668,7 +668,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:WebhooksSubscription():create({
-  ["2026_09_id"] = --[[ number ]],
+  app_id = --[[ number ]],
   active = --[[ boolean ]],
   createdAt = --[[ string ]],
   eventType = --[[ string ]],
@@ -681,7 +681,7 @@ local result, err = client:WebhooksSubscription():create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:WebhooksSubscription():load({ id = 1, ["2026_09_id"] = 1 })
+local result, err = client:WebhooksSubscription():load({ id = 1, app_id = 1 })
 ```
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -691,7 +691,7 @@ Update an existing entity. The data must include the entity `id`.
 ```lua
 local result, err = client:WebhooksSubscription():update({
   id = 1,
-  ["2026_09_id"] = 1,
+  app_id = 1,
   -- Fields to update
 })
 ```

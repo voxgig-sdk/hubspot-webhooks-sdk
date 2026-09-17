@@ -275,7 +275,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->WebhooksBatchResponseSubscription()->create([
-  "2026_09_id" => null, // int
+  "app_id" => null, // int
   "completedAt" => null, // string
   "inputs" => null, // array
   "results" => null, // array
@@ -529,7 +529,7 @@ $webhooks_setting = $client->WebhooksSetting();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->WebhooksSetting()->load(["2026_09_id" => 1]);
+$result = $client->WebhooksSetting()->load(["app_id" => 1]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -538,7 +538,7 @@ Update an existing entity. The data must include the entity `id`. Throws on erro
 
 ```php
 $result = $client->WebhooksSetting()->update([
-  "2026_09_id" => 1,
+  "app_id" => 1,
   // Fields to update
 ]);
 ```
@@ -670,7 +670,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->WebhooksSubscription()->create([
-  "2026_09_id" => null, // int
+  "app_id" => null, // int
   "active" => null, // bool
   "createdAt" => null, // string
   "eventType" => null, // string
@@ -683,7 +683,7 @@ $result = $client->WebhooksSubscription()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->WebhooksSubscription()->load(["id" => 1, "2026_09_id" => 1]);
+$result = $client->WebhooksSubscription()->load(["id" => 1, "app_id" => 1]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -693,7 +693,7 @@ Update an existing entity. The data must include the entity `id`. Throws on erro
 ```php
 $result = $client->WebhooksSubscription()->update([
   "id" => 1,
-  "2026_09_id" => 1,
+  "app_id" => 1,
   // Fields to update
 ]);
 ```

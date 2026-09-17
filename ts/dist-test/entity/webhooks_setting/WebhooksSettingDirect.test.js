@@ -36,7 +36,7 @@ const utility_1 = require("../../utility");
         const setup = directSetup({ id: 'direct01' });
         if ((0, utility_1.maybeSkipControl)(t, 'direct', 'direct-load-webhooks_setting', setup.live))
             return;
-        if ((0, utility_1.skipIfMissingIds)(t, setup, ["2026_09_id01"]))
+        if ((0, utility_1.skipIfMissingIds)(t, setup, ["app_id01"]))
             return;
         const { client, calls } = setup;
         const params = {};
@@ -44,10 +44,10 @@ const utility_1 = require("../../utility");
         if (setup.live) {
         }
         else {
-            params["2026_09_id"] = 'direct01';
+            params.app_id = 'direct01';
         }
         const result = await client.direct({
-            path: 'app-webhooks/2026-09/{2026_09_id}/settings',
+            path: 'app-webhooks/2026-09/{app_id}/settings',
             method: 'GET',
             params,
             query,

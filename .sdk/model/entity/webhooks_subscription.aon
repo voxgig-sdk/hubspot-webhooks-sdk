@@ -79,7 +79,7 @@ main: kit: entity: webhooks_subscription: {
               {
                 example: null
                 kind: "param"
-                name: "2026_09_id"
+                name: "app_id"
                 orig: "app_id"
                 reqd: true
                 type: "`$INTEGER`"
@@ -96,7 +96,7 @@ main: kit: entity: webhooks_subscription: {
           orig: "/app-webhooks/2026-09/{appId}/subscriptions"
           rename: {
             param: {
-              appId: "2026_09_id"
+              appId: "app_id"
             }
           }
           segments: [
@@ -107,7 +107,7 @@ main: kit: entity: webhooks_subscription: {
               lit: "2026-09"
             }
             {
-              var: "2026_09_id"
+              var: "app_id"
             }
             {
               lit: "subscriptions"
@@ -115,7 +115,7 @@ main: kit: entity: webhooks_subscription: {
           ]
           select: {
             exist: [
-              "2026_09_id"
+              "app_id"
             ]
           }
           transform: {
@@ -134,7 +134,7 @@ main: kit: entity: webhooks_subscription: {
               {
                 example: null
                 kind: "param"
-                name: "2026_09_id"
+                name: "app_id"
                 orig: "app_id"
                 reqd: true
                 type: "`$INTEGER`"
@@ -159,7 +159,7 @@ main: kit: entity: webhooks_subscription: {
           orig: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
           rename: {
             param: {
-              appId: "2026_09_id"
+              appId: "app_id"
               subscriptionId: "id"
             }
           }
@@ -171,7 +171,7 @@ main: kit: entity: webhooks_subscription: {
               lit: "2026-09"
             }
             {
-              var: "2026_09_id"
+              var: "app_id"
             }
             {
               lit: "subscriptions"
@@ -182,7 +182,7 @@ main: kit: entity: webhooks_subscription: {
           ]
           select: {
             exist: [
-              "2026_09_id"
+              "app_id"
               "id"
             ]
           }
@@ -202,7 +202,7 @@ main: kit: entity: webhooks_subscription: {
               {
                 example: null
                 kind: "param"
-                name: "2026_09_id"
+                name: "app_id"
                 orig: "app_id"
                 reqd: true
                 type: "`$INTEGER`"
@@ -227,7 +227,7 @@ main: kit: entity: webhooks_subscription: {
           orig: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
           rename: {
             param: {
-              appId: "2026_09_id"
+              appId: "app_id"
               subscriptionId: "id"
             }
           }
@@ -239,7 +239,7 @@ main: kit: entity: webhooks_subscription: {
               lit: "2026-09"
             }
             {
-              var: "2026_09_id"
+              var: "app_id"
             }
             {
               lit: "subscriptions"
@@ -250,7 +250,7 @@ main: kit: entity: webhooks_subscription: {
           ]
           select: {
             exist: [
-              "2026_09_id"
+              "app_id"
               "id"
             ]
           }

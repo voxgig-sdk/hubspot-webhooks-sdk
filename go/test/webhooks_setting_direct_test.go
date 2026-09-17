@@ -25,7 +25,7 @@ func TestWebhooksSettingDirect(t *testing.T) {
 			return
 		}
 		if setup.live {
-			for _, _liveKey := range []string{"2026_09_id01"} {
+			for _, _liveKey := range []string{"app_id01"} {
 				if v := setup.idmap[_liveKey]; v == nil {
 					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
 					return
@@ -38,11 +38,11 @@ func TestWebhooksSettingDirect(t *testing.T) {
 		query := map[string]any{}
 		if setup.live {
 		} else {
-			params["2026_09_id"] = "direct01"
+			params["app_id"] = "direct01"
 		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "app-webhooks/2026-09/{2026_09_id}/settings",
+			"path":   "app-webhooks/2026-09/{app_id}/settings",
 			"method": "GET",
 			"params": params,
 			"query":  query,

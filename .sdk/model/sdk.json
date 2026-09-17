@@ -481,7 +481,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -508,7 +508,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id",
+                      "appId": "app_id",
                       "subscriptionId": "subscription_id"
                     }
                   },
@@ -520,7 +520,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "subscriptions"
@@ -531,7 +531,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id",
+                      "app_id",
                       "subscription_id"
                     ]
                   },
@@ -548,7 +548,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -566,7 +566,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/settings",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id"
+                      "appId": "app_id"
                     }
                   },
                   "segments": [
@@ -577,7 +577,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "settings"
@@ -585,7 +585,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id"
+                      "app_id"
                     ]
                   },
                   "transform": {
@@ -1478,7 +1478,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -1496,7 +1496,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/subscriptions/batch/update",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id"
+                      "appId": "app_id"
                     }
                   },
                   "segments": [
@@ -1507,7 +1507,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "subscriptions"
@@ -1521,7 +1521,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id"
+                      "app_id"
                     ]
                   },
                   "transform": {
@@ -2040,7 +2040,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -2058,7 +2058,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/settings",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id"
+                      "appId": "app_id"
                     }
                   },
                   "segments": [
@@ -2069,7 +2069,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "settings"
@@ -2077,7 +2077,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id"
+                      "app_id"
                     ]
                   },
                   "transform": {
@@ -2099,7 +2099,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -2117,7 +2117,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/settings",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id"
+                      "appId": "app_id"
                     }
                   },
                   "segments": [
@@ -2128,7 +2128,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "settings"
@@ -2136,7 +2136,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id"
+                      "app_id"
                     ]
                   },
                   "transform": {
@@ -2425,7 +2425,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -2443,7 +2443,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/subscriptions",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id"
+                      "appId": "app_id"
                     }
                   },
                   "segments": [
@@ -2454,7 +2454,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "subscriptions"
@@ -2462,7 +2462,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id"
+                      "app_id"
                     ]
                   },
                   "transform": {
@@ -2484,7 +2484,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -2511,7 +2511,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id",
+                      "appId": "app_id",
                       "subscriptionId": "id"
                     }
                   },
@@ -2523,7 +2523,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "subscriptions"
@@ -2534,7 +2534,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id",
+                      "app_id",
                       "id"
                     ]
                   },
@@ -2557,7 +2557,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -2584,7 +2584,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id",
+                      "appId": "app_id",
                       "subscriptionId": "id"
                     }
                   },
@@ -2596,7 +2596,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "subscriptions"
@@ -2607,7 +2607,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id",
+                      "app_id",
                       "id"
                     ]
                   },
@@ -2710,7 +2710,7 @@
                         "active": true,
                         "example": null,
                         "kind": "param",
-                        "name": "2026_09_id",
+                        "name": "app_id",
                         "orig": "app_id",
                         "reqd": true,
                         "type": "`$INTEGER`"
@@ -2728,7 +2728,7 @@
                   "orig": "/app-webhooks/2026-09/{appId}/subscriptions",
                   "rename": {
                     "param": {
-                      "appId": "2026_09_id"
+                      "appId": "app_id"
                     }
                   },
                   "segments": [
@@ -2739,7 +2739,7 @@
                       "lit": "2026-09"
                     },
                     {
-                      "var": "2026_09_id"
+                      "var": "app_id"
                     },
                     {
                       "lit": "subscriptions"
@@ -2747,7 +2747,7 @@
                   ],
                   "select": {
                     "exist": [
-                      "2026_09_id"
+                      "app_id"
                     ]
                   },
                   "transform": {
@@ -3918,7 +3918,7 @@
                 "ref": "webhooks_batch_response_subscription_ref01"
               },
               "match": {
-                "2026_09_id": "2026_0901"
+                "app_id": "app01"
               },
               "op": "create",
               "spec": [],
@@ -4116,7 +4116,7 @@
                 "ref": "webhooks_subscription_ref01"
               },
               "match": {
-                "2026_09_id": "2026_0901"
+                "app_id": "app01"
               },
               "op": "create",
               "spec": [],
@@ -4125,7 +4125,7 @@
             {
               "active": true,
               "data": {
-                "2026_09_id": "2026_0901"
+                "app_id": "app01"
               },
               "input": {
                 "ref": "webhooks_subscription_ref01",
@@ -4154,7 +4154,7 @@
                 "suffix": "_dt0"
               },
               "match": {
-                "2026_09_id": "2026_0901",
+                "app_id": "app01",
                 "id": "webhooks_subscription01"
               },
               "op": "load",
@@ -4183,7 +4183,7 @@
               "data": {},
               "input": {},
               "match": {
-                "2026_09_id": "2026_0901"
+                "app_id": "app01"
               },
               "op": "list",
               "spec": [],

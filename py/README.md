@@ -531,7 +531,7 @@ Create an instance: `webhooks_batch_response_subscription = client.WebhooksBatch
 
 ```python
 webhooks_batch_response_subscription = client.WebhooksBatchResponseSubscription().create({
-    "2026_09_id": 1,  # int
+    "app_id": 1,  # int
     "completedAt": "example_completedAt",  # str
     "inputs": [],  # list
     "results": [],  # list
@@ -669,7 +669,7 @@ Create an instance: `webhooks_setting = client.WebhooksSetting()`
 #### Example: Load
 
 ```python
-webhooks_setting = client.WebhooksSetting().load({"2026_09_id": 1})
+webhooks_setting = client.WebhooksSetting().load({"app_id": 1})
 ```
 
 
@@ -729,14 +729,14 @@ Create an instance: `webhooks_subscription = client.WebhooksSubscription()`
 #### Example: Load
 
 ```python
-webhooks_subscription = client.WebhooksSubscription().load({"id": 1, "2026_09_id": 1})
+webhooks_subscription = client.WebhooksSubscription().load({"id": 1, "app_id": 1})
 ```
 
 #### Example: Create
 
 ```python
 webhooks_subscription = client.WebhooksSubscription().create({
-    "2026_09_id": 1,  # int
+    "app_id": 1,  # int
     "active": True,  # bool
     "createdAt": "example_createdAt",  # str
     "eventType": "example_eventType",  # str
@@ -771,7 +771,7 @@ Create an instance: `webhooks_subscription_list = client.WebhooksSubscriptionLis
 #### Example: List
 
 ```python
-webhooks_subscription_lists = client.WebhooksSubscriptionList().list({"2026_09_id": 1})
+webhooks_subscription_lists = client.WebhooksSubscriptionList().list({"app_id": 1})
 ```
 
 

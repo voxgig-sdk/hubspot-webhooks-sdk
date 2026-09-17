@@ -42,7 +42,7 @@ class WebhooksSubscriptionEntityTest extends TestCase
         $webhooks_subscription_ref01_ent = $client->WebhooksSubscription(null);
         $webhooks_subscription_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.webhooks_subscription"), "webhooks_subscription_ref01"));
-        $webhooks_subscription_ref01_data["2026_09_id"] = $setup["idmap"]["2026_0901"];
+        $webhooks_subscription_ref01_data["app_id"] = $setup["idmap"]["app01"];
 
         $webhooks_subscription_ref01_data_result = $webhooks_subscription_ref01_ent->create($webhooks_subscription_ref01_data, null);
         $webhooks_subscription_ref01_data = Helpers::to_map(is_object($webhooks_subscription_ref01_data_result) && method_exists($webhooks_subscription_ref01_data_result, 'data_get') ? $webhooks_subscription_ref01_data_result->data_get() : $webhooks_subscription_ref01_data_result);
@@ -52,7 +52,7 @@ class WebhooksSubscriptionEntityTest extends TestCase
         // UPDATE
         $webhooks_subscription_ref01_data_up0_up = [
             "id" => $webhooks_subscription_ref01_data["id"],
-            "2026_09_id" => $setup["idmap"]["2026_09_id"],
+            "app_id" => $setup["idmap"]["app_id"],
         ];
 
         $webhooks_subscription_ref01_markdef_up0_name = "createdAt";
@@ -92,7 +92,7 @@ function webhooks_subscription_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903"] as $k) {
+    foreach (["webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 
@@ -114,8 +114,8 @@ function webhooks_subscription_basic_setup($extra)
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
-    if (!isset($idmap_resolved["2026_09_id"])) {
-        $idmap_resolved["2026_09_id"] = $idmap_resolved["2026_0901"];
+    if (!isset($idmap_resolved["app_id"])) {
+        $idmap_resolved["app_id"] = $idmap_resolved["app01"];
     }
 
     if ($env["HUBSPOT_WEBHOOKS_TEST_LIVE"] === "TRUE") {

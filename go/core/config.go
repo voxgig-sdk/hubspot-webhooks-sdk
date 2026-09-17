@@ -510,7 +510,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -530,7 +530,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 										"subscriptionId": "subscription_id",
 									},
 								},
@@ -542,7 +542,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "subscriptions",
@@ -553,7 +553,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 										"subscription_id",
 									},
 								},
@@ -564,7 +564,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"subscriptions",
 									"{subscription_id}",
 								},
@@ -575,7 +575,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -587,7 +587,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/settings",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 									},
 								},
 								"segments": []any{
@@ -598,7 +598,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "settings",
@@ -606,7 +606,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 									},
 								},
 								"transform": map[string]any{
@@ -616,7 +616,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"settings",
 								},
 							},
@@ -1457,7 +1457,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -1469,7 +1469,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/batch/update",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 									},
 								},
 								"segments": []any{
@@ -1480,7 +1480,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "subscriptions",
@@ -1494,7 +1494,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 									},
 								},
 								"transform": map[string]any{
@@ -1504,7 +1504,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"subscriptions",
 									"batch",
 									"update",
@@ -1964,7 +1964,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -1976,7 +1976,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/settings",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 									},
 								},
 								"segments": []any{
@@ -1987,7 +1987,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "settings",
@@ -1995,7 +1995,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 									},
 								},
 								"transform": map[string]any{
@@ -2005,7 +2005,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"settings",
 								},
 							},
@@ -2021,7 +2021,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -2033,7 +2033,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/settings",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 									},
 								},
 								"segments": []any{
@@ -2044,7 +2044,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "settings",
@@ -2052,7 +2052,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 									},
 								},
 								"transform": map[string]any{
@@ -2062,7 +2062,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"settings",
 								},
 							},
@@ -2313,7 +2313,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -2325,7 +2325,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 									},
 								},
 								"segments": []any{
@@ -2336,7 +2336,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "subscriptions",
@@ -2344,7 +2344,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 									},
 								},
 								"transform": map[string]any{
@@ -2354,7 +2354,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"subscriptions",
 								},
 							},
@@ -2370,7 +2370,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -2390,7 +2390,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 										"subscriptionId": "id",
 									},
 								},
@@ -2402,7 +2402,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "subscriptions",
@@ -2413,7 +2413,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 										"id",
 									},
 								},
@@ -2424,7 +2424,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"subscriptions",
 									"{id}",
 								},
@@ -2441,7 +2441,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -2461,7 +2461,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 										"subscriptionId": "id",
 									},
 								},
@@ -2473,7 +2473,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "subscriptions",
@@ -2484,7 +2484,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 										"id",
 									},
 								},
@@ -2495,7 +2495,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"subscriptions",
 									"{id}",
 								},
@@ -2576,7 +2576,7 @@ func MakeConfig() map[string]any {
 										map[string]any{
 											"example": nil,
 											"kind": "param",
-											"name": "2026_09_id",
+											"name": "app_id",
 											"orig": "app_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
@@ -2588,7 +2588,7 @@ func MakeConfig() map[string]any {
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions",
 								"rename": map[string]any{
 									"param": map[string]any{
-										"appId": "2026_09_id",
+										"appId": "app_id",
 									},
 								},
 								"segments": []any{
@@ -2599,7 +2599,7 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 									map[string]any{
-										"var": "2026_09_id",
+										"var": "app_id",
 									},
 									map[string]any{
 										"lit": "subscriptions",
@@ -2607,7 +2607,7 @@ func MakeConfig() map[string]any {
 								},
 								"select": map[string]any{
 									"exist": []any{
-										"2026_09_id",
+										"app_id",
 									},
 								},
 								"transform": map[string]any{
@@ -2617,7 +2617,7 @@ func MakeConfig() map[string]any {
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
-									"{2026_09_id}",
+									"{app_id}",
 									"subscriptions",
 								},
 							},

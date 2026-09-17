@@ -42,7 +42,7 @@ class WebhooksBatchResponseSubscriptionEntityTest extends TestCase
         $webhooks_batch_response_subscription_ref01_ent = $client->WebhooksBatchResponseSubscription(null);
         $webhooks_batch_response_subscription_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.webhooks_batch_response_subscription"), "webhooks_batch_response_subscription_ref01"));
-        $webhooks_batch_response_subscription_ref01_data["2026_09_id"] = $setup["idmap"]["2026_0901"];
+        $webhooks_batch_response_subscription_ref01_data["app_id"] = $setup["idmap"]["app01"];
 
         $webhooks_batch_response_subscription_ref01_data_result = $webhooks_batch_response_subscription_ref01_ent->create($webhooks_batch_response_subscription_ref01_data, null);
         $webhooks_batch_response_subscription_ref01_data = Helpers::to_map(is_object($webhooks_batch_response_subscription_ref01_data_result) && method_exists($webhooks_batch_response_subscription_ref01_data_result, 'data_get') ? $webhooks_batch_response_subscription_ref01_data_result->data_get() : $webhooks_batch_response_subscription_ref01_data_result);
@@ -66,7 +66,7 @@ function webhooks_batch_response_subscription_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903"] as $k) {
+    foreach (["webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

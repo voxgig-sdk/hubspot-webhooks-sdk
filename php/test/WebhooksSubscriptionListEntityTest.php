@@ -88,7 +88,7 @@ class WebhooksSubscriptionListEntityTest extends TestCase
         // LIST
         $webhooks_subscription_list_ref01_ent = $client->WebhooksSubscriptionList(null);
         $webhooks_subscription_list_ref01_match = [
-            "2026_09_id" => $setup["idmap"]["2026_0901"],
+            "app_id" => $setup["idmap"]["app01"],
         ];
 
         $webhooks_subscription_list_ref01_list_result = $webhooks_subscription_list_ref01_ent->list($webhooks_subscription_list_ref01_match, null);
@@ -112,7 +112,7 @@ function webhooks_subscription_list_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhooks_subscription_list01", "webhooks_subscription_list02", "webhooks_subscription_list03", "2026_0901", "2026_0902", "2026_0903"] as $k) {
+    foreach (["webhooks_subscription_list01", "webhooks_subscription_list02", "webhooks_subscription_list03", "2026_0901", "2026_0902", "2026_0903", "app01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

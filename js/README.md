@@ -578,7 +578,7 @@ Create an instance: `const webhooks_batch_response_subscription = client.Webhook
 
 ```ts
 const webhooks_batch_response_subscription = await client.WebhooksBatchResponseSubscription().create({
-  '2026_09_id': 1,
+  app_id: 1,
   completedAt: 'example_completedAt',
   inputs: [],
   results: [],
@@ -716,7 +716,7 @@ Create an instance: `const webhooks_setting = client.WebhooksSetting()`
 #### Example: Load
 
 ```ts
-const webhooks_setting = await client.WebhooksSetting().load({ '2026_09_id': 1 })
+const webhooks_setting = await client.WebhooksSetting().load({ app_id: 1 })
 ```
 
 
@@ -776,14 +776,14 @@ Create an instance: `const webhooks_subscription = client.WebhooksSubscription()
 #### Example: Load
 
 ```ts
-const webhooks_subscription = await client.WebhooksSubscription().load({ id: 1, '2026_09_id': 1 })
+const webhooks_subscription = await client.WebhooksSubscription().load({ id: 1, app_id: 1 })
 ```
 
 #### Example: Create
 
 ```ts
 const webhooks_subscription = await client.WebhooksSubscription().create({
-  '2026_09_id': 1,
+  app_id: 1,
   active: true,
   createdAt: 'example_createdAt',
   eventType: 'example_eventType',
@@ -818,7 +818,7 @@ Create an instance: `const webhooks_subscription_list = client.WebhooksSubscript
 #### Example: List
 
 ```ts
-const webhooks_subscription_lists = await client.WebhooksSubscriptionList().list({ '2026_09_id': 1 })
+const webhooks_subscription_lists = await client.WebhooksSubscriptionList().list({ app_id: 1 })
 ```
 
 

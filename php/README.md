@@ -540,7 +540,7 @@ Create an instance: `$webhooks_batch_response_subscription = $client->WebhooksBa
 
 ```php
 $webhooks_batch_response_subscription = $client->WebhooksBatchResponseSubscription()->create([
-    "2026_09_id" => null, // int
+    "app_id" => null, // int
     "completedAt" => null, // string
     "inputs" => null, // array
     "results" => null, // array
@@ -681,7 +681,7 @@ Create an instance: `$webhooks_setting = $client->WebhooksSetting();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the WebhooksSetting record (throws on error).
-$webhooks_setting = $client->WebhooksSetting()->load(["2026_09_id" => 1]);
+$webhooks_setting = $client->WebhooksSetting()->load(["app_id" => 1]);
 ```
 
 
@@ -743,14 +743,14 @@ Create an instance: `$webhooks_subscription = $client->WebhooksSubscription();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the WebhooksSubscription record (throws on error).
-$webhooks_subscription = $client->WebhooksSubscription()->load(["id" => 1, "2026_09_id" => 1]);
+$webhooks_subscription = $client->WebhooksSubscription()->load(["id" => 1, "app_id" => 1]);
 ```
 
 #### Example: Create
 
 ```php
 $webhooks_subscription = $client->WebhooksSubscription()->create([
-    "2026_09_id" => null, // int
+    "app_id" => null, // int
     "active" => null, // bool
     "createdAt" => null, // string
     "eventType" => null, // string

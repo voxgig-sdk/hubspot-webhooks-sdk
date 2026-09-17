@@ -47,7 +47,7 @@ describe('WebhooksSettingDirect', async () => {
     if (liveScenariosActive()) { t.skip('Covered by live operation scenarios'); return }
     const setup = directSetup({ id: 'direct01' })
     if (maybeSkipControl(t, 'direct', 'direct-load-webhooks_setting', setup.live)) return
-    if (skipIfMissingIds(t, setup, ["2026_09_id01"])) return
+    if (skipIfMissingIds(t, setup, ["app_id01"])) return
     const { client, calls } = setup
 
     const params: any = {}
@@ -55,11 +55,11 @@ describe('WebhooksSettingDirect', async () => {
     if (setup.live) {
 
     } else {
-      params["2026_09_id"] = 'direct01'
+      params.app_id = 'direct01'
     }
 
     const result: any = await client.direct({
-      path: 'app-webhooks/2026-09/{2026_09_id}/settings',
+      path: 'app-webhooks/2026-09/{app_id}/settings',
       method: 'GET',
       params,
       query,

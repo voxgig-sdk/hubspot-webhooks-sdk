@@ -41,12 +41,12 @@ describe('WebhooksSubscriptionDirect', async () => {
 
     const params = {}
     if (!setup.live) {
-      params["2026_09_id"] = 'direct01'
+      params.app_id = 'direct01'
       params.id = 'direct02'
     }
 
     const result = await client.direct({
-      path: 'app-webhooks/2026-09/{2026_09_id}/subscriptions/{id}',
+      path: 'app-webhooks/2026-09/{app_id}/subscriptions/{id}',
       method: 'GET',
       params,
     })

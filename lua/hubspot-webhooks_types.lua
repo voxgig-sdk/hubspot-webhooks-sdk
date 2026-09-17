@@ -48,7 +48,7 @@
 ---@field status string
 
 ---@class WebhooksBatchResponseSubscriptionCreateData
----@field ["2026_09_id"] number
+---@field app_id number
 ---@field completedAt string
 ---@field inputs table
 ---@field links? table
@@ -124,10 +124,10 @@
 ---@field throttling table
 
 ---@class WebhooksSettingLoadMatch
----@field ["2026_09_id"] number
+---@field app_id number
 
 ---@class WebhooksSettingUpdateData
----@field ["2026_09_id"] number
+---@field app_id number
 ---@field maxConcurrentRequests? number
 ---@field targetUrl? string
 ---@field throttling? table
@@ -154,11 +154,11 @@
 ---@field updatedAt? string
 
 ---@class WebhooksSubscriptionLoadMatch
----@field ["2026_09_id"] number
+---@field app_id number
 ---@field id number
 
 ---@class WebhooksSubscriptionCreateData
----@field ["2026_09_id"] number
+---@field app_id number
 ---@field active boolean
 ---@field createdAt string
 ---@field eventType string
@@ -169,7 +169,7 @@
 ---@field updatedAt? string
 
 ---@class WebhooksSubscriptionUpdateData
----@field ["2026_09_id"] number
+---@field app_id number
 ---@field id number
 ---@field active? boolean
 ---@field createdAt? string
@@ -190,7 +190,7 @@
 ---@field updatedAt? string
 
 ---@class WebhooksSubscriptionListListMatch
----@field ["2026_09_id"] number
+---@field app_id number
 
 ---@class WebhooksSubscriptionResponse1
 ---@field actionOverrides? table

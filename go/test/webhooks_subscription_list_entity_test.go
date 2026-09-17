@@ -110,7 +110,7 @@ func TestWebhooksSubscriptionListEntity(t *testing.T) {
 		// LIST
 		webhooksSubscriptionListRef01Ent := client.WebhooksSubscriptionList(nil)
 		webhooksSubscriptionListRef01Match := map[string]any{
-			"2026_09_id": setup.idmap["2026_0901"],
+			"app_id": setup.idmap["app01"],
 		}
 
 		webhooksSubscriptionListRef01ListResult, err := webhooksSubscriptionListRef01Ent.List(webhooksSubscriptionListRef01Match, nil)
@@ -150,7 +150,7 @@ func webhooks_subscription_listBasicSetup(extra map[string]any) *entityTestSetup
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"webhooks_subscription_list01", "webhooks_subscription_list02", "webhooks_subscription_list03", "2026_0901", "2026_0902", "2026_0903"},
+		[]any{"webhooks_subscription_list01", "webhooks_subscription_list02", "webhooks_subscription_list03", "2026_0901", "2026_0902", "2026_0903", "app01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

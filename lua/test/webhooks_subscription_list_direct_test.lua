@@ -18,7 +18,7 @@ describe("WebhooksSubscriptionListDirect", function()
       return
     end
     if setup.live then
-      for _, _live_key in ipairs({"2026_0901"}) do
+      for _, _live_key in ipairs({"app01"}) do
         if setup.idmap[_live_key] == nil then
           pending("live test needs " .. _live_key .. " via *_ENTID env var (synthetic IDs only)")
           return
@@ -29,13 +29,13 @@ describe("WebhooksSubscriptionListDirect", function()
 
     local params = {}
     if setup.live then
-      params["2026_09_id"] = setup.idmap["2026_0901"]
+      params["app_id"] = setup.idmap["app01"]
     else
-      params["2026_09_id"] = "direct01"
+      params["app_id"] = "direct01"
     end
 
     local result, err = client:direct({
-      path = "app-webhooks/2026-09/{2026_09_id}/subscriptions",
+      path = "app-webhooks/2026-09/{app_id}/subscriptions",
       method = "GET",
       params = params,
     })

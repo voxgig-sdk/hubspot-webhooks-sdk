@@ -287,7 +287,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.WebhooksBatchResponseSubscription(nil).Create(map[string]any{
-    "2026_09_id": 1,
+    "app_id": 1,
     "completedAt": "example_completedAt",
     "inputs": []any{},
     "results": []any{},
@@ -541,7 +541,7 @@ fmt.Println(webhooksSetting.GetName()) // "webhooks_setting"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.WebhooksSetting(nil).Load(map[string]any{"2026_09_id": 1}, nil)
+result, err := client.WebhooksSetting(nil).Load(map[string]any{"app_id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -554,7 +554,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```go
 result, err := client.WebhooksSetting(nil).Update(map[string]any{
-    "2026_09_id": 1,
+    "app_id": 1,
     // Fields to update
 }, nil)
 if err != nil {
@@ -683,7 +683,7 @@ fmt.Println(webhooksSubscription.GetName()) // "webhooks_subscription"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.WebhooksSubscription(nil).Load(map[string]any{"id": 1, "2026_09_id": 1}, nil)
+result, err := client.WebhooksSubscription(nil).Load(map[string]any{"id": 1, "app_id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -696,7 +696,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.WebhooksSubscription(nil).Create(map[string]any{
-    "2026_09_id": 1,
+    "app_id": 1,
     "active": true,
     "createdAt": "example_createdAt",
     "eventType": "example_eventType",
@@ -715,7 +715,7 @@ Update an existing entity. The data must include the entity `id`.
 ```go
 result, err := client.WebhooksSubscription(nil).Update(map[string]any{
     "id": 1,
-    "2026_09_id": 1,
+    "app_id": 1,
     // Fields to update
 }, nil)
 if err != nil {

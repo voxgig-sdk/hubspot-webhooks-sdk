@@ -560,7 +560,7 @@ Create an instance: `webhooksBatchResponseSubscription := client.WebhooksBatchRe
 
 ```go
 result, err := client.WebhooksBatchResponseSubscription(nil).Create(map[string]any{
-    "2026_09_id": 1,
+    "app_id": 1,
     "completedAt": "example_completedAt",
     "inputs": []any{},
     "results": []any{},
@@ -718,7 +718,7 @@ Create an instance: `webhooksSetting := client.WebhooksSetting(nil)`
 #### Example: Load
 
 ```go
-webhooksSetting, err := client.WebhooksSetting(nil).Load(map[string]any{"2026_09_id": 1}, nil)
+webhooksSetting, err := client.WebhooksSetting(nil).Load(map[string]any{"app_id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -786,7 +786,7 @@ Create an instance: `webhooksSubscription := client.WebhooksSubscription(nil)`
 #### Example: Load
 
 ```go
-webhooksSubscription, err := client.WebhooksSubscription(nil).Load(map[string]any{"id": 1, "2026_09_id": 1}, nil)
+webhooksSubscription, err := client.WebhooksSubscription(nil).Load(map[string]any{"id": 1, "app_id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -797,7 +797,7 @@ fmt.Println(webhooksSubscription) // the loaded record
 
 ```go
 result, err := client.WebhooksSubscription(nil).Create(map[string]any{
-    "2026_09_id": 1,
+    "app_id": 1,
     "active": true,
     "createdAt": "example_createdAt",
     "eventType": "example_eventType",

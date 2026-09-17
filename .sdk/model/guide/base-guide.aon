@@ -7,11 +7,11 @@ guide: {
 
   entity: basic: {
     path: "/app-webhooks/2026-09/{appId}/settings": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       op: remove: method: *DELETE
     }
     path: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       rename: param: "subscriptionId": *"subscription_id"
       op: remove: method: *DELETE
     }
@@ -80,7 +80,7 @@ guide: {
 
   entity: webhooks_batch_response_subscription: {
     path: "/app-webhooks/2026-09/{appId}/subscriptions/batch/update": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       op: create: method: *POST
     }
   }
@@ -115,7 +115,7 @@ guide: {
 
   entity: webhooks_setting: {
     path: "/app-webhooks/2026-09/{appId}/settings": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       op: load: method: *GET
       op: load: transform: res: *("`body.throttling`")|top
       op: update: method: *PUT
@@ -136,11 +136,11 @@ guide: {
 
   entity: webhooks_subscription: {
     path: "/app-webhooks/2026-09/{appId}/subscriptions": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       op: create: method: *POST
     }
     path: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       rename: param: "subscriptionId": *"id"
       op: load: method: *GET
       op: patch: method: *PATCH
@@ -149,7 +149,7 @@ guide: {
 
   entity: webhooks_subscription_list: {
     path: "/app-webhooks/2026-09/{appId}/subscriptions": {
-      rename: param: "appId": *"2026_09_id"
+      rename: param: "appId": *"app_id"
       op: list: method: *GET
       op: list: transform: res: *("`body.results`")|top
     }

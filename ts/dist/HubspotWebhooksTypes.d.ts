@@ -40,7 +40,7 @@ export interface WebhooksBatchResponseSubscription {
     status: string;
 }
 export interface WebhooksBatchResponseSubscriptionCreateData {
-    "2026_09_id": number;
+    app_id: number;
     completedAt: string;
     inputs: any[];
     links?: Record<string, any>;
@@ -116,10 +116,10 @@ export interface WebhooksSetting {
     throttling: Record<string, any>;
 }
 export interface WebhooksSettingLoadMatch {
-    "2026_09_id": number;
+    app_id: number;
 }
 export interface WebhooksSettingUpdateData {
-    "2026_09_id": number;
+    app_id: number;
     maxConcurrentRequests?: number;
     targetUrl?: string;
     throttling?: Record<string, any>;
@@ -146,11 +146,11 @@ export interface WebhooksSubscription {
     updatedAt?: string;
 }
 export interface WebhooksSubscriptionLoadMatch {
-    "2026_09_id": number;
+    app_id: number;
     id: number;
 }
 export interface WebhooksSubscriptionCreateData {
-    "2026_09_id": number;
+    app_id: number;
     active: boolean;
     createdAt: string;
     eventType: string;
@@ -161,7 +161,7 @@ export interface WebhooksSubscriptionCreateData {
     updatedAt?: string;
 }
 export interface WebhooksSubscriptionUpdateData {
-    "2026_09_id": number;
+    app_id: number;
     id: number;
     active?: boolean;
     createdAt?: string;
@@ -182,7 +182,7 @@ export interface WebhooksSubscriptionList {
     updatedAt?: string;
 }
 export interface WebhooksSubscriptionListListMatch {
-    "2026_09_id": number;
+    app_id: number;
 }
 export interface WebhooksSubscriptionResponse1 {
     actionOverrides?: Record<string, any>;

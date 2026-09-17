@@ -28,7 +28,7 @@ func TestWebhooksSubscriptionListDirect(t *testing.T) {
 			return
 		}
 		if setup.live {
-			for _, _liveKey := range []string{"2026_0901"} {
+			for _, _liveKey := range []string{"app01"} {
 				if v := setup.idmap[_liveKey]; v == nil {
 					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
 					return
@@ -39,13 +39,13 @@ func TestWebhooksSubscriptionListDirect(t *testing.T) {
 
 		params := map[string]any{}
 		if setup.live {
-			params["2026_09_id"] = setup.idmap["2026_0901"]
+			params["app_id"] = setup.idmap["app01"]
 		} else {
-			params["2026_09_id"] = "direct01"
+			params["app_id"] = "direct01"
 		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "app-webhooks/2026-09/{2026_09_id}/subscriptions",
+			"path":   "app-webhooks/2026-09/{app_id}/subscriptions",
 			"method": "GET",
 			"params": params,
 		})

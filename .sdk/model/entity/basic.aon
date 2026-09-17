@@ -334,7 +334,7 @@ main: kit: entity: basic: {
               {
                 example: null
                 kind: "param"
-                name: "2026_09_id"
+                name: "app_id"
                 orig: "app_id"
                 reqd: true
                 type: "`$INTEGER`"
@@ -359,7 +359,7 @@ main: kit: entity: basic: {
           orig: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
           rename: {
             param: {
-              appId: "2026_09_id"
+              appId: "app_id"
               subscriptionId: "subscription_id"
             }
           }
@@ -371,7 +371,7 @@ main: kit: entity: basic: {
               lit: "2026-09"
             }
             {
-              var: "2026_09_id"
+              var: "app_id"
             }
             {
               lit: "subscriptions"
@@ -382,7 +382,7 @@ main: kit: entity: basic: {
           ]
           select: {
             exist: [
-              "2026_09_id"
+              "app_id"
               "subscription_id"
             ]
           }
@@ -397,7 +397,7 @@ main: kit: entity: basic: {
               {
                 example: null
                 kind: "param"
-                name: "2026_09_id"
+                name: "app_id"
                 orig: "app_id"
                 reqd: true
                 type: "`$INTEGER`"
@@ -414,7 +414,7 @@ main: kit: entity: basic: {
           orig: "/app-webhooks/2026-09/{appId}/settings"
           rename: {
             param: {
-              appId: "2026_09_id"
+              appId: "app_id"
             }
           }
           segments: [
@@ -425,7 +425,7 @@ main: kit: entity: basic: {
               lit: "2026-09"
             }
             {
-              var: "2026_09_id"
+              var: "app_id"
             }
             {
               lit: "settings"
@@ -433,7 +433,7 @@ main: kit: entity: basic: {
           ]
           select: {
             exist: [
-              "2026_09_id"
+              "app_id"
             ]
           }
           transform: {

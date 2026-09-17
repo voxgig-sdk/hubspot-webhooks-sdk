@@ -375,7 +375,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.WebhooksBatchResponseSubscription().create({
-  '2026_09_id': 1,
+  app_id: 1,
   completedAt: 'example_completedAt',
   inputs: [],
   results: [],
@@ -621,7 +621,7 @@ const webhooks_setting = client.WebhooksSetting()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.WebhooksSetting().load({ '2026_09_id': 1 })
+const result = await client.WebhooksSetting().load({ app_id: 1 })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -630,7 +630,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```ts
 const result = await client.WebhooksSetting().update({
-  '2026_09_id': 1,
+  app_id: 1,
   // Fields to update
 })
 ```
@@ -758,7 +758,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.WebhooksSubscription().create({
-  '2026_09_id': 1,
+  app_id: 1,
   active: true,
   createdAt: 'example_createdAt',
   eventType: 'example_eventType',
@@ -771,7 +771,7 @@ const result = await client.WebhooksSubscription().create({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.WebhooksSubscription().load({ id: 1, '2026_09_id': 1 })
+const result = await client.WebhooksSubscription().load({ id: 1, app_id: 1 })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -781,7 +781,7 @@ Update an existing entity. The data must include the entity `id`.
 ```ts
 const result = await client.WebhooksSubscription().update({
   id: 1,
-  '2026_09_id': 1,
+  app_id: 1,
   // Fields to update
 })
 ```

@@ -10,7 +10,7 @@
         "objectTypeId": "s55",
         "propertyName": "s56",
         "updatedAt": "s57",
-        "2026_09_id": "2026_0901"
+        "app_id": "APP01"
       },
       "WEBHOOKS_SUBSCRIPTION_LIST01": {
         "active": true,
@@ -21,7 +21,7 @@
         "objectTypeId": "sa5",
         "propertyName": "sa6",
         "updatedAt": "sa7",
-        "2026_09_id": "2026_0901"
+        "app_id": "APP01"
       },
       "WEBHOOKS_SUBSCRIPTION_LIST02": {
         "active": true,
@@ -32,7 +32,7 @@
         "objectTypeId": "sf5",
         "propertyName": "sf6",
         "updatedAt": "sf7",
-        "2026_09_id": "2026_0901"
+        "app_id": "APP01"
       }
     }
   },

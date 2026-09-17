@@ -23,11 +23,11 @@ describe("WebhooksSettingDirect", function()
     local params = {}
     local query = {}
     if not setup.live then
-      params["2026_09_id"] = "direct01"
+      params["app_id"] = "direct01"
     end
 
     local result, err = client:direct({
-      path = "app-webhooks/2026-09/{2026_09_id}/settings",
+      path = "app-webhooks/2026-09/{app_id}/settings",
       method = "GET",
       params = params,
       query = query,

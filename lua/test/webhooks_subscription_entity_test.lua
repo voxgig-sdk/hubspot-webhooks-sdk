@@ -38,7 +38,7 @@ describe("WebhooksSubscriptionEntity", function()
     local webhooks_subscription_ref01_ent = client:WebhooksSubscription(nil)
     local webhooks_subscription_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.webhooks_subscription"), "webhooks_subscription_ref01"))
-    webhooks_subscription_ref01_data["2026_09_id"] = setup.idmap["2026_0901"]
+    webhooks_subscription_ref01_data["app_id"] = setup.idmap["app01"]
 
     local webhooks_subscription_ref01_data_result, err = webhooks_subscription_ref01_ent:create(webhooks_subscription_ref01_data, nil)
     assert.is_nil(err)
@@ -49,7 +49,7 @@ describe("WebhooksSubscriptionEntity", function()
     -- UPDATE
     local webhooks_subscription_ref01_data_up0_up = {
       id = webhooks_subscription_ref01_data["id"],
-      ["2026_09_id"] = setup.idmap["2026_09_id"],
+      ["app_id"] = setup.idmap["app_id"],
     }
 
     local webhooks_subscription_ref01_markdef_up0_name = "createdAt"
@@ -96,7 +96,7 @@ function webhooks_subscription_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903" },
+    { "webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",
@@ -123,8 +123,8 @@ function webhooks_subscription_basic_setup(extra)
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
-  if idmap_resolved["2026_09_id"] == nil then
-    idmap_resolved["2026_09_id"] = idmap_resolved["2026_0901"]
+  if idmap_resolved["app_id"] == nil then
+    idmap_resolved["app_id"] = idmap_resolved["app01"]
   end
 
   if env["HUBSPOT_WEBHOOKS_TEST_LIVE"] == "TRUE" then

@@ -516,7 +516,7 @@ Create an instance: `local webhooks_batch_response_subscription = client:Webhook
 
 ```lua
 local webhooks_batch_response_subscription, err = client:WebhooksBatchResponseSubscription():create({
-  ["2026_09_id"] = 1, -- number
+  app_id = 1, -- number
   completedAt = "example_completedAt", -- string
   inputs = {}, -- table
   results = {}, -- table
@@ -654,7 +654,7 @@ Create an instance: `local webhooks_setting = client:WebhooksSetting(nil)`
 #### Example: Load
 
 ```lua
-local webhooks_setting, err = client:WebhooksSetting():load({ ["2026_09_id"] = 1 })
+local webhooks_setting, err = client:WebhooksSetting():load({ app_id = 1 })
 ```
 
 
@@ -714,14 +714,14 @@ Create an instance: `local webhooks_subscription = client:WebhooksSubscription(n
 #### Example: Load
 
 ```lua
-local webhooks_subscription, err = client:WebhooksSubscription():load({ id = 1, ["2026_09_id"] = 1 })
+local webhooks_subscription, err = client:WebhooksSubscription():load({ id = 1, app_id = 1 })
 ```
 
 #### Example: Create
 
 ```lua
 local webhooks_subscription, err = client:WebhooksSubscription():create({
-  ["2026_09_id"] = 1, -- number
+  app_id = 1, -- number
   active = true, -- boolean
   createdAt = "example_createdAt", -- string
   eventType = "example_eventType", -- string

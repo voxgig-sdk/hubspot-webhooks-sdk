@@ -22,7 +22,7 @@ class WebhooksSubscriptionListDirectTest extends TestCase
             return;
         }
         if ($setup["live"]) {
-            foreach (["2026_0901"] as $_liveKey) {
+            foreach (["app01"] as $_liveKey) {
                 if (!isset($setup["idmap"][$_liveKey]) || $setup["idmap"][$_liveKey] === null) {
                     $this->markTestSkipped("live test needs $_liveKey via *_ENTID env var (synthetic IDs only)");
                     return;
@@ -33,13 +33,13 @@ class WebhooksSubscriptionListDirectTest extends TestCase
 
         $params = [];
         if ($setup["live"]) {
-            $params["2026_09_id"] = $setup["idmap"]["2026_0901"];
+            $params["app_id"] = $setup["idmap"]["app01"];
         } else {
-            $params["2026_09_id"] = "direct01";
+            $params["app_id"] = "direct01";
         }
 
         $result = $client->direct([
-            "path" => "app-webhooks/2026-09/{2026_09_id}/subscriptions",
+            "path" => "app-webhooks/2026-09/{app_id}/subscriptions",
             "method" => "GET",
             "params" => $params,
         ]);

@@ -54,7 +54,7 @@ func TestWebhooksSubscriptionEntity(t *testing.T) {
 		webhooksSubscriptionRef01Ent := client.WebhooksSubscription(nil)
 		webhooksSubscriptionRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath(setup.data, []any{"new", "webhooks_subscription"}), "webhooks_subscription_ref01"))
-		webhooksSubscriptionRef01Data["2026_09_id"] = setup.idmap["2026_0901"]
+		webhooksSubscriptionRef01Data["app_id"] = setup.idmap["app01"]
 
 		webhooksSubscriptionRef01DataResult, err := webhooksSubscriptionRef01Ent.Create(webhooksSubscriptionRef01Data, nil)
 		if err != nil {
@@ -71,7 +71,7 @@ func TestWebhooksSubscriptionEntity(t *testing.T) {
 		// UPDATE
 		webhooksSubscriptionRef01DataUp0Up := map[string]any{
 			"id": webhooksSubscriptionRef01Data["id"],
-			"2026_09_id": setup.idmap["2026_09_id"],
+			"app_id": setup.idmap["app_id"],
 		}
 
 		webhooksSubscriptionRef01MarkdefUp0Name := "createdAt"
@@ -137,7 +137,7 @@ func webhooks_subscriptionBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903"},
+		[]any{"webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",
@@ -163,9 +163,9 @@ func webhooks_subscriptionBasicSetup(extra map[string]any) *entityTestSetup {
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
-	// Add 2026_09_id alias for update test.
-	if idmapResolved["2026_09_id"] == nil {
-		idmapResolved["2026_09_id"] = idmapResolved["2026_0901"]
+	// Add app_id alias for update test.
+	if idmapResolved["app_id"] == nil {
+		idmapResolved["app_id"] = idmapResolved["app01"]
 	}
 
 	if env["HUBSPOT_WEBHOOKS_TEST_LIVE"] == "TRUE" {

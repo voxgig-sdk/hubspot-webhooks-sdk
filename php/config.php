@@ -532,7 +532,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -552,7 +552,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                       'subscriptionId' => 'subscription_id',
                     ],
                   ],
@@ -564,7 +564,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'subscriptions',
@@ -575,7 +575,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                       'subscription_id',
                     ],
                   ],
@@ -586,7 +586,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'subscriptions',
                     '{subscription_id}',
                   ],
@@ -597,7 +597,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -609,7 +609,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/settings',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                     ],
                   ],
                   'segments' => [
@@ -620,7 +620,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'settings',
@@ -628,7 +628,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                     ],
                   ],
                   'transform' => [
@@ -638,7 +638,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'settings',
                   ],
                 ],
@@ -1479,7 +1479,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -1491,7 +1491,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/subscriptions/batch/update',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                     ],
                   ],
                   'segments' => [
@@ -1502,7 +1502,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'subscriptions',
@@ -1516,7 +1516,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                     ],
                   ],
                   'transform' => [
@@ -1526,7 +1526,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'subscriptions',
                     'batch',
                     'update',
@@ -1986,7 +1986,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -1998,7 +1998,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/settings',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                     ],
                   ],
                   'segments' => [
@@ -2009,7 +2009,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'settings',
@@ -2017,7 +2017,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                     ],
                   ],
                   'transform' => [
@@ -2027,7 +2027,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'settings',
                   ],
                 ],
@@ -2043,7 +2043,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -2055,7 +2055,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/settings',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                     ],
                   ],
                   'segments' => [
@@ -2066,7 +2066,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'settings',
@@ -2074,7 +2074,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                     ],
                   ],
                   'transform' => [
@@ -2084,7 +2084,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'settings',
                   ],
                 ],
@@ -2335,7 +2335,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -2347,7 +2347,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/subscriptions',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                     ],
                   ],
                   'segments' => [
@@ -2358,7 +2358,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'subscriptions',
@@ -2366,7 +2366,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                     ],
                   ],
                   'transform' => [
@@ -2376,7 +2376,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'subscriptions',
                   ],
                 ],
@@ -2392,7 +2392,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -2412,7 +2412,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                       'subscriptionId' => 'id',
                     ],
                   ],
@@ -2424,7 +2424,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'subscriptions',
@@ -2435,7 +2435,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                       'id',
                     ],
                   ],
@@ -2446,7 +2446,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'subscriptions',
                     '{id}',
                   ],
@@ -2463,7 +2463,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -2483,7 +2483,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                       'subscriptionId' => 'id',
                     ],
                   ],
@@ -2495,7 +2495,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'subscriptions',
@@ -2506,7 +2506,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                       'id',
                     ],
                   ],
@@ -2517,7 +2517,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'subscriptions',
                     '{id}',
                   ],
@@ -2598,7 +2598,7 @@ class HubspotWebhooksConfig
                       [
                         'example' => null,
                         'kind' => 'param',
-                        'name' => '2026_09_id',
+                        'name' => 'app_id',
                         'orig' => 'app_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
@@ -2610,7 +2610,7 @@ class HubspotWebhooksConfig
                   'orig' => '/app-webhooks/2026-09/{appId}/subscriptions',
                   'rename' => [
                     'param' => [
-                      'appId' => '2026_09_id',
+                      'appId' => 'app_id',
                     ],
                   ],
                   'segments' => [
@@ -2621,7 +2621,7 @@ class HubspotWebhooksConfig
                       'lit' => '2026-09',
                     ],
                     [
-                      'var' => '2026_09_id',
+                      'var' => 'app_id',
                     ],
                     [
                       'lit' => 'subscriptions',
@@ -2629,7 +2629,7 @@ class HubspotWebhooksConfig
                   ],
                   'select' => [
                     'exist' => [
-                      '2026_09_id',
+                      'app_id',
                     ],
                   ],
                   'transform' => [
@@ -2639,7 +2639,7 @@ class HubspotWebhooksConfig
                   'parts' => [
                     'app-webhooks',
                     '2026-09',
-                    '{2026_09_id}',
+                    '{app_id}',
                     'subscriptions',
                   ],
                 ],

@@ -77,6 +77,7 @@ class WebhooksBatchResponseSubscription
 /** Request payload for WebhooksBatchResponseSubscription#create. */
 class WebhooksBatchResponseSubscriptionCreateData
 {
+    public int $app_id;
     public string $completedAt;
     public array $inputs;
     public ?array $links = null;
@@ -179,11 +180,13 @@ class WebhooksSetting
 /** Request payload for WebhooksSetting#load. */
 class WebhooksSettingLoadMatch
 {
+    public int $app_id;
 }
 
 /** Request payload for WebhooksSetting#update. */
 class WebhooksSettingUpdateData
 {
+    public int $app_id;
     public ?int $maxConcurrentRequests = null;
     public ?string $targetUrl = null;
     public ?array $throttling = null;
@@ -222,12 +225,14 @@ class WebhooksSubscription
 /** Request payload for WebhooksSubscription#load. */
 class WebhooksSubscriptionLoadMatch
 {
+    public int $app_id;
     public int $id;
 }
 
 /** Request payload for WebhooksSubscription#create. */
 class WebhooksSubscriptionCreateData
 {
+    public int $app_id;
     public bool $active;
     public string $createdAt;
     public string $eventType;
@@ -241,6 +246,7 @@ class WebhooksSubscriptionCreateData
 /** Request payload for WebhooksSubscription#update. */
 class WebhooksSubscriptionUpdateData
 {
+    public int $app_id;
     public int $id;
     public ?bool $active = null;
     public ?string $createdAt = null;
@@ -267,6 +273,7 @@ class WebhooksSubscriptionList
 /** Request payload for WebhooksSubscriptionList#list. */
 class WebhooksSubscriptionListListMatch
 {
+    public int $app_id;
 }
 
 /** WebhooksSubscriptionResponse1 entity data model. */

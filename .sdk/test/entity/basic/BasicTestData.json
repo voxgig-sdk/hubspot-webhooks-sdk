@@ -3,7 +3,7 @@
     "basic": {
       "BASIC00": {
         "offset_id": "OFFSET01",
-        "2026_09_id": "2026_0901",
+        "app_id": "APP01",
         "subscription_id": "SUBSCRIPTION01",
         "filter_id": "FILTER01",
         "portal_id": "PORTAL01",
@@ -11,7 +11,7 @@
       },
       "BASIC01": {
         "offset_id": "OFFSET01",
-        "2026_09_id": "2026_0901",
+        "app_id": "APP01",
         "subscription_id": "SUBSCRIPTION01",
         "filter_id": "FILTER01",
         "portal_id": "PORTAL01",
@@ -19,7 +19,7 @@
       },
       "BASIC02": {
         "offset_id": "OFFSET01",
-        "2026_09_id": "2026_0901",
+        "app_id": "APP01",
         "subscription_id": "SUBSCRIPTION01",
         "filter_id": "FILTER01",
         "portal_id": "PORTAL01",

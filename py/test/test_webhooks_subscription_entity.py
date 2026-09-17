@@ -43,7 +43,7 @@ class TestWebhooksSubscriptionEntity:
         webhooks_subscription_ref01_ent = client.WebhooksSubscription(None)
         webhooks_subscription_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.webhooks_subscription"), "webhooks_subscription_ref01"))
-        webhooks_subscription_ref01_data["2026_09_id"] = setup["idmap"]["2026_0901"]
+        webhooks_subscription_ref01_data["app_id"] = setup["idmap"]["app01"]
 
         webhooks_subscription_ref01_data = helpers.to_map(runner.entity_data(webhooks_subscription_ref01_ent.create(webhooks_subscription_ref01_data, None)))
         assert webhooks_subscription_ref01_data is not None
@@ -52,7 +52,7 @@ class TestWebhooksSubscriptionEntity:
         # UPDATE
         webhooks_subscription_ref01_data_up0_up = {
             "id": webhooks_subscription_ref01_data["id"],
-            "2026_09_id": setup["idmap"]["2026_09_id"],
+            "app_id": setup["idmap"]["app_id"],
         }
 
         webhooks_subscription_ref01_markdef_up0_name = "createdAt"
@@ -91,7 +91,7 @@ def _webhooks_subscription_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903"],
+        ["webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",
@@ -118,8 +118,8 @@ def _webhooks_subscription_basic_setup(extra):
         env.get("HUBSPOT_WEBHOOKS_TEST_WEBHOOKS_SUBSCRIPTION_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
-    if idmap_resolved.get("2026_09_id") is None:
-        idmap_resolved["2026_09_id"] = idmap_resolved.get("2026_0901")
+    if idmap_resolved.get("app_id") is None:
+        idmap_resolved["app_id"] = idmap_resolved.get("app01")
 
     if env.get("HUBSPOT_WEBHOOKS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([

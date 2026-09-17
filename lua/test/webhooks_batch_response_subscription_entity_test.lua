@@ -38,7 +38,7 @@ describe("WebhooksBatchResponseSubscriptionEntity", function()
     local webhooks_batch_response_subscription_ref01_ent = client:WebhooksBatchResponseSubscription(nil)
     local webhooks_batch_response_subscription_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.webhooks_batch_response_subscription"), "webhooks_batch_response_subscription_ref01"))
-    webhooks_batch_response_subscription_ref01_data["2026_09_id"] = setup.idmap["2026_0901"]
+    webhooks_batch_response_subscription_ref01_data["app_id"] = setup.idmap["app01"]
 
     local webhooks_batch_response_subscription_ref01_data_result, err = webhooks_batch_response_subscription_ref01_ent:create(webhooks_batch_response_subscription_ref01_data, nil)
     assert.is_nil(err)
@@ -68,7 +68,7 @@ function webhooks_batch_response_subscription_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903" },
+    { "webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

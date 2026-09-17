@@ -535,7 +535,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -555,7 +555,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                     "subscriptionId": "subscription_id",
                   },
                 },
@@ -567,7 +567,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "subscriptions",
@@ -578,7 +578,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                     "subscription_id",
                   ],
                 },
@@ -589,7 +589,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "{subscription_id}",
                 ],
@@ -600,7 +600,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -612,7 +612,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/settings",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                   },
                 },
                 "segments": [
@@ -623,7 +623,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "settings",
@@ -631,7 +631,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                   ],
                 },
                 "transform": {
@@ -641,7 +641,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "settings",
                 ],
               },
@@ -1482,7 +1482,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -1494,7 +1494,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/subscriptions/batch/update",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                   },
                 },
                 "segments": [
@@ -1505,7 +1505,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "subscriptions",
@@ -1519,7 +1519,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                   ],
                 },
                 "transform": {
@@ -1529,7 +1529,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "batch",
                   "update",
@@ -1989,7 +1989,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -2001,7 +2001,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/settings",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                   },
                 },
                 "segments": [
@@ -2012,7 +2012,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "settings",
@@ -2020,7 +2020,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                   ],
                 },
                 "transform": {
@@ -2030,7 +2030,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "settings",
                 ],
               },
@@ -2046,7 +2046,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -2058,7 +2058,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/settings",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                   },
                 },
                 "segments": [
@@ -2069,7 +2069,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "settings",
@@ -2077,7 +2077,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                   ],
                 },
                 "transform": {
@@ -2087,7 +2087,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "settings",
                 ],
               },
@@ -2338,7 +2338,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -2350,7 +2350,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/subscriptions",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                   },
                 },
                 "segments": [
@@ -2361,7 +2361,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "subscriptions",
@@ -2369,7 +2369,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                   ],
                 },
                 "transform": {
@@ -2379,7 +2379,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                 ],
               },
@@ -2395,7 +2395,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -2415,7 +2415,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                     "subscriptionId": "id",
                   },
                 },
@@ -2427,7 +2427,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "subscriptions",
@@ -2438,7 +2438,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                     "id",
                   ],
                 },
@@ -2449,7 +2449,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "{id}",
                 ],
@@ -2466,7 +2466,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -2486,7 +2486,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                     "subscriptionId": "id",
                   },
                 },
@@ -2498,7 +2498,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "subscriptions",
@@ -2509,7 +2509,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                     "id",
                   ],
                 },
@@ -2520,7 +2520,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "{id}",
                 ],
@@ -2601,7 +2601,7 @@ def make_config():
                     {
                       "example": None,
                       "kind": "param",
-                      "name": "2026_09_id",
+                      "name": "app_id",
                       "orig": "app_id",
                       "reqd": True,
                       "type": "`$INTEGER`",
@@ -2613,7 +2613,7 @@ def make_config():
                 "orig": "/app-webhooks/2026-09/{appId}/subscriptions",
                 "rename": {
                   "param": {
-                    "appId": "2026_09_id",
+                    "appId": "app_id",
                   },
                 },
                 "segments": [
@@ -2624,7 +2624,7 @@ def make_config():
                     "lit": "2026-09",
                   },
                   {
-                    "var": "2026_09_id",
+                    "var": "app_id",
                   },
                   {
                     "lit": "subscriptions",
@@ -2632,7 +2632,7 @@ def make_config():
                 ],
                 "select": {
                   "exist": [
-                    "2026_09_id",
+                    "app_id",
                   ],
                 },
                 "transform": {
@@ -2642,7 +2642,7 @@ def make_config():
                 "parts": [
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                 ],
               },

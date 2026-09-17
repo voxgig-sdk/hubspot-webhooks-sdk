@@ -69,7 +69,7 @@ type WebhooksBatchResponseSubscription struct {
 
 // WebhooksBatchResponseSubscriptionCreateData is the typed request payload for WebhooksBatchResponseSubscription.CreateTyped.
 type WebhooksBatchResponseSubscriptionCreateData struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 	CompletedAt string `json:"completedAt"`
 	Inputs []any `json:"inputs"`
 	Links *map[string]any `json:"links,omitempty"`
@@ -163,12 +163,12 @@ type WebhooksSetting struct {
 
 // WebhooksSettingLoadMatch is the typed request payload for WebhooksSetting.LoadTyped.
 type WebhooksSettingLoadMatch struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 }
 
 // WebhooksSettingUpdateData is the typed request payload for WebhooksSetting.UpdateTyped.
 type WebhooksSettingUpdateData struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 	MaxConcurrentRequests *int `json:"maxConcurrentRequests,omitempty"`
 	TargetUrl *string `json:"targetUrl,omitempty"`
 	Throttling *map[string]any `json:"throttling,omitempty"`
@@ -203,13 +203,13 @@ type WebhooksSubscription struct {
 
 // WebhooksSubscriptionLoadMatch is the typed request payload for WebhooksSubscription.LoadTyped.
 type WebhooksSubscriptionLoadMatch struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 	Id int `json:"id"`
 }
 
 // WebhooksSubscriptionCreateData is the typed request payload for WebhooksSubscription.CreateTyped.
 type WebhooksSubscriptionCreateData struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 	Active bool `json:"active"`
 	CreatedAt string `json:"createdAt"`
 	EventType string `json:"eventType"`
@@ -222,7 +222,7 @@ type WebhooksSubscriptionCreateData struct {
 
 // WebhooksSubscriptionUpdateData is the typed request payload for WebhooksSubscription.UpdateTyped.
 type WebhooksSubscriptionUpdateData struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 	Id int `json:"id"`
 	Active *bool `json:"active,omitempty"`
 	CreatedAt *string `json:"createdAt,omitempty"`
@@ -247,7 +247,7 @@ type WebhooksSubscriptionList struct {
 
 // WebhooksSubscriptionListListMatch is the typed request payload for WebhooksSubscriptionList.ListTyped.
 type WebhooksSubscriptionListListMatch struct {
-	F202609Id int `json:"2026_09_id"`
+	AppId int `json:"app_id"`
 }
 
 // WebhooksSubscriptionResponse1 is the typed data model for the webhooks_subscription_response_1 entity.

@@ -78,6 +78,7 @@ class WebhooksBatchResponseSubscription(WebhooksBatchResponseSubscriptionRequire
 
 
 class WebhooksBatchResponseSubscriptionCreateDataRequired(TypedDict):
+    app_id: int
     completedAt: str
     inputs: list
     results: list
@@ -168,10 +169,14 @@ class WebhooksSetting(TypedDict):
 
 
 class WebhooksSettingLoadMatch(TypedDict):
-    pass
+    app_id: int
 
 
-class WebhooksSettingUpdateData(TypedDict, total=False):
+class WebhooksSettingUpdateDataRequired(TypedDict):
+    app_id: int
+
+
+class WebhooksSettingUpdateData(WebhooksSettingUpdateDataRequired, total=False):
     maxConcurrentRequests: int
     targetUrl: str
     throttling: dict
@@ -208,10 +213,12 @@ class WebhooksSubscription(WebhooksSubscriptionRequired, total=False):
 
 
 class WebhooksSubscriptionLoadMatch(TypedDict):
+    app_id: int
     id: int
 
 
 class WebhooksSubscriptionCreateDataRequired(TypedDict):
+    app_id: int
     active: bool
     createdAt: str
     eventType: str
@@ -226,6 +233,7 @@ class WebhooksSubscriptionCreateData(WebhooksSubscriptionCreateDataRequired, tot
 
 
 class WebhooksSubscriptionUpdateDataRequired(TypedDict):
+    app_id: int
     id: int
 
 
@@ -254,7 +262,7 @@ class WebhooksSubscriptionList(WebhooksSubscriptionListRequired, total=False):
 
 
 class WebhooksSubscriptionListListMatch(TypedDict):
-    pass
+    app_id: int
 
 
 class WebhooksSubscriptionResponse1Required(TypedDict):

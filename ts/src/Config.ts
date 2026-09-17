@@ -587,7 +587,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -607,7 +607,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id",
+                  "appId": "app_id",
                   "subscriptionId": "subscription_id"
                 }
               },
@@ -619,7 +619,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "subscriptions"
@@ -630,7 +630,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id",
+                  "app_id",
                   "subscription_id"
                 ]
               },
@@ -641,7 +641,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "subscriptions",
                 "{subscription_id}"
               ]
@@ -652,7 +652,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -664,7 +664,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/settings",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id"
+                  "appId": "app_id"
                 }
               },
               "segments": [
@@ -675,7 +675,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "settings"
@@ -683,7 +683,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id"
+                  "app_id"
                 ]
               },
               "transform": {
@@ -693,7 +693,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "settings"
               ]
             },
@@ -1534,7 +1534,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -1546,7 +1546,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/subscriptions/batch/update",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id"
+                  "appId": "app_id"
                 }
               },
               "segments": [
@@ -1557,7 +1557,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "subscriptions"
@@ -1571,7 +1571,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id"
+                  "app_id"
                 ]
               },
               "transform": {
@@ -1581,7 +1581,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "subscriptions",
                 "batch",
                 "update"
@@ -2041,7 +2041,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -2053,7 +2053,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/settings",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id"
+                  "appId": "app_id"
                 }
               },
               "segments": [
@@ -2064,7 +2064,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "settings"
@@ -2072,7 +2072,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id"
+                  "app_id"
                 ]
               },
               "transform": {
@@ -2082,7 +2082,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "settings"
               ]
             }
@@ -2098,7 +2098,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -2110,7 +2110,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/settings",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id"
+                  "appId": "app_id"
                 }
               },
               "segments": [
@@ -2121,7 +2121,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "settings"
@@ -2129,7 +2129,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id"
+                  "app_id"
                 ]
               },
               "transform": {
@@ -2139,7 +2139,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "settings"
               ]
             }
@@ -2390,7 +2390,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -2402,7 +2402,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/subscriptions",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id"
+                  "appId": "app_id"
                 }
               },
               "segments": [
@@ -2413,7 +2413,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "subscriptions"
@@ -2421,7 +2421,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id"
+                  "app_id"
                 ]
               },
               "transform": {
@@ -2431,7 +2431,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "subscriptions"
               ]
             }
@@ -2447,7 +2447,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -2467,7 +2467,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id",
+                  "appId": "app_id",
                   "subscriptionId": "id"
                 }
               },
@@ -2479,7 +2479,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "subscriptions"
@@ -2490,7 +2490,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id",
+                  "app_id",
                   "id"
                 ]
               },
@@ -2501,7 +2501,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "subscriptions",
                 "{id}"
               ]
@@ -2518,7 +2518,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -2538,7 +2538,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id",
+                  "appId": "app_id",
                   "subscriptionId": "id"
                 }
               },
@@ -2550,7 +2550,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "subscriptions"
@@ -2561,7 +2561,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id",
+                  "app_id",
                   "id"
                 ]
               },
@@ -2572,7 +2572,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "subscriptions",
                 "{id}"
               ]
@@ -2653,7 +2653,7 @@ class Config {
                   {
                     "example": null,
                     "kind": "param",
-                    "name": "2026_09_id",
+                    "name": "app_id",
                     "orig": "app_id",
                     "reqd": true,
                     "type": "`$INTEGER`"
@@ -2665,7 +2665,7 @@ class Config {
               "orig": "/app-webhooks/2026-09/{appId}/subscriptions",
               "rename": {
                 "param": {
-                  "appId": "2026_09_id"
+                  "appId": "app_id"
                 }
               },
               "segments": [
@@ -2676,7 +2676,7 @@ class Config {
                   "lit": "2026-09"
                 },
                 {
-                  "var": "2026_09_id"
+                  "var": "app_id"
                 },
                 {
                   "lit": "subscriptions"
@@ -2684,7 +2684,7 @@ class Config {
               ],
               "select": {
                 "exist": [
-                  "2026_09_id"
+                  "app_id"
                 ]
               },
               "transform": {
@@ -2694,7 +2694,7 @@ class Config {
               "parts": [
                 "app-webhooks",
                 "2026-09",
-                "{2026_09_id}",
+                "{app_id}",
                 "subscriptions"
               ]
             }

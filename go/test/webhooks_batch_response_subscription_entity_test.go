@@ -53,7 +53,7 @@ func TestWebhooksBatchResponseSubscriptionEntity(t *testing.T) {
 		webhooksBatchResponseSubscriptionRef01Ent := client.WebhooksBatchResponseSubscription(nil)
 		webhooksBatchResponseSubscriptionRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath(setup.data, []any{"new", "webhooks_batch_response_subscription"}), "webhooks_batch_response_subscription_ref01"))
-		webhooksBatchResponseSubscriptionRef01Data["2026_09_id"] = setup.idmap["2026_0901"]
+		webhooksBatchResponseSubscriptionRef01Data["app_id"] = setup.idmap["app01"]
 
 		webhooksBatchResponseSubscriptionRef01DataResult, err := webhooksBatchResponseSubscriptionRef01Ent.Create(webhooksBatchResponseSubscriptionRef01Data, nil)
 		if err != nil {
@@ -92,7 +92,7 @@ func webhooks_batch_response_subscriptionBasicSetup(extra map[string]any) *entit
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903"},
+		[]any{"webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

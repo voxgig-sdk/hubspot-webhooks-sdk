@@ -22,7 +22,7 @@ class TestWebhooksSubscriptionListDirect:
             pytest.skip(_reason or "skipped via sdk-test-control.json")
             return
         if setup["live"]:
-            for _live_key in ["2026_0901"]:
+            for _live_key in ["app01"]:
                 if setup["idmap"].get(_live_key) is None:
                     # pytest already imported at module scope
                     pytest.skip(f"live test needs {_live_key} via *_ENTID env var (synthetic IDs only)")
@@ -32,12 +32,12 @@ class TestWebhooksSubscriptionListDirect:
 
         params = {}
         if setup["live"]:
-            params["2026_09_id"] = setup["idmap"]["2026_0901"]
+            params["app_id"] = setup["idmap"]["app01"]
         else:
-            params["2026_09_id"] = "direct01"
+            params["app_id"] = "direct01"
 
         result = client.direct({
-            "path": "app-webhooks/2026-09/{2026_09_id}/subscriptions",
+            "path": "app-webhooks/2026-09/{app_id}/subscriptions",
             "method": "GET",
             "params": params,
         })

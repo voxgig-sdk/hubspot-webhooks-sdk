@@ -506,7 +506,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -526,7 +526,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                     ["subscriptionId"] = "subscription_id",
                   },
                 },
@@ -538,7 +538,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "subscriptions",
@@ -549,7 +549,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                     "subscription_id",
                   },
                 },
@@ -560,7 +560,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "{subscription_id}",
                 },
@@ -571,7 +571,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -583,7 +583,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/settings",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                   },
                 },
                 ["segments"] = {
@@ -594,7 +594,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "settings",
@@ -602,7 +602,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                   },
                 },
                 ["transform"] = {
@@ -612,7 +612,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "settings",
                 },
               },
@@ -1453,7 +1453,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -1465,7 +1465,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/subscriptions/batch/update",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                   },
                 },
                 ["segments"] = {
@@ -1476,7 +1476,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "subscriptions",
@@ -1490,7 +1490,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                   },
                 },
                 ["transform"] = {
@@ -1500,7 +1500,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "batch",
                   "update",
@@ -1960,7 +1960,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -1972,7 +1972,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/settings",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                   },
                 },
                 ["segments"] = {
@@ -1983,7 +1983,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "settings",
@@ -1991,7 +1991,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                   },
                 },
                 ["transform"] = {
@@ -2001,7 +2001,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "settings",
                 },
               },
@@ -2017,7 +2017,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -2029,7 +2029,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/settings",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                   },
                 },
                 ["segments"] = {
@@ -2040,7 +2040,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "settings",
@@ -2048,7 +2048,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                   },
                 },
                 ["transform"] = {
@@ -2058,7 +2058,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "settings",
                 },
               },
@@ -2309,7 +2309,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -2321,7 +2321,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/subscriptions",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                   },
                 },
                 ["segments"] = {
@@ -2332,7 +2332,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "subscriptions",
@@ -2340,7 +2340,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                   },
                 },
                 ["transform"] = {
@@ -2350,7 +2350,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                 },
               },
@@ -2366,7 +2366,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -2386,7 +2386,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                     ["subscriptionId"] = "id",
                   },
                 },
@@ -2398,7 +2398,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "subscriptions",
@@ -2409,7 +2409,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                     "id",
                   },
                 },
@@ -2420,7 +2420,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "{id}",
                 },
@@ -2437,7 +2437,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -2457,7 +2457,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                     ["subscriptionId"] = "id",
                   },
                 },
@@ -2469,7 +2469,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "subscriptions",
@@ -2480,7 +2480,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                     "id",
                   },
                 },
@@ -2491,7 +2491,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                   "{id}",
                 },
@@ -2572,7 +2572,7 @@ local function make_config()
                     {
                       ["example"] = nil,
                       ["kind"] = "param",
-                      ["name"] = "2026_09_id",
+                      ["name"] = "app_id",
                       ["orig"] = "app_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
@@ -2584,7 +2584,7 @@ local function make_config()
                 ["orig"] = "/app-webhooks/2026-09/{appId}/subscriptions",
                 ["rename"] = {
                   ["param"] = {
-                    ["appId"] = "2026_09_id",
+                    ["appId"] = "app_id",
                   },
                 },
                 ["segments"] = {
@@ -2595,7 +2595,7 @@ local function make_config()
                     ["lit"] = "2026-09",
                   },
                   {
-                    ["var"] = "2026_09_id",
+                    ["var"] = "app_id",
                   },
                   {
                     ["lit"] = "subscriptions",
@@ -2603,7 +2603,7 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "2026_09_id",
+                    "app_id",
                   },
                 },
                 ["transform"] = {
@@ -2613,7 +2613,7 @@ local function make_config()
                 ["parts"] = {
                   "app-webhooks",
                   "2026-09",
-                  "{2026_09_id}",
+                  "{app_id}",
                   "subscriptions",
                 },
               },

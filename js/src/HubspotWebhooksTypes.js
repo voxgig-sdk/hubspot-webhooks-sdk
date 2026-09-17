@@ -63,7 +63,7 @@
 
 /**
  * @typedef {Object} WebhooksBatchResponseSubscriptionCreateData
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  * @property {string} completedAt
  * @property {Array} inputs
  * @property {Object} [links]
@@ -157,12 +157,12 @@
 
 /**
  * @typedef {Object} WebhooksSettingLoadMatch
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  */
 
 /**
  * @typedef {Object} WebhooksSettingUpdateData
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  * @property {number} [maxConcurrentRequests]
  * @property {string} [targetUrl]
  * @property {Object} [throttling]
@@ -197,13 +197,13 @@
 
 /**
  * @typedef {Object} WebhooksSubscriptionLoadMatch
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  * @property {number} id
  */
 
 /**
  * @typedef {Object} WebhooksSubscriptionCreateData
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  * @property {boolean} active
  * @property {string} createdAt
  * @property {string} eventType
@@ -216,7 +216,7 @@
 
 /**
  * @typedef {Object} WebhooksSubscriptionUpdateData
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  * @property {number} id
  * @property {boolean} [active]
  * @property {string} [createdAt]
@@ -241,7 +241,7 @@
 
 /**
  * @typedef {Object} WebhooksSubscriptionListListMatch
- * @property {number} "2026_09_id"
+ * @property {number} app_id
  */
 
 /**

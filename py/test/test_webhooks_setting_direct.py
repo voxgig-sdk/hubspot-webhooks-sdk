@@ -28,10 +28,10 @@ class TestWebhooksSettingDirect:
         params = {}
         query = {}
         if not setup["live"]:
-            params["2026_09_id"] = "direct01"
+            params["app_id"] = "direct01"
 
         result = client.direct({
-            "path": "app-webhooks/2026-09/{2026_09_id}/settings",
+            "path": "app-webhooks/2026-09/{app_id}/settings",
             "method": "GET",
             "params": params,
             "query": query,

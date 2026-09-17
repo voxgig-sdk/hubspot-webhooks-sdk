@@ -5,21 +5,21 @@
         "maxConcurrentRequests": 30,
         "targetUrl": "s1f",
         "throttling": {},
-        "2026_09_id": "2026_0901",
+        "app_id": "APP01",
         "id": "WEBHOOKS_SETTING00"
       },
       "WEBHOOKS_SETTING01": {
         "maxConcurrentRequests": 60,
         "targetUrl": "s3d",
         "throttling": {},
-        "2026_09_id": "2026_0901",
+        "app_id": "APP01",
         "id": "WEBHOOKS_SETTING01"
       },
       "WEBHOOKS_SETTING02": {
         "maxConcurrentRequests": 90,
         "targetUrl": "s5b",
         "throttling": {},
-        "2026_09_id": "2026_0901",
+        "app_id": "APP01",
         "id": "WEBHOOKS_SETTING02"
       }
     }

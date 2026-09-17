@@ -86,7 +86,7 @@ describe("WebhooksSubscriptionListEntity", function()
     -- LIST
     local webhooks_subscription_list_ref01_ent = client:WebhooksSubscriptionList(nil)
     local webhooks_subscription_list_ref01_match = {
-      ["2026_09_id"] = setup.idmap["2026_0901"],
+      ["app_id"] = setup.idmap["app01"],
     }
 
     local webhooks_subscription_list_ref01_list_result, err = webhooks_subscription_list_ref01_ent:list(webhooks_subscription_list_ref01_match, nil)
@@ -116,7 +116,7 @@ function webhooks_subscription_list_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhooks_subscription_list01", "webhooks_subscription_list02", "webhooks_subscription_list03", "2026_0901", "2026_0902", "2026_0903" },
+    { "webhooks_subscription_list01", "webhooks_subscription_list02", "webhooks_subscription_list03", "2026_0901", "2026_0902", "2026_0903", "app01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",
