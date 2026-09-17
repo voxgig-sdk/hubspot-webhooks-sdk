@@ -1,0 +1,26 @@
+# BasicWebhooksSubscriptionListFlow
+
+main: kit: flow: BasicWebhooksSubscriptionListFlow:
+{
+  entity: "webhooks_subscription_list",
+  kind: "basic",
+  name: "BasicWebhooksSubscriptionListFlow",
+  step: [
+    {
+      match: {
+        "2026_09_id": "2026_0901"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "webhooks_subscription_list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksSubscriptionListFlow"
+}

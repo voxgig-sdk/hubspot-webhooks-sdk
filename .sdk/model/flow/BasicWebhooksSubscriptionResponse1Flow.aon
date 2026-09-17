@@ -1,0 +1,40 @@
+# BasicWebhooksSubscriptionResponse1Flow
+
+main: kit: flow: BasicWebhooksSubscriptionResponse1Flow:
+{
+  entity: "webhooks_subscription_response_1",
+  kind: "basic",
+  name: "BasicWebhooksSubscriptionResponse1Flow",
+  step: [
+    {
+      input: {
+        ref: "webhooks_subscription_response_1_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "webhooks_subscription_response_1_ref01",
+        srcdatavar: "webhooks_subscription_response_1_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "webhooks_subscription_response_101"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_subscription_response_1_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksSubscriptionResponse1Flow"
+}

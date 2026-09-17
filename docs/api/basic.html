@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Basic | HubSpot Webhooks API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">HubSpot Webhooks API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/hubspot-webhooks-sdk">voxgig-sdk/hubspot-webhooks-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">HubSpot Webhooks API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a aria-current="page" href="../api/basic.html">Basic</a><div class="nav-sections"><a class="nav-section" href="#get-webhooks-journaljournal-local2026-09offsetoffsetnext">GET /webhooks-journal/journal-local/2026-09/offset/{offset}/next</a>
+<a class="nav-section" href="#get-webhooks-journaljournal2026-09offsetoffsetnext">GET /webhooks-journal/journal/2026-09/offset/{offset}/next</a>
+<a class="nav-section" href="#get-webhooks-journaljournal-local2026-09earliest">GET /webhooks-journal/journal-local/2026-09/earliest</a>
+<a class="nav-section" href="#get-webhooks-journaljournal-local2026-09latest">GET /webhooks-journal/journal-local/2026-09/latest</a>
+<a class="nav-section" href="#get-webhooks-journaljournal2026-09earliest">GET /webhooks-journal/journal/2026-09/earliest</a>
+<a class="nav-section" href="#get-webhooks-journaljournal2026-09latest">GET /webhooks-journal/journal/2026-09/latest</a>
+<a class="nav-section" href="#delete-app-webhooks2026-09appidsubscriptionssubscriptionid">DELETE /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}</a>
+<a class="nav-section" href="#delete-app-webhooks2026-09appidsettings">DELETE /app-webhooks/2026-09/{appId}/settings</a>
+<a class="nav-section" href="#delete-webhooks-journalsubscriptions2026-09filtersfilterid">DELETE /webhooks-journal/subscriptions/2026-09/filters/{filterId}</a>
+<a class="nav-section" href="#delete-webhooks-journalsubscriptions2026-09portalsportalid">DELETE /webhooks-journal/subscriptions/2026-09/portals/{portalId}</a>
+<a class="nav-section" href="#delete-webhooks-journalsubscriptions2026-09subscriptionid">DELETE /webhooks-journal/subscriptions/2026-09/{subscriptionId}</a></div>
+<a href="../api/webhooks_batch_response_journal_fetch.html">WebhooksBatchResponseJournalFetch</a>
+<a href="../api/webhooks_batch_response_subscription.html">WebhooksBatchResponseSubscription</a>
+<a href="../api/webhooks_collection_response_subscription_response_no_paging.html">WebhooksCollectionResponseSubscriptionResponseNoPaging</a>
+<a href="../api/webhooks_crm_object_snapshot_batch.html">WebhooksCrmObjectSnapshotBatch</a>
+<a href="../api/webhooks_filter.html">WebhooksFilter</a>
+<a href="../api/webhooks_setting.html">WebhooksSetting</a>
+<a href="../api/webhooks_snapshot_status.html">WebhooksSnapshotStatus</a>
+<a href="../api/webhooks_subscription.html">WebhooksSubscription</a>
+<a href="../api/webhooks_subscription_list.html">WebhooksSubscriptionList</a>
+<a href="../api/webhooks_subscription_response_1.html">WebhooksSubscriptionResponse1</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="basic">Basic</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal-local2026-09offsetoffsetnext"><code>/webhooks-journal/journal-local/2026-09/offset/{offset}/next</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal2026-09offsetoffsetnext"><code>/webhooks-journal/journal/2026-09/offset/{offset}/next</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal-local2026-09earliest"><code>/webhooks-journal/journal-local/2026-09/earliest</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal-local2026-09latest"><code>/webhooks-journal/journal-local/2026-09/latest</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal2026-09earliest"><code>/webhooks-journal/journal/2026-09/earliest</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal2026-09latest"><code>/webhooks-journal/journal/2026-09/latest</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-app-webhooks2026-09appidsubscriptionssubscriptionid"><code>/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}</code></a></td>
+<td><code>remove</code></td>
+<td>No content</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-app-webhooks2026-09appidsettings"><code>/app-webhooks/2026-09/{appId}/settings</code></a></td>
+<td><code>remove</code></td>
+<td>No content</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-webhooks-journalsubscriptions2026-09filtersfilterid"><code>/webhooks-journal/subscriptions/2026-09/filters/{filterId}</code></a></td>
+<td><code>remove</code></td>
+<td>No content</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-webhooks-journalsubscriptions2026-09portalsportalid"><code>/webhooks-journal/subscriptions/2026-09/portals/{portalId}</code></a></td>
+<td><code>remove</code></td>
+<td>No content</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-webhooks-journalsubscriptions2026-09subscriptionid"><code>/webhooks-journal/subscriptions/2026-09/{subscriptionId}</code></a></td>
+<td><code>remove</code></td>
+<td>No content</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-webhooks-journaljournal-local2026-09offsetoffsetnext" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal-local/2026-09/offset/{offset}/next</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal-local/2026-09/offset/{offset}/next_/webhooks-journal/journal-local/2026-03/offset/{offset}/next</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>offset</code> | <code>path</code> | <code>string</code> | Yes | The offset string indicating the starting point for retrieving the next batch of journal entries. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | An integer representing the ID of the portal installation for which to retrieve the journal entries. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="default">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal2026-09offsetoffsetnext" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal/2026-09/offset/{offset}/next</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal/2026-09/offset/{offset}/next_/webhooks-journal/journal/2026-03/offset/{offset}/next</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>offset</code> | <code>path</code> | <code>string</code> | Yes | The offset from which to start retrieving the next set of webhook journal entries. It is a string value. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal installation for which the webhook journal entries are being retrieved. It is an integer value. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="default-1">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal-local2026-09earliest" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal-local/2026-09/earliest</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal-local/2026-09/earliest_/webhooks-journal/journal-local/2026-03/earliest</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal installation for which to retrieve the earliest journal entry. This parameter helps specify the context of the request. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="default-2">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal-local2026-09latest" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal-local/2026-09/latest</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal-local/2026-09/latest_/webhooks-journal/journal-local/2026-03/latest</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the installation portal to filter the webhook journal entries. It is an integer value. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="default-3">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal2026-09earliest" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal/2026-09/earliest</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal/2026-09/earliest_/webhooks-journal/journal/2026-03/earliest</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the installation portal for which to retrieve the earliest journal entry. This is an integer value. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="default-4">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal2026-09latest" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal/2026-09/latest</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal/2026-09/latest_/webhooks-journal/journal/2026-03/latest</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The unique identifier of the portal installation to filter the journal entries. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="default-5">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-app-webhooks2026-09appidsubscriptionssubscriptionid" class="operation" data-method="delete"><code>DELETE</code> /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}</h3>
+<p>Operation ID: <code>delete-/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}_archive</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>appId</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The unique identifier of the app for which the subscription is configured. |
+| <code>subscriptionId</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The unique identifier of the subscription to delete. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="204-no-content" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default-6">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-app-webhooks2026-09appidsettings" class="operation" data-method="delete"><code>DELETE</code> /app-webhooks/2026-09/{appId}/settings</h3>
+<p>Operation ID: <code>delete-/app-webhooks/2026-09/{appId}/settings_clear</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>appId</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The unique identifier of the app whose webhook settings are to be deleted. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="204-no-content-1" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default-7">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-webhooks-journalsubscriptions2026-09filtersfilterid" class="operation" data-method="delete"><code>DELETE</code> /webhooks-journal/subscriptions/2026-09/filters/{filterId}</h3>
+<p>Operation ID: <code>delete-/webhooks-journal/subscriptions/2026-09/filters/{filterId}_/webhooks-journal/subscriptions/2026-03/filters/{filterId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>filterId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The unique identifier of the filter to delete. It is required to specify which filter should be removed from the subscription. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="204-no-content-2" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default-8">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-webhooks-journalsubscriptions2026-09portalsportalid" class="operation" data-method="delete"><code>DELETE</code> /webhooks-journal/subscriptions/2026-09/portals/{portalId}</h3>
+<p>Operation ID: <code>delete-/webhooks-journal/subscriptions/2026-09/portals/{portalId}_/webhooks-journal/subscriptions/2026-03/portals/{portalId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>portalId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The unique identifier of the portal for which the subscription is to be deleted. |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="204-no-content-3" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default-9">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-webhooks-journalsubscriptions2026-09subscriptionid" class="operation" data-method="delete"><code>DELETE</code> /webhooks-journal/subscriptions/2026-09/{subscriptionId}</h3>
+<p>Operation ID: <code>delete-/webhooks-journal/subscriptions/2026-09/{subscriptionId}_/webhooks-journal/subscriptions/2026-03/{subscriptionId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>subscriptionId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The unique identifier of the subscription to delete. |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="204-no-content-4" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default-10">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

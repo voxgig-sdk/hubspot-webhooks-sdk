@@ -1,0 +1,22 @@
+# BasicWebhooksBatchResponseSubscriptionFlow
+
+main: kit: flow: BasicWebhooksBatchResponseSubscriptionFlow:
+{
+  entity: "webhooks_batch_response_subscription",
+  kind: "basic",
+  name: "BasicWebhooksBatchResponseSubscriptionFlow",
+  step: [
+    {
+      input: {
+        ref: "webhooks_batch_response_subscription_ref01"
+      }
+
+      match: {
+        "2026_09_id": "2026_0901"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicWebhooksBatchResponseSubscriptionFlow"
+}

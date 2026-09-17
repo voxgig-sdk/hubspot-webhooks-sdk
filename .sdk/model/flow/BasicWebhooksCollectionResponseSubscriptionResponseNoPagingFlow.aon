@@ -1,0 +1,22 @@
+# BasicWebhooksCollectionResponseSubscriptionResponseNoPagingFlow
+
+main: kit: flow: BasicWebhooksCollectionResponseSubscriptionResponseNoPagingFlow:
+{
+  entity: "webhooks_collection_response_subscription_response_no_paging",
+  kind: "basic",
+  name: "BasicWebhooksCollectionResponseSubscriptionResponseNoPagingFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "webhooks_collection_response_subscription_response_no_paging_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksCollectionResponseSubscriptionResponseNoPagingFlow"
+}

@@ -1,0 +1,211 @@
+# Entity: webhooks_subscription_response_1
+
+main: kit: entity: webhooks_subscription_response_1: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "actionOverrides"
+      req: false
+      short: "An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "actions"
+      req: true
+      short: "A list of actions that trigger the subscription."
+      type: "`$ARRAY`"
+    }
+    {
+      format: "int64"
+      name: "appId"
+      req: true
+      short: "The unique identifier for the app associated with the subscription."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "associatedObjectTypeIds"
+      req: false
+      short: "A list of associated object type IDs."
+      type: "`$ARRAY`"
+    }
+    {
+      format: "date-time"
+      name: "createdAt"
+      req: true
+      short: "The date and time when the subscription was created, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "createdBy"
+      req: false
+      short: "The ID of the user who created the subscription."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "deletedAt"
+      req: false
+      short: "The date and time when the subscription was deleted, in ISO 8601 format, if applicable."
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      short: "The unique identifier for the subscription."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "listIds"
+      req: false
+      short: "A list of list IDs associated with the subscription."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "objectIds"
+      req: false
+      short: "A list of object IDs associated with the subscription."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "objectTypeId"
+      req: true
+      short: "The identifier for the object type associated with the subscription."
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "portalId"
+      req: false
+      short: "The unique identifier for the portal associated with the subscription."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "properties"
+      req: false
+      short: "A list of property names associated with the subscription."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "subscriptionType"
+      req: true
+      short: "The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updatedAt"
+      req: true
+      short: "The date and time when the subscription was last updated, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "webhooks_subscription_response_1"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          contract: {
+            id: "POST /webhooks-journal/subscriptions/2026-09"
+            json: "{\"operationId\":\"post-/webhooks-journal/subscriptions/2026-09_/webhooks-journal/subscriptions/2026-03\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"example\":null,\"schema\":{\"example\":null,\"oneOf\":[{\"example\":null,\"properties\":{\"actions\":{\"description\":\"An array of strings specifying the actions that trigger the subscription. Valid actions include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE'.\",\"example\":null,\"items\":{\"enum\":[\"CREATE\",\"UPDATE\",\"DELETE\",\"MERGE\",\"RESTORE\",\"ASSOCIATION_ADDED\",\"ASSOCIATION_REMOVED\",\"SNAPSHOT\",\"APP_INSTALL\",\"APP_UNINSTALL\",\"ADDED_TO_LIST\",\"REMOVED_FROM_LIST\",\"GDPR_DELETE\"],\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"An array of integers representing the IDs of the objects involved in the subscription. Empty means listen to all objectIds.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectTypeId\":{\"description\":\"A string that identifies the type of object for which the subscription is being created or updated. For example \\\"0-1\\\" for contacts.\",\"example\":null,\"type\":\"string\"},\"portalId\":{\"description\":\"An integer representing the portal ID associated with the subscription.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"properties\":{\"description\":\"An array of strings listing the properties of the objects that are relevant to the subscription. Empty means listen to all properties.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"subscriptionType\":{\"default\":\"OBJECT\",\"description\":\"A string indicating the type of subscription. The default and only valid value is 'OBJECT'.\",\"enum\":[\"OBJECT\"],\"example\":null,\"type\":\"string\"}},\"required\":[\"actions\",\"objectIds\",\"objectTypeId\",\"portalId\",\"properties\",\"subscriptionType\"],\"type\":\"object\"},{\"example\":null,\"properties\":{\"actions\":{\"description\":\"An array of strings specifying the actions that trigger the subscription. Valid actions include  'ASSOCIATION_ADDED' and 'ASSOCIATION_REMOVED'.\",\"example\":null,\"items\":{\"enum\":[\"CREATE\",\"UPDATE\",\"DELETE\",\"MERGE\",\"RESTORE\",\"ASSOCIATION_ADDED\",\"ASSOCIATION_REMOVED\",\"SNAPSHOT\",\"APP_INSTALL\",\"APP_UNINSTALL\",\"ADDED_TO_LIST\",\"REMOVED_FROM_LIST\",\"GDPR_DELETE\"],\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"associatedObjectTypeIds\":{\"description\":\"An array of strings representing the type identifiers of the associated objects involved in the subscription. If present, events will only fire if the TO objectTypeId in the association is included in this array.  \",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"An array of integers representing the unique identifiers of the objects involved in the subscription.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectTypeId\":{\"description\":\"A string representing the type identifier of the object involved in the subscription. For example \\\"0-1\\\" for Contacts. This corresponds to the FROM side of the association. An objectTypeId of \\\"0-1\\\" would match a CONTACT_TO_COMPANY association change.  \",\"example\":null,\"type\":\"string\"},\"portalId\":{\"description\":\"An integer representing the unique identifier of the HubSpot portal.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"subscriptionType\":{\"default\":\"ASSOCIATION\",\"description\":\"A string indicating the type of subscription, which is 'ASSOCIATION' by default.\",\"enum\":[\"ASSOCIATION\"],\"example\":null,\"type\":\"string\"}},\"required\":[\"actions\",\"associatedObjectTypeIds\",\"objectIds\",\"objectTypeId\",\"portalId\",\"subscriptionType\"],\"type\":\"object\"},{\"example\":null,\"properties\":{\"eventTypeId\":{\"description\":\"A string representing the unique identifier for the event type that the subscription pertains to. This value corresponds to an internal event classification at HubSpot. \\n\\n4-1909196: App install event\\n4-1916193: App uninstall event\",\"example\":null,\"type\":\"string\"},\"properties\":{\"description\":\"An array of strings specifying the properties of the event associated with the subscription.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"subscriptionType\":{\"default\":\"APP_LIFECYCLE_EVENT\",\"description\":\"A string indicating the type of subscription, which is 'APP_LIFECYCLE_EVENT' by default.\",\"enum\":[\"APP_LIFECYCLE_EVENT\"],\"example\":null,\"type\":\"string\"}},\"required\":[\"eventTypeId\",\"properties\",\"subscriptionType\"],\"type\":\"object\"},{\"example\":null,\"properties\":{\"actions\":{\"description\":\"An array of strings specifying the actions that trigger the subscription. Valid actions include 'ADDED_TO_LIST', and 'REMOVED_FROM_LIST'\",\"example\":null,\"items\":{\"enum\":[\"CREATE\",\"UPDATE\",\"DELETE\",\"MERGE\",\"RESTORE\",\"ASSOCIATION_ADDED\",\"ASSOCIATION_REMOVED\",\"SNAPSHOT\",\"APP_INSTALL\",\"APP_UNINSTALL\",\"ADDED_TO_LIST\",\"REMOVED_FROM_LIST\",\"GDPR_DELETE\"],\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"listIds\":{\"description\":\"An array of integers representing the IDs of the lists involved in the subscription. Empty means listen to all lists.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"An array of integers representing the IDs of the objects associated with the subscription. Empty means listen to all objectsIds.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"portalId\":{\"description\":\"An integer representing the ID of the portal where the subscription is being managed.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"subscriptionType\":{\"default\":\"LIST_MEMBERSHIP\",\"description\":\"A string indicating the type of subscription. The default and only valid value is 'LIST_MEMBERSHIP'.\",\"enum\":[\"LIST_MEMBERSHIP\"],\"example\":null,\"type\":\"string\"}},\"required\":[\"actions\",\"listIds\",\"objectIds\",\"portalId\",\"subscriptionType\"],\"type\":\"object\"},{\"example\":null,\"properties\":{\"actions\":{\"description\":\"An array of strings specifying the actions that trigger the subscription. Valid action is 'GDPR_DELETE'. \",\"example\":null,\"items\":{\"enum\":[\"CREATE\",\"UPDATE\",\"DELETE\",\"MERGE\",\"RESTORE\",\"ASSOCIATION_ADDED\",\"ASSOCIATION_REMOVED\",\"SNAPSHOT\",\"APP_INSTALL\",\"APP_UNINSTALL\",\"ADDED_TO_LIST\",\"REMOVED_FROM_LIST\",\"GDPR_DELETE\"],\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"objectTypeId\":{\"description\":\"A string representing the unique identifier for the type of object associated with the subscription.\",\"example\":null,\"type\":\"string\"},\"portalId\":{\"description\":\"An integer representing the unique identifier for the HubSpot portal that is being listened to for changes. \",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"subscriptionType\":{\"default\":\"GDPR_PRIVACY_DELETION\",\"description\":\"A string indicating the type of subscription. GDPR_PRIVACY_DELETION is the only valid option for GdprPrivacyDeletionSubscriptionUpsertRequest. \",\"enum\":[\"GDPR_PRIVACY_DELETION\"],\"example\":null,\"type\":\"string\"}},\"required\":[\"actions\",\"objectTypeId\",\"portalId\",\"subscriptionType\"],\"type\":\"object\"}],\"properties\":{}}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":null,\"schema\":{\"example\":null,\"properties\":{\"actionOverrides\":{\"additionalProperties\":{\"example\":null,\"properties\":{\"associatedObjectTypeIds\":{\"description\":\"An array of strings, each representing an associated object type ID relevant to the action override.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"listIds\":{\"description\":\"An array of integers representing list IDs that are associated with the action override. The integers are in int64 format.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"An array of integers, each representing an object ID for which the action override is applicable. The integers are in int64 format.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"properties\":{\"description\":\"An array of strings representing the properties to be overridden in the action. Each string corresponds to a property name.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"description\":\"An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.\",\"example\":null,\"type\":\"object\"},\"actions\":{\"description\":\"A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', 'ASSOCIATION_ADDED', 'ASSOCIATION_REMOVED', 'SNAPSHOT', 'APP_INSTALL', 'APP_UNINSTALL', 'ADDED_TO_LIST', 'REMOVED_FROM_LIST', and 'GDPR_DELETE'.\",\"example\":null,\"items\":{\"enum\":[\"CREATE\",\"UPDATE\",\"DELETE\",\"MERGE\",\"RESTORE\",\"ASSOCIATION_ADDED\",\"ASSOCIATION_REMOVED\",\"SNAPSHOT\",\"APP_INSTALL\",\"APP_UNINSTALL\",\"ADDED_TO_LIST\",\"REMOVED_FROM_LIST\",\"GDPR_DELETE\"],\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"appId\":{\"description\":\"The unique identifier for the app associated with the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"associatedObjectTypeIds\":{\"description\":\"A list of associated object type IDs. Each ID is a string.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"createdAt\":{\"description\":\"The date and time when the subscription was created, in ISO 8601 format.\",\"example\":null,\"format\":\"date-time\",\"type\":\"string\"},\"createdBy\":{\"description\":\"The ID of the user who created the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"deletedAt\":{\"description\":\"The date and time when the subscription was deleted, in ISO 8601 format, if applicable.\",\"example\":null,\"format\":\"date-time\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"listIds\":{\"description\":\"A list of list IDs associated with the subscription. Each ID is an integer formatted as int64.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"A list of object IDs associated with the subscription. Each ID is an integer formatted as int64.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectTypeId\":{\"description\":\"The identifier for the object type associated with the subscription. It is a string.\",\"example\":null,\"type\":\"string\"},\"portalId\":{\"description\":\"The unique identifier for the portal associated with the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"properties\":{\"description\":\"A list of property names associated with the subscription. Each property is a string.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"subscriptionType\":{\"description\":\"The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.\",\"enum\":[\"APP_LIFECYCLE_EVENT\",\"ASSOCIATION\",\"EVENT\",\"GDPR_PRIVACY_DELETION\",\"LIST_MEMBERSHIP\",\"OBJECT\"],\"example\":null,\"type\":\"string\"},\"updatedAt\":{\"description\":\"The date and time when the subscription was last updated, in ISO 8601 format.\",\"example\":null,\"format\":\"date-time\",\"type\":\"string\"}},\"required\":[\"actions\",\"appId\",\"createdAt\",\"id\",\"objectTypeId\",\"subscriptionType\",\"updatedAt\"],\"type\":\"object\"}}},\"description\":\"successful operation\"},\"default\":{\"content\":{\"*/*\":{\"example\":null,\"schema\":{\"description\":\"Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.\",\"example\":{\"category\":\"VALIDATION_ERROR\",\"correlationId\":\"aeb5f871-7f07-4993-9211-075dc63e7cbf\",\"links\":{\"knowledge-base\":\"https://www.hubspot.com/products/service/knowledge-base\"},\"message\":\"Invalid input (details will vary based on the error)\"},\"properties\":{\"category\":{\"description\":\"The error category\",\"example\":null,\"type\":\"string\"},\"context\":{\"additionalProperties\":{\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"Context about the error condition\",\"example\":\"{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}\",\"type\":\"object\"},\"correlationId\":{\"description\":\"A unique identifier for the request. Include this value with any error reports or support tickets\",\"example\":\"aeb5f871-7f07-4993-9211-075dc63e7cbf\",\"format\":\"uuid\",\"type\":\"string\"},\"errors\":{\"description\":\"further information about the error\",\"example\":null,\"items\":{\"description\":\"Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.\",\"example\":null,\"properties\":{\"code\":{\"description\":\"The status code associated with the error detail\",\"example\":null,\"type\":\"string\"},\"context\":{\"additionalProperties\":{\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"Context about the error condition\",\"example\":\"{missingScopes=[scope1, scope2]}\",\"type\":\"object\"},\"in\":{\"description\":\"The name of the field or parameter in which the error was found.\",\"example\":null,\"type\":\"string\"},\"message\":{\"description\":\"A human readable message describing the error along with remediation steps where appropriate\",\"example\":null,\"type\":\"string\"},\"subCategory\":{\"description\":\"A specific category that contains more specific detail about the error\",\"example\":null,\"type\":\"string\"}},\"required\":[\"message\"],\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"additionalProperties\":{\"example\":null,\"type\":\"string\"},\"description\":\"A map of link names to associated URIs containing documentation about the error or recommended remediation steps\",\"example\":null,\"type\":\"object\"},\"message\":{\"description\":\"A human readable message describing the error along with remediation steps where appropriate\",\"example\":\"An error occurred\",\"type\":\"string\"},\"subCategory\":{\"description\":\"A specific category that contains more specific detail about the error\",\"example\":null,\"type\":\"string\"}},\"required\":[\"category\",\"correlationId\",\"message\"],\"type\":\"object\"}}},\"description\":\"\"}},\"security\":[{\"oauth2\":[\"webhooks-journal-subscription-management\"]}],\"securitySchemes\":{\"developer_hapikey\":{\"in\":\"query\",\"name\":\"hapikey\",\"type\":\"apiKey\"},\"oauth2\":{\"flows\":{\"authorizationCode\":{\"authorizationUrl\":\"https://app.hubspot.com/oauth/authorize\",\"scopes\":{\"developers-read\":\"\",\"developers-write\":\"\",\"private-apps-read\":\"\",\"private-apps-write\":\"\",\"webhooks-journal-data-access\":\"\",\"webhooks-journal-snapshot-management\":\"\",\"webhooks-journal-subscription-management\":\"\",\"webhooks-journal-subscription-read\":\"\"},\"tokenUrl\":\"https://api.hubapi.com/oauth/v1/token\"}},\"type\":\"oauth2\"},\"private_apps\":{\"in\":\"header\",\"name\":\"private-app\",\"type\":\"apiKey\"},\"private_apps_legacy\":{\"in\":\"header\",\"name\":\"private-app-legacy\",\"type\":\"apiKey\"}},\"securitySource\":\"operation\"}"
+            source: "openapi3"
+            version: 1
+          }
+          method: "POST"
+          orig: "/webhooks-journal/subscriptions/2026-09"
+          segments: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: null
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          contract: {
+            id: "GET /webhooks-journal/subscriptions/2026-09/{subscriptionId}"
+            json: "{\"operationId\":\"get-/webhooks-journal/subscriptions/2026-09/{subscriptionId}_/webhooks-journal/subscriptions/2026-03/{subscriptionId}\",\"parameters\":[{\"description\":\"The unique identifier of the subscription to retrieve. It is an integer value.\",\"explode\":false,\"in\":\"path\",\"name\":\"subscriptionId\",\"required\":true,\"schema\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"style\":\"simple\"}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":null,\"schema\":{\"example\":null,\"properties\":{\"actionOverrides\":{\"additionalProperties\":{\"example\":null,\"properties\":{\"associatedObjectTypeIds\":{\"description\":\"An array of strings, each representing an associated object type ID relevant to the action override.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"listIds\":{\"description\":\"An array of integers representing list IDs that are associated with the action override. The integers are in int64 format.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"An array of integers, each representing an object ID for which the action override is applicable. The integers are in int64 format.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"properties\":{\"description\":\"An array of strings representing the properties to be overridden in the action. Each string corresponds to a property name.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"description\":\"An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.\",\"example\":null,\"type\":\"object\"},\"actions\":{\"description\":\"A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', 'ASSOCIATION_ADDED', 'ASSOCIATION_REMOVED', 'SNAPSHOT', 'APP_INSTALL', 'APP_UNINSTALL', 'ADDED_TO_LIST', 'REMOVED_FROM_LIST', and 'GDPR_DELETE'.\",\"example\":null,\"items\":{\"enum\":[\"CREATE\",\"UPDATE\",\"DELETE\",\"MERGE\",\"RESTORE\",\"ASSOCIATION_ADDED\",\"ASSOCIATION_REMOVED\",\"SNAPSHOT\",\"APP_INSTALL\",\"APP_UNINSTALL\",\"ADDED_TO_LIST\",\"REMOVED_FROM_LIST\",\"GDPR_DELETE\"],\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"appId\":{\"description\":\"The unique identifier for the app associated with the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"associatedObjectTypeIds\":{\"description\":\"A list of associated object type IDs. Each ID is a string.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"createdAt\":{\"description\":\"The date and time when the subscription was created, in ISO 8601 format.\",\"example\":null,\"format\":\"date-time\",\"type\":\"string\"},\"createdBy\":{\"description\":\"The ID of the user who created the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"deletedAt\":{\"description\":\"The date and time when the subscription was deleted, in ISO 8601 format, if applicable.\",\"example\":null,\"format\":\"date-time\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"listIds\":{\"description\":\"A list of list IDs associated with the subscription. Each ID is an integer formatted as int64.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectIds\":{\"description\":\"A list of object IDs associated with the subscription. Each ID is an integer formatted as int64.\",\"example\":null,\"items\":{\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"type\":\"array\"},\"objectTypeId\":{\"description\":\"The identifier for the object type associated with the subscription. It is a string.\",\"example\":null,\"type\":\"string\"},\"portalId\":{\"description\":\"The unique identifier for the portal associated with the subscription. It is an integer formatted as int64.\",\"example\":null,\"format\":\"int64\",\"type\":\"integer\"},\"properties\":{\"description\":\"A list of property names associated with the subscription. Each property is a string.\",\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"subscriptionType\":{\"description\":\"The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.\",\"enum\":[\"APP_LIFECYCLE_EVENT\",\"ASSOCIATION\",\"EVENT\",\"GDPR_PRIVACY_DELETION\",\"LIST_MEMBERSHIP\",\"OBJECT\"],\"example\":null,\"type\":\"string\"},\"updatedAt\":{\"description\":\"The date and time when the subscription was last updated, in ISO 8601 format.\",\"example\":null,\"format\":\"date-time\",\"type\":\"string\"}},\"required\":[\"actions\",\"appId\",\"createdAt\",\"id\",\"objectTypeId\",\"subscriptionType\",\"updatedAt\"],\"type\":\"object\"}}},\"description\":\"successful operation\"},\"default\":{\"content\":{\"*/*\":{\"example\":null,\"schema\":{\"description\":\"Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.\",\"example\":{\"category\":\"VALIDATION_ERROR\",\"correlationId\":\"aeb5f871-7f07-4993-9211-075dc63e7cbf\",\"links\":{\"knowledge-base\":\"https://www.hubspot.com/products/service/knowledge-base\"},\"message\":\"Invalid input (details will vary based on the error)\"},\"properties\":{\"category\":{\"description\":\"The error category\",\"example\":null,\"type\":\"string\"},\"context\":{\"additionalProperties\":{\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"Context about the error condition\",\"example\":\"{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}\",\"type\":\"object\"},\"correlationId\":{\"description\":\"A unique identifier for the request. Include this value with any error reports or support tickets\",\"example\":\"aeb5f871-7f07-4993-9211-075dc63e7cbf\",\"format\":\"uuid\",\"type\":\"string\"},\"errors\":{\"description\":\"further information about the error\",\"example\":null,\"items\":{\"description\":\"Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.\",\"example\":null,\"properties\":{\"code\":{\"description\":\"The status code associated with the error detail\",\"example\":null,\"type\":\"string\"},\"context\":{\"additionalProperties\":{\"example\":null,\"items\":{\"example\":null,\"type\":\"string\"},\"type\":\"array\"},\"description\":\"Context about the error condition\",\"example\":\"{missingScopes=[scope1, scope2]}\",\"type\":\"object\"},\"in\":{\"description\":\"The name of the field or parameter in which the error was found.\",\"example\":null,\"type\":\"string\"},\"message\":{\"description\":\"A human readable message describing the error along with remediation steps where appropriate\",\"example\":null,\"type\":\"string\"},\"subCategory\":{\"description\":\"A specific category that contains more specific detail about the error\",\"example\":null,\"type\":\"string\"}},\"required\":[\"message\"],\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"additionalProperties\":{\"example\":null,\"type\":\"string\"},\"description\":\"A map of link names to associated URIs containing documentation about the error or recommended remediation steps\",\"example\":null,\"type\":\"object\"},\"message\":{\"description\":\"A human readable message describing the error along with remediation steps where appropriate\",\"example\":\"An error occurred\",\"type\":\"string\"},\"subCategory\":{\"description\":\"A specific category that contains more specific detail about the error\",\"example\":null,\"type\":\"string\"}},\"required\":[\"category\",\"correlationId\",\"message\"],\"type\":\"object\"}}},\"description\":\"\"}},\"security\":[{\"oauth2\":[\"webhooks-journal-subscription-read\"]}],\"securitySchemes\":{\"developer_hapikey\":{\"in\":\"query\",\"name\":\"hapikey\",\"type\":\"apiKey\"},\"oauth2\":{\"flows\":{\"authorizationCode\":{\"authorizationUrl\":\"https://app.hubspot.com/oauth/authorize\",\"scopes\":{\"developers-read\":\"\",\"developers-write\":\"\",\"private-apps-read\":\"\",\"private-apps-write\":\"\",\"webhooks-journal-data-access\":\"\",\"webhooks-journal-snapshot-management\":\"\",\"webhooks-journal-subscription-management\":\"\",\"webhooks-journal-subscription-read\":\"\"},\"tokenUrl\":\"https://api.hubapi.com/oauth/v1/token\"}},\"type\":\"oauth2\"},\"private_apps\":{\"in\":\"header\",\"name\":\"private-app\",\"type\":\"apiKey\"},\"private_apps_legacy\":{\"in\":\"header\",\"name\":\"private-app-legacy\",\"type\":\"apiKey\"}},\"securitySource\":\"operation\"}"
+            source: "openapi3"
+            version: 1
+          }
+          method: "GET"
+          orig: "/webhooks-journal/subscriptions/2026-09/{subscriptionId}"
+          rename: {
+            param: {
+              subscriptionId: "subscription_id"
+            }
+          }
+          segments: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "subscription_id"
+            }
+          ]
+          select: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "2026_09"
+      ]
+    ]
+  }
+
+
+
+}

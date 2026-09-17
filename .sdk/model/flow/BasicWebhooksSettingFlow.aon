@@ -1,0 +1,51 @@
+# BasicWebhooksSettingFlow
+
+main: kit: flow: BasicWebhooksSettingFlow:
+{
+  entity: "webhooks_setting",
+  kind: "basic",
+  name: "BasicWebhooksSettingFlow",
+  step: [
+    {
+      input: {
+        ref: "webhooks_setting_ref01",
+        srcdatavar: "webhooks_setting_ref01_data",
+        suffix: "_up0",
+        textfield: "targetUrl"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_setting_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "webhooks_setting_ref01",
+        srcdatavar: "webhooks_setting_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "webhooks_setting01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_setting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksSettingFlow"
+}

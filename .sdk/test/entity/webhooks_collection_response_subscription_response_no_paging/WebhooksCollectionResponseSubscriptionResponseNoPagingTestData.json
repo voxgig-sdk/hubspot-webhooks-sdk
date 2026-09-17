@@ -1,0 +1,459 @@
+{
+  "existing": {
+    "webhooks_collection_response_subscription_response_no_paging": {
+      "WEBHOOKS_COLLECTION_RESPONSE_SUBSCRIPTION_RESPONSE_NO_PAGING00": {
+        "actionOverrides": {},
+        "actions": [],
+        "appId": 152,
+        "associatedObjectTypeIds": [],
+        "createdAt": "s9a",
+        "createdBy": 155,
+        "deletedAt": "s9c",
+        "id": "WEBHOOKS_COLLECTION_RESPONSE_SUBSCRIPTION_RESPONSE_NO_PAGING00",
+        "listIds": [],
+        "objectIds": [],
+        "objectTypeId": "sa0",
+        "portalId": 161,
+        "properties": [],
+        "subscriptionType": "sa3",
+        "updatedAt": "sa4"
+      },
+      "WEBHOOKS_COLLECTION_RESPONSE_SUBSCRIPTION_RESPONSE_NO_PAGING01": {
+        "actionOverrides": {},
+        "actions": [],
+        "appId": 302,
+        "associatedObjectTypeIds": [],
+        "createdAt": "s130",
+        "createdBy": 305,
+        "deletedAt": "s132",
+        "id": "WEBHOOKS_COLLECTION_RESPONSE_SUBSCRIPTION_RESPONSE_NO_PAGING01",
+        "listIds": [],
+        "objectIds": [],
+        "objectTypeId": "s136",
+        "portalId": 311,
+        "properties": [],
+        "subscriptionType": "s139",
+        "updatedAt": "s13a"
+      },
+      "WEBHOOKS_COLLECTION_RESPONSE_SUBSCRIPTION_RESPONSE_NO_PAGING02": {
+        "actionOverrides": {},
+        "actions": [],
+        "appId": 452,
+        "associatedObjectTypeIds": [],
+        "createdAt": "s1c6",
+        "createdBy": 455,
+        "deletedAt": "s1c8",
+        "id": "WEBHOOKS_COLLECTION_RESPONSE_SUBSCRIPTION_RESPONSE_NO_PAGING02",
+        "listIds": [],
+        "objectIds": [],
+        "objectTypeId": "s1cc",
+        "portalId": 461,
+        "properties": [],
+        "subscriptionType": "s1cf",
+        "updatedAt": "s1d0"
+      }
+    }
+  },
+  "new": {
+    "webhooks_collection_response_subscription_response_no_paging": {
+      "webhooks_collection_response_subscription_response_no_paging_ref01": {
+        "actionOverrides": {},
+        "actions": [],
+        "appId": 602,
+        "associatedObjectTypeIds": [],
+        "createdAt": "s25c",
+        "createdBy": 605,
+        "deletedAt": "s25e",
+        "listIds": [],
+        "objectIds": [],
+        "objectTypeId": "s262",
+        "portalId": 611,
+        "properties": [],
+        "subscriptionType": "s265",
+        "updatedAt": "s266"
+      }
+    }
+  },
+  "requests": {
+    "GET /webhooks-journal/subscriptions/2026-09": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "get-/webhooks-journal/subscriptions/2026-09_/webhooks-journal/subscriptions/2026-03",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "results": {
+                      "description": "An array of SubscriptionResponse objects, each representing a subscription's details such as actions, appId, createdAt, and other relevant properties.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "actionOverrides": {
+                            "additionalProperties": {
+                              "example": null,
+                              "properties": {
+                                "associatedObjectTypeIds": {
+                                  "description": "An array of strings, each representing an associated object type ID relevant to the action override.",
+                                  "example": null,
+                                  "items": {
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "listIds": {
+                                  "description": "An array of integers representing list IDs that are associated with the action override. The integers are in int64 format.",
+                                  "example": null,
+                                  "items": {
+                                    "example": null,
+                                    "format": "int64",
+                                    "type": "integer"
+                                  },
+                                  "type": "array"
+                                },
+                                "objectIds": {
+                                  "description": "An array of integers, each representing an object ID for which the action override is applicable. The integers are in int64 format.",
+                                  "example": null,
+                                  "items": {
+                                    "example": null,
+                                    "format": "int64",
+                                    "type": "integer"
+                                  },
+                                  "type": "array"
+                                },
+                                "properties": {
+                                  "description": "An array of strings representing the properties to be overridden in the action. Each string corresponds to a property name.",
+                                  "example": null,
+                                  "items": {
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "description": "An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "actions": {
+                            "description": "A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', 'ASSOCIATION_ADDED', 'ASSOCIATION_REMOVED', 'SNAPSHOT', 'APP_INSTALL', 'APP_UNINSTALL', 'ADDED_TO_LIST', 'REMOVED_FROM_LIST', and 'GDPR_DELETE'.",
+                            "example": null,
+                            "items": {
+                              "enum": [
+                                "CREATE",
+                                "UPDATE",
+                                "DELETE",
+                                "MERGE",
+                                "RESTORE",
+                                "ASSOCIATION_ADDED",
+                                "ASSOCIATION_REMOVED",
+                                "SNAPSHOT",
+                                "APP_INSTALL",
+                                "APP_UNINSTALL",
+                                "ADDED_TO_LIST",
+                                "REMOVED_FROM_LIST",
+                                "GDPR_DELETE"
+                              ],
+                              "example": null,
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "appId": {
+                            "description": "The unique identifier for the app associated with the subscription. It is an integer formatted as int64.",
+                            "example": null,
+                            "format": "int64",
+                            "type": "integer"
+                          },
+                          "associatedObjectTypeIds": {
+                            "description": "A list of associated object type IDs. Each ID is a string.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "createdAt": {
+                            "description": "The date and time when the subscription was created, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdBy": {
+                            "description": "The ID of the user who created the subscription. It is an integer formatted as int64.",
+                            "example": null,
+                            "format": "int64",
+                            "type": "integer"
+                          },
+                          "deletedAt": {
+                            "description": "The date and time when the subscription was deleted, in ISO 8601 format, if applicable.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The unique identifier for the subscription. It is an integer formatted as int64.",
+                            "example": null,
+                            "format": "int64",
+                            "type": "integer"
+                          },
+                          "listIds": {
+                            "description": "A list of list IDs associated with the subscription. Each ID is an integer formatted as int64.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "format": "int64",
+                              "type": "integer"
+                            },
+                            "type": "array"
+                          },
+                          "objectIds": {
+                            "description": "A list of object IDs associated with the subscription. Each ID is an integer formatted as int64.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "format": "int64",
+                              "type": "integer"
+                            },
+                            "type": "array"
+                          },
+                          "objectTypeId": {
+                            "description": "The identifier for the object type associated with the subscription. It is a string.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "portalId": {
+                            "description": "The unique identifier for the portal associated with the subscription. It is an integer formatted as int64.",
+                            "example": null,
+                            "format": "int64",
+                            "type": "integer"
+                          },
+                          "properties": {
+                            "description": "A list of property names associated with the subscription. Each property is a string.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "subscriptionType": {
+                            "description": "The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.",
+                            "enum": [
+                              "APP_LIFECYCLE_EVENT",
+                              "ASSOCIATION",
+                              "EVENT",
+                              "GDPR_PRIVACY_DELETION",
+                              "LIST_MEMBERSHIP",
+                              "OBJECT"
+                            ],
+                            "example": null,
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the subscription was last updated, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "actions",
+                          "appId",
+                          "createdAt",
+                          "id",
+                          "objectTypeId",
+                          "subscriptionType",
+                          "updatedAt"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "results"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "Context about the error condition",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request. Include this value with any error reports or support tickets",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "further information about the error",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "code": {
+                            "description": "The status code associated with the error detail",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "Context about the error condition",
+                            "example": "{missingScopes=[scope1, scope2]}",
+                            "type": "object"
+                          },
+                          "in": {
+                            "description": "The name of the field or parameter in which the error was found.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "A human readable message describing the error along with remediation steps where appropriate",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "A specific category that contains more specific detail about the error",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category that contains more specific detail about the error",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "webhooks-journal-subscription-read"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "developers-read": "",
+                  "developers-write": "",
+                  "private-apps-read": "",
+                  "private-apps-write": "",
+                  "webhooks-journal-data-access": "",
+                  "webhooks-journal-snapshot-management": "",
+                  "webhooks-journal-subscription-management": "",
+                  "webhooks-journal-subscription-read": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

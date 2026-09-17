@@ -1,0 +1,168 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 11
+  metrics: count: path: 27
+  metrics: count: method: 35
+
+  entity: basic: {
+    path: "/app-webhooks/2026-09/{appId}/settings": {
+      rename: param: "appId": *"2026_09_id"
+      op: remove: method: *DELETE
+    }
+    path: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}": {
+      rename: param: "appId": *"2026_09_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: remove: method: *DELETE
+    }
+    path: "/webhooks-journal/journal-local/2026-09/earliest": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal-local/2026-09/latest": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal-local/2026-09/offset/{offset}/next": {
+      rename: param: "offset": *"offset_id"
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/earliest": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/latest": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/offset/{offset}/next": {
+      rename: param: "offset": *"offset_id"
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/subscriptions/2026-09/filters/{filterId}": {
+      rename: param: "filterId": *"filter_id"
+      op: remove: method: *DELETE
+    }
+    path: "/webhooks-journal/subscriptions/2026-09/portals/{portalId}": {
+      rename: param: "portalId": *"portal_id"
+      op: remove: method: *DELETE
+    }
+    path: "/webhooks-journal/subscriptions/2026-09/{subscriptionId}": {
+      rename: param: "subscriptionId": *"subscription_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: webhooks_batch_response_journal_fetch: {
+    path: "/webhooks-journal/journal-local/2026-09/batch/earliest/{count}": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal-local/2026-09/batch/latest/{count}": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal-local/2026-09/batch/read": {
+      op: create: method: *POST
+    }
+    path: "/webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}": {
+      rename: param: "offset": *"batch_id"
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/batch/earliest/{count}": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/batch/latest/{count}": {
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/batch/read": {
+      op: create: method: *POST
+    }
+    path: "/webhooks-journal/journal/2026-09/batch/{offset}/next/{count}": {
+      rename: param: "offset": *"batch_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: webhooks_batch_response_subscription: {
+    path: "/app-webhooks/2026-09/{appId}/subscriptions/batch/update": {
+      rename: param: "appId": *"2026_09_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: webhooks_collection_response_subscription_response_no_paging: {
+    path: "/webhooks-journal/subscriptions/2026-09": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: webhooks_crm_object_snapshot_batch: {
+    path: "/webhooks-journal/snapshots/2026-09/crm": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: webhooks_filter: {
+    path: "/webhooks-journal/subscriptions/2026-09/filters": {
+      op: create: method: *POST
+    }
+    path: "/webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}": {
+      rename: param: "subscriptionId": *"subscription_id"
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/subscriptions/2026-09/filters/{filterId}": {
+      rename: param: "filterId": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.filter`")|top
+    }
+  }
+
+  entity: webhooks_setting: {
+    path: "/app-webhooks/2026-09/{appId}/settings": {
+      rename: param: "appId": *"2026_09_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.throttling`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.throttling`")|top
+    }
+  }
+
+  entity: webhooks_snapshot_status: {
+    path: "/webhooks-journal/journal-local/2026-09/status/{statusId}": {
+      rename: param: "statusId": *"id"
+      op: load: method: *GET
+    }
+    path: "/webhooks-journal/journal/2026-09/status/{statusId}": {
+      rename: param: "statusId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: webhooks_subscription: {
+    path: "/app-webhooks/2026-09/{appId}/subscriptions": {
+      rename: param: "appId": *"2026_09_id"
+      op: create: method: *POST
+    }
+    path: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}": {
+      rename: param: "appId": *"2026_09_id"
+      rename: param: "subscriptionId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: webhooks_subscription_list: {
+    path: "/app-webhooks/2026-09/{appId}/subscriptions": {
+      rename: param: "appId": *"2026_09_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: webhooks_subscription_response_1: {
+    path: "/webhooks-journal/subscriptions/2026-09": {
+      op: create: method: *POST
+    }
+    path: "/webhooks-journal/subscriptions/2026-09/{subscriptionId}": {
+      rename: param: "subscriptionId": *"subscription_id"
+      op: load: method: *GET
+    }
+  }
+
+}

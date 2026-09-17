@@ -1,0 +1,18 @@
+# BasicWebhooksCrmObjectSnapshotBatchFlow
+
+main: kit: flow: BasicWebhooksCrmObjectSnapshotBatchFlow:
+{
+  entity: "webhooks_crm_object_snapshot_batch",
+  kind: "basic",
+  name: "BasicWebhooksCrmObjectSnapshotBatchFlow",
+  step: [
+    {
+      input: {
+        ref: "webhooks_crm_object_snapshot_batch_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicWebhooksCrmObjectSnapshotBatchFlow"
+}

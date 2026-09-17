@@ -1,0 +1,68 @@
+# BasicWebhooksSubscriptionFlow
+
+main: kit: flow: BasicWebhooksSubscriptionFlow:
+{
+  entity: "webhooks_subscription",
+  kind: "basic",
+  name: "BasicWebhooksSubscriptionFlow",
+  step: [
+    {
+      input: {
+        ref: "webhooks_subscription_ref01"
+      }
+
+      match: {
+        "2026_09_id": "2026_0901"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        "2026_09_id": "2026_0901"
+      }
+
+      input: {
+        ref: "webhooks_subscription_ref01",
+        srcdatavar: "webhooks_subscription_ref01_data",
+        suffix: "_up0",
+        textfield: "createdAt"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_subscription_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "webhooks_subscription_ref01",
+        srcdatavar: "webhooks_subscription_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        "2026_09_id": "2026_0901",
+        id: "webhooks_subscription01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_subscription_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksSubscriptionFlow"
+}

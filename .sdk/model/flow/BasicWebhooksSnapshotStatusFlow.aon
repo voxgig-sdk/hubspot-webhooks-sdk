@@ -1,0 +1,32 @@
+# BasicWebhooksSnapshotStatusFlow
+
+main: kit: flow: BasicWebhooksSnapshotStatusFlow:
+{
+  entity: "webhooks_snapshot_status",
+  kind: "basic",
+  name: "BasicWebhooksSnapshotStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "webhooks_snapshot_status_ref01",
+        srcdatavar: "webhooks_snapshot_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "webhooks_snapshot_status01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_snapshot_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksSnapshotStatusFlow"
+}

@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WebhooksFilter | HubSpot Webhooks API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">HubSpot Webhooks API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/hubspot-webhooks-sdk">voxgig-sdk/hubspot-webhooks-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">HubSpot Webhooks API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/basic.html">Basic</a>
+<a href="../api/webhooks_batch_response_journal_fetch.html">WebhooksBatchResponseJournalFetch</a>
+<a href="../api/webhooks_batch_response_subscription.html">WebhooksBatchResponseSubscription</a>
+<a href="../api/webhooks_collection_response_subscription_response_no_paging.html">WebhooksCollectionResponseSubscriptionResponseNoPaging</a>
+<a href="../api/webhooks_crm_object_snapshot_batch.html">WebhooksCrmObjectSnapshotBatch</a>
+<a aria-current="page" href="../api/webhooks_filter.html">WebhooksFilter</a><div class="nav-sections"><a class="nav-section" href="#post-webhooks-journalsubscriptions2026-09filters">POST /webhooks-journal/subscriptions/2026-09/filters</a>
+<a class="nav-section" href="#get-webhooks-journalsubscriptions2026-09filtersfilterid">GET /webhooks-journal/subscriptions/2026-09/filters/{filterId}</a>
+<a class="nav-section" href="#get-webhooks-journalsubscriptions2026-09filterssubscriptionsubscriptionid">GET /webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}</a></div>
+<a href="../api/webhooks_setting.html">WebhooksSetting</a>
+<a href="../api/webhooks_snapshot_status.html">WebhooksSnapshotStatus</a>
+<a href="../api/webhooks_subscription.html">WebhooksSubscription</a>
+<a href="../api/webhooks_subscription_list.html">WebhooksSubscriptionList</a>
+<a href="../api/webhooks_subscription_response_1.html">WebhooksSubscriptionResponse1</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhooksfilter">WebhooksFilter</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-webhooks-journalsubscriptions2026-09filters"><code>/webhooks-journal/subscriptions/2026-09/filters</code></a></td>
+<td><code>create</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journalsubscriptions2026-09filtersfilterid"><code>/webhooks-journal/subscriptions/2026-09/filters/{filterId}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journalsubscriptions2026-09filterssubscriptionsubscriptionid"><code>/webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>conditions</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>An array of conditions that define the criteria for the filter.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>A Unix timestamp in milliseconds indicating when the filter was created.</td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Defines a single condition for searching CRM objects, specifying the property to filter on, the operator to use (such as equals, greater than, or contains), and the value(s) to compare against.</td>
+</tr>
+<tr>
+<td><code>filterId</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>The unique identifier for the created filter.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>The unique identifier for the filter.</td>
+</tr>
+<tr>
+<td><code>subscriptionId</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>The unique identifier of the subscription to which the filter will be applied.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-webhooks-journalsubscriptions2026-09filters" class="operation" data-method="post"><code>POST</code> /webhooks-journal/subscriptions/2026-09/filters</h3>
+<p>Operation ID: <code>post-/webhooks-journal/subscriptions/2026-09/filters_/webhooks-journal/subscriptions/2026-03/filters</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Defines a single condition for searching CRM objects, specifying the property to filter on, the operator to use (such as equals, greater than, or contains), and the value(s) to compare against.</td>
+</tr>
+<tr>
+<td><code>filter.conditions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of conditions that define the criteria for the filter. Each condition specifies a property, an operator, and optionally a value or values.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].filterType</code></td>
+<td><code>enum: CRM_OBJECT_PROPERTY</code></td>
+<td>Yes</td>
+<td>A string indicating the type of filter being applied. Valid value is 'CRM_OBJECT_PROPERTY'.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].operator</code></td>
+<td><code>enum: CONTAINS, ENDS_WITH, EQ, GT, GTE, IN, ...</code></td>
+<td>Yes</td>
+<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', 'N_EQ', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH', 'IN', 'NOT_IN', 'IS_EMPTY', and 'IS_NOT_EMPTY'.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].property</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string representing the specific property of the CRM object that the condition applies to.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing the value to be compared against the specified property when using single-value operators.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].values</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or 'NOT_IN'.</td>
+</tr>
+<tr>
+<td><code>subscriptionId</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The unique identifier of the subscription to which the filter will be applied. It is an integer formatted as int64.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-successful-operation" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filterId</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the created filter. It is an integer formatted as int64.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-webhooks-journalsubscriptions2026-09filtersfilterid" class="operation" data-method="get"><code>GET</code> /webhooks-journal/subscriptions/2026-09/filters/{filterId}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/subscriptions/2026-09/filters/{filterId}_/webhooks-journal/subscriptions/2026-03/filters/{filterId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>filterId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The unique identifier of the filter to retrieve. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-successful-operation-1" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>A Unix timestamp in milliseconds indicating when the filter was created.</td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Defines a single condition for searching CRM objects, specifying the property to filter on, the operator to use (such as equals, greater than, or contains), and the value(s) to compare against.</td>
+</tr>
+<tr>
+<td><code>filter.conditions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of conditions that define the criteria for the filter. Each condition specifies a property, an operator, and optionally a value or values.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].filterType</code></td>
+<td><code>enum: CRM_OBJECT_PROPERTY</code></td>
+<td>Yes</td>
+<td>A string indicating the type of filter being applied. Valid value is 'CRM_OBJECT_PROPERTY'.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].operator</code></td>
+<td><code>enum: CONTAINS, ENDS_WITH, EQ, GT, GTE, IN, ...</code></td>
+<td>Yes</td>
+<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', 'N_EQ', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH', 'IN', 'NOT_IN', 'IS_EMPTY', and 'IS_NOT_EMPTY'.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].property</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string representing the specific property of the CRM object that the condition applies to.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing the value to be compared against the specified property when using single-value operators.</td>
+</tr>
+<tr>
+<td><code>filter.conditions[].values</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or 'NOT_IN'.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the filter. It is an integer in int64 format.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-1">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journalsubscriptions2026-09filterssubscriptionsubscriptionid" class="operation" data-method="get"><code>GET</code> /webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}_/webhooks-journal/subscriptions/2026-03/filters/subscription/{subscriptionId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>subscriptionId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The unique identifier of the subscription for which to retrieve filters. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-successful-operation-2" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].createdAt</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>A Unix timestamp in milliseconds indicating when the filter was created.</td>
+</tr>
+<tr>
+<td><code>[].filter</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Defines a single condition for searching CRM objects, specifying the property to filter on, the operator to use (such as equals, greater than, or contains), and the value(s) to compare against.</td>
+</tr>
+<tr>
+<td><code>[].filter.conditions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of conditions that define the criteria for the filter. Each condition specifies a property, an operator, and optionally a value or values.</td>
+</tr>
+<tr>
+<td><code>[].filter.conditions[].filterType</code></td>
+<td><code>enum: CRM_OBJECT_PROPERTY</code></td>
+<td>Yes</td>
+<td>A string indicating the type of filter being applied. Valid value is 'CRM_OBJECT_PROPERTY'.</td>
+</tr>
+<tr>
+<td><code>[].filter.conditions[].operator</code></td>
+<td><code>enum: CONTAINS, ENDS_WITH, EQ, GT, GTE, IN, ...</code></td>
+<td>Yes</td>
+<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', 'N_EQ', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH', 'IN', 'NOT_IN', 'IS_EMPTY', and 'IS_NOT_EMPTY'.</td>
+</tr>
+<tr>
+<td><code>[].filter.conditions[].property</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string representing the specific property of the CRM object that the condition applies to.</td>
+</tr>
+<tr>
+<td><code>[].filter.conditions[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing the value to be compared against the specified property when using single-value operators.</td>
+</tr>
+<tr>
+<td><code>[].filter.conditions[].values</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or 'NOT_IN'.</td>
+</tr>
+<tr>
+<td><code>[].id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the filter. It is an integer in int64 format.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-2">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

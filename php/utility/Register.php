@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+// HubspotWebhooks SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+HubspotWebhooksUtility::setRegistrar(function (HubspotWebhooksUtility $u): void {
+    $u->clean = [HubspotWebhooksClean::class, 'call'];
+    $u->done = [HubspotWebhooksDone::class, 'call'];
+    $u->make_error = [HubspotWebhooksMakeError::class, 'call'];
+    $u->feature_add = [HubspotWebhooksFeatureAdd::class, 'call'];
+    $u->feature_hook = [HubspotWebhooksFeatureHook::class, 'call'];
+    $u->feature_init = [HubspotWebhooksFeatureInit::class, 'call'];
+    $u->fetcher = [HubspotWebhooksFetcher::class, 'call'];
+    $u->make_fetch_def = [HubspotWebhooksMakeFetchDef::class, 'call'];
+    $u->make_context = [HubspotWebhooksMakeContext::class, 'call'];
+    $u->make_options = [HubspotWebhooksMakeOptions::class, 'call'];
+    $u->make_request = [HubspotWebhooksMakeRequest::class, 'call'];
+    $u->make_response = [HubspotWebhooksMakeResponse::class, 'call'];
+    $u->make_result = [HubspotWebhooksMakeResult::class, 'call'];
+    $u->make_point = [HubspotWebhooksMakePoint::class, 'call'];
+    $u->make_spec = [HubspotWebhooksMakeSpec::class, 'call'];
+    $u->make_url = [HubspotWebhooksMakeUrl::class, 'call'];
+    $u->param = [HubspotWebhooksParam::class, 'call'];
+    $u->prepare_auth = [HubspotWebhooksPrepareAuth::class, 'call'];
+    $u->prepare_body = [HubspotWebhooksPrepareBody::class, 'call'];
+    $u->prepare_headers = [HubspotWebhooksPrepareHeaders::class, 'call'];
+    $u->prepare_method = [HubspotWebhooksPrepareMethod::class, 'call'];
+    $u->prepare_params = [HubspotWebhooksPrepareParams::class, 'call'];
+    $u->prepare_path = [HubspotWebhooksPreparePath::class, 'call'];
+    $u->prepare_query = [HubspotWebhooksPrepareQuery::class, 'call'];
+    $u->graphql_body = [HubspotWebhooksGraphql::class, 'body'];
+    $u->graphql_errors = [HubspotWebhooksGraphql::class, 'errors'];
+    $u->result_basic = [HubspotWebhooksResultBasic::class, 'call'];
+    $u->result_body = [HubspotWebhooksResultBody::class, 'call'];
+    $u->result_headers = [HubspotWebhooksResultHeaders::class, 'call'];
+    $u->transform_request = [HubspotWebhooksTransformRequest::class, 'call'];
+    $u->transform_response = [HubspotWebhooksTransformResponse::class, 'call'];
+});

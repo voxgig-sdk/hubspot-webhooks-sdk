@@ -1,0 +1,1755 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WebhooksBatchResponseJournalFetch | HubSpot Webhooks API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">HubSpot Webhooks API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/hubspot-webhooks-sdk">voxgig-sdk/hubspot-webhooks-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">HubSpot Webhooks API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/basic.html">Basic</a>
+<a aria-current="page" href="../api/webhooks_batch_response_journal_fetch.html">WebhooksBatchResponseJournalFetch</a><div class="nav-sections"><a class="nav-section" href="#post-webhooks-journaljournal-local2026-09batchread">POST /webhooks-journal/journal-local/2026-09/batch/read</a>
+<a class="nav-section" href="#post-webhooks-journaljournal2026-09batchread">POST /webhooks-journal/journal/2026-09/batch/read</a>
+<a class="nav-section" href="#get-webhooks-journaljournal-local2026-09batchoffsetnextcount">GET /webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}</a>
+<a class="nav-section" href="#get-webhooks-journaljournal2026-09batchoffsetnextcount">GET /webhooks-journal/journal/2026-09/batch/{offset}/next/{count}</a>
+<a class="nav-section" href="#get-webhooks-journaljournal-local2026-09batchearliestcount">GET /webhooks-journal/journal-local/2026-09/batch/earliest/{count}</a>
+<a class="nav-section" href="#get-webhooks-journaljournal-local2026-09batchlatestcount">GET /webhooks-journal/journal-local/2026-09/batch/latest/{count}</a>
+<a class="nav-section" href="#get-webhooks-journaljournal2026-09batchearliestcount">GET /webhooks-journal/journal/2026-09/batch/earliest/{count}</a>
+<a class="nav-section" href="#get-webhooks-journaljournal2026-09batchlatestcount">GET /webhooks-journal/journal/2026-09/batch/latest/{count}</a></div>
+<a href="../api/webhooks_batch_response_subscription.html">WebhooksBatchResponseSubscription</a>
+<a href="../api/webhooks_collection_response_subscription_response_no_paging.html">WebhooksCollectionResponseSubscriptionResponseNoPaging</a>
+<a href="../api/webhooks_crm_object_snapshot_batch.html">WebhooksCrmObjectSnapshotBatch</a>
+<a href="../api/webhooks_filter.html">WebhooksFilter</a>
+<a href="../api/webhooks_setting.html">WebhooksSetting</a>
+<a href="../api/webhooks_snapshot_status.html">WebhooksSnapshotStatus</a>
+<a href="../api/webhooks_subscription.html">WebhooksSubscription</a>
+<a href="../api/webhooks_subscription_list.html">WebhooksSubscriptionList</a>
+<a href="../api/webhooks_subscription_response_1.html">WebhooksSubscriptionResponse1</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhooksbatchresponsejournalfetch">WebhooksBatchResponseJournalFetch</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-webhooks-journaljournal-local2026-09batchread"><code>/webhooks-journal/journal-local/2026-09/batch/read</code></a></td>
+<td><code>create</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-webhooks-journaljournal2026-09batchread"><code>/webhooks-journal/journal/2026-09/batch/read</code></a></td>
+<td><code>create</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal-local2026-09batchoffsetnextcount"><code>/webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal2026-09batchoffsetnextcount"><code>/webhooks-journal/journal/2026-09/batch/{offset}/next/{count}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal-local2026-09batchearliestcount"><code>/webhooks-journal/journal-local/2026-09/batch/earliest/{count}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal-local2026-09batchlatestcount"><code>/webhooks-journal/journal-local/2026-09/batch/latest/{count}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal2026-09batchearliestcount"><code>/webhooks-journal/journal/2026-09/batch/earliest/{count}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-webhooks-journaljournal2026-09batchlatestcount"><code>/webhooks-journal/journal/2026-09/batch/latest/{count}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>An array of strings to be processed.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-webhooks-journaljournal-local2026-09batchread" class="operation" data-method="post"><code>POST</code> /webhooks-journal/journal-local/2026-09/batch/read</h3>
+<p>Operation ID: <code>post-/webhooks-journal/journal-local/2026-09/batch/read_/webhooks-journal/journal-local/2026-03/batch/read</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | An integer representing the ID of the portal installation. This parameter is used to specify the portal context for the request. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>An array of strings to be processed. This property is required.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-successful-operation" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="207-multiple-statuses" class="status" data-status="2xx">207: multiple statuses</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch process was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of standard errors that occurred during the batch process, providing details about each error.</td>
+</tr>
+<tr>
+<td><code>errors[].category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string indicating the category of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object containing additional context about the error condition, with each property being an array of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of ErrorDetail objects providing further information about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>errors[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string that uniquely identifies the error instance.</td>
+</tr>
+<tr>
+<td><code>errors[].links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object mapping link names to associated URIs that contain documentation about the error or recommended remediation steps.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string containing a human-readable message describing the error.</td>
+</tr>
+<tr>
+<td><code>errors[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string representing the status of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing more specific categorization of the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional context or actions related to the batch process.</td>
+</tr>
+<tr>
+<td><code>numErrors</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of errors that occurred during the batch process.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch request was made, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of journal fetch responses, each representing a result from the batch process.</td>
+</tr>
+<tr>
+<td><code>results[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch process started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch process. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-webhooks-journaljournal2026-09batchread" class="operation" data-method="post"><code>POST</code> /webhooks-journal/journal/2026-09/batch/read</h3>
+<p>Operation ID: <code>post-/webhooks-journal/journal/2026-09/batch/read_/webhooks-journal/journal/2026-03/batch/read</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal where the webhooks are installed. This is an integer value. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>An array of strings to be processed. This property is required.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-successful-operation-1" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="207-multiple-statuses-1" class="status" data-status="2xx">207: multiple statuses</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch process was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of standard errors that occurred during the batch process, providing details about each error.</td>
+</tr>
+<tr>
+<td><code>errors[].category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string indicating the category of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object containing additional context about the error condition, with each property being an array of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of ErrorDetail objects providing further information about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>errors[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string that uniquely identifies the error instance.</td>
+</tr>
+<tr>
+<td><code>errors[].links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object mapping link names to associated URIs that contain documentation about the error or recommended remediation steps.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string containing a human-readable message describing the error.</td>
+</tr>
+<tr>
+<td><code>errors[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string representing the status of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing more specific categorization of the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional context or actions related to the batch process.</td>
+</tr>
+<tr>
+<td><code>numErrors</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of errors that occurred during the batch process.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch request was made, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of journal fetch responses, each representing a result from the batch process.</td>
+</tr>
+<tr>
+<td><code>results[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch process started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch process. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-1">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-webhooks-journaljournal-local2026-09batchoffsetnextcount" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}_/webhooks-journal/journal-local/2026-03/batch/{offset}/next/{count}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>count</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The number of journal entries to retrieve in the batch. This is an integer and must be at least 1. |
+| <code>offset</code> | <code>path</code> | <code>string</code> | Yes | The starting point for fetching the next batch of journal entries. This is a string value. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal where the webhooks are installed. This is an integer value. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-successful-operation-2" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-2">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal2026-09batchoffsetnextcount" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal/2026-09/batch/{offset}/next/{count}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal/2026-09/batch/{offset}/next/{count}_/webhooks-journal/journal/2026-03/batch/{offset}/next/{count}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>count</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The number of entries to retrieve in the batch. This is an integer and must be at least 1. |
+| <code>offset</code> | <code>path</code> | <code>string</code> | Yes | The starting point in the journal from which entries will be fetched. This is a string value. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | An optional integer parameter to specify the portal ID for which the webhook journal entries should be retrieved. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-successful-operation-3" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-3">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal-local2026-09batchearliestcount" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal-local/2026-09/batch/earliest/{count}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal-local/2026-09/batch/earliest/{count}_/webhooks-journal/journal-local/2026-03/batch/earliest/{count}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>count</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The number of entries to retrieve in the batch. This must be an integer with a minimum value of 1. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal where the webhook is installed. This is an integer value. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-successful-operation-4" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-4">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal-local2026-09batchlatestcount" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal-local/2026-09/batch/latest/{count}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal-local/2026-09/batch/latest/{count}_/webhooks-journal/journal-local/2026-03/batch/latest/{count}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>count</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The number of latest journal entries to retrieve. Must be an integer with a minimum value of 1. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal where the webhooks are installed. This is an optional parameter. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-successful-operation-5" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-5">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal2026-09batchearliestcount" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal/2026-09/batch/earliest/{count}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal/2026-09/batch/earliest/{count}_/webhooks-journal/journal/2026-03/batch/earliest/{count}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>count</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The number of webhook journal entries to retrieve. This must be an integer with a minimum value of 1. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal where the webhook is installed. This is an integer value. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-successful-operation-6" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-6">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-webhooks-journaljournal2026-09batchlatestcount" class="operation" data-method="get"><code>GET</code> /webhooks-journal/journal/2026-09/batch/latest/{count}</h3>
+<p>Operation ID: <code>get-/webhooks-journal/journal/2026-09/batch/latest/{count}_/webhooks-journal/journal/2026-03/batch/latest/{count}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>count</code> | <code>path</code> | <code>integer (int32)</code> | Yes | The number of webhook journal entries to retrieve. It is a required integer parameter with a minimum value of 1. |
+| <code>installPortalId</code> | <code>query</code> | <code>integer (int32)</code> | No | The ID of the portal for which the webhook journal entries are being retrieved. It is an optional integer parameter. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-successful-operation-7" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of results from the batch operation, each represented as a JournalFetchResponse object.</td>
+</tr>
+<tr>
+<td><code>results[].currentOffset</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the current offset of the journal entry, formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>results[].expiresAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the URL will expire, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Pre-signed S3 URL where the journal entry can be accessed. It is a string.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-7">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>
