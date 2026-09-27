@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/hubspot-webhooks",
+  "name": "@voxgig-sdk/hubspot-webhooks-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the HubSpot Webhooks public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
@@ -23,7 +23,8 @@
   "types": "dist/HubspotWebhooksSDK.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "README.md"
   ],
   "scripts": {
     "pretest": "npm run build",

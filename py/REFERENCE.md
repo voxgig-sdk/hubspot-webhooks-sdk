@@ -54,10 +54,6 @@ Create a new `WebhooksBatchResponseJournalFetchEntity` instance. Pass `None` for
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance. Pass `None` for no initial data.
 
-#### `WebhooksCollectionResponseSubscriptionResponseNoPaging(data=None)`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance. Pass `None` for no initial data.
-
 #### `WebhooksCrmObjectSnapshotBatch(data=None)`
 
 Create a new `WebhooksCrmObjectSnapshotBatchEntity` instance. Pass `None` for no initial data.
@@ -77,10 +73,6 @@ Create a new `WebhooksSnapshotStatusEntity` instance. Pass `None` for no initial
 #### `WebhooksSubscription(data=None)`
 
 Create a new `WebhooksSubscriptionEntity` instance. Pass `None` for no initial data.
-
-#### `WebhooksSubscriptionList(data=None)`
-
-Create a new `WebhooksSubscriptionListEntity` instance. Pass `None` for no initial data.
 
 #### `WebhooksSubscriptionResponse1(data=None)`
 
@@ -298,73 +290,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
-
-```python
-webhooks_collection_response_subscription_response_no_paging = client.WebhooksCollectionResponseSubscriptionResponseNoPaging()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actionOverrides` | `dict` | No | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `actions` | `list` | Yes | A list of actions that trigger the subscription. |
-| `appId` | `int` | Yes | The unique identifier for the app associated with the subscription. |
-| `associatedObjectTypeIds` | `list` | No | A list of associated object type IDs. |
-| `createdAt` | `str` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `createdBy` | `int` | No | The ID of the user who created the subscription. |
-| `deletedAt` | `str` | No | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `id` | `int` | Yes | The unique identifier for the subscription. |
-| `listIds` | `list` | No | A list of list IDs associated with the subscription. |
-| `objectIds` | `list` | No | A list of object IDs associated with the subscription. |
-| `objectTypeId` | `str` | Yes | The identifier for the object type associated with the subscription. |
-| `portalId` | `int` | No | The unique identifier for the portal associated with the subscription. |
-| `properties` | `list` | No | A list of property names associated with the subscription. |
-| `subscriptionType` | `str` | Yes | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `updatedAt` | `str` | Yes | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.WebhooksCollectionResponseSubscriptionResponseNoPaging().list()
-for webhooks_collection_response_subscription_response_no_paging in results:
-    print(webhooks_collection_response_subscription_response_no_paging)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -640,16 +565,16 @@ webhooks_subscription = client.WebhooksSubscription()
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `active` | - | - | Yes |
-| `createdAt` | - | - | - |
-| `eventType` | - | - | - |
-| `eventTypeName` | - | - | - |
-| `id` | - | - | - |
-| `objectTypeId` | - | - | - |
-| `propertyName` | - | - | - |
-| `updatedAt` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active` | - | - | - | Yes |
+| `createdAt` | - | - | - | - |
+| `eventType` | - | - | - | - |
+| `eventTypeName` | - | - | - | - |
+| `id` | - | - | - | - |
+| `objectTypeId` | - | - | - | - |
+| `propertyName` | - | - | - | - |
+| `updatedAt` | - | - | - | - |
 
 ### Operations
 
@@ -665,6 +590,16 @@ result = client.WebhooksSubscription().create({
     "eventType": "example_eventType",  # str
     "id": "example_id",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.WebhooksSubscription().list({"app_id": 1})
+for webhooks_subscription in results:
+    print(webhooks_subscription)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -708,66 +643,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `WebhooksSubscriptionEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## WebhooksSubscriptionListEntity
-
-```python
-webhooks_subscription_list = client.WebhooksSubscriptionList()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active` | `bool` | Yes | A boolean indicating whether the subscription is currently active. |
-| `createdAt` | `str` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `eventType` | `str` | Yes | The type of event that triggers the subscription. |
-| `eventTypeName` | `str` | No | The name of the event type for the subscription. |
-| `id` | `str` | Yes | The unique identifier for the subscription. |
-| `objectTypeId` | `str` | No | The identifier for the object type associated with the subscription. |
-| `propertyName` | `str` | No | The name of the property associated with the subscription event, if applicable. |
-| `updatedAt` | `str` | No | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.WebhooksSubscriptionList().list({"app_id": 1})
-for webhooks_subscription_list in results:
-    print(webhooks_subscription_list)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `WebhooksSubscriptionListEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -820,6 +695,16 @@ result = client.WebhooksSubscriptionResponse1().create({
 })
 ```
 
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.WebhooksSubscriptionResponse1().list()
+for webhooks_subscription_response_1 in results:
+    print(webhooks_subscription_response_1)
+```
+
 #### `load(reqmatch, ctrl=None) -> dict`
 
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
@@ -861,14 +746,14 @@ Return the entity name.
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -914,7 +799,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -945,7 +830,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -976,7 +861,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -1004,7 +889,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -1039,7 +924,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -1070,7 +955,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -1104,7 +989,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -1135,7 +1020,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

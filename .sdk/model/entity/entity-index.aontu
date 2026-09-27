@@ -1,0 +1,11 @@
+# Entity Models
+
+@"./basic.aontu"
+@"./webhooks_batch_response_journal_fetch.aontu"
+@"./webhooks_batch_response_subscription.aontu"
+@"./webhooks_crm_object_snapshot_batch.aontu"
+@"./webhooks_filter.aontu"
+@"./webhooks_setting.aontu"
+@"./webhooks_snapshot_status.aontu"
+@"./webhooks_subscription.aontu"
+@"./webhooks_subscription_response_1.aontu"

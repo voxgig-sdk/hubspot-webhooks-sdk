@@ -71,7 +71,7 @@ def _webhooks_batch_response_journal_fetch_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["webhooks_batch_response_journal_fetch01", "webhooks_batch_response_journal_fetch02", "webhooks_batch_response_journal_fetch03", "earliest01", "earliest02", "earliest03", "latest01", "latest02", "latest03", "batch01", "batch02", "batch03", "next01", "next02", "next03"],
+        ["webhooks_batch_response_journal_fetch01", "webhooks_batch_response_journal_fetch02", "webhooks_batch_response_journal_fetch03", "batch01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

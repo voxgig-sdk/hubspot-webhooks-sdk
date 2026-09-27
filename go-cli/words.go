@@ -9,18 +9,6 @@ import (
 	sdk "github.com/voxgig-sdk/hubspot-webhooks-sdk/go"
 )
 
-// registerSDKWords installs three native boru words bound to the SDK:
-// list / load / update. Each is declared with two overloads matching
-// the signature  [query?:(Node or Scalar) entity:atom]:
-//
-//   [entity:Atom]            — no query (e.g. `list book`)
-//   [query:Any entity:Atom]  — query is any Node or Scalar (e.g.
-//                              `load {id:1} book`, `load 1 book`)
-//
-// The entity slot is /q-quoted so a bareword `book` parses as the
-// Atom "book" rather than dispatching as an undefined word. Both
-// overloads are all-forward (BarrierAllForward), so args are collected
-// from the tokens following the word.
 func registerSDKWords(r *eng.Registry, client *sdk.HubspotWebhooksSDK) {
 	for _, op := range []string{"list", "load", "update"} {
 		op := op
@@ -95,8 +83,6 @@ func entityFor(client *sdk.HubspotWebhooksSDK, name string) (sdk.HubspotWebhooks
 		return client.WebhooksBatchResponseJournalFetch(nil), nil
 	case "webhooks_batch_response_subscription":
 		return client.WebhooksBatchResponseSubscription(nil), nil
-	case "webhooks_collection_response_subscription_response_no_paging":
-		return client.WebhooksCollectionResponseSubscriptionResponseNoPaging(nil), nil
 	case "webhooks_crm_object_snapshot_batch":
 		return client.WebhooksCrmObjectSnapshotBatch(nil), nil
 	case "webhooks_filter":
@@ -107,8 +93,6 @@ func entityFor(client *sdk.HubspotWebhooksSDK, name string) (sdk.HubspotWebhooks
 		return client.WebhooksSnapshotStatus(nil), nil
 	case "webhooks_subscription":
 		return client.WebhooksSubscription(nil), nil
-	case "webhooks_subscription_list":
-		return client.WebhooksSubscriptionList(nil), nil
 	case "webhooks_subscription_response_1":
 		return client.WebhooksSubscriptionResponse1(nil), nil
 

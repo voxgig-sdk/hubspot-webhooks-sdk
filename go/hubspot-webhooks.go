@@ -62,9 +62,6 @@ func init() {
 	core.NewWebhooksBatchResponseSubscriptionEntityFunc = func(client *core.HubspotWebhooksSDK, entopts map[string]any) core.HubspotWebhooksEntity {
 		return entity.NewWebhooksBatchResponseSubscriptionEntity(client, entopts)
 	}
-	core.NewWebhooksCollectionResponseSubscriptionResponseNoPagingEntityFunc = func(client *core.HubspotWebhooksSDK, entopts map[string]any) core.HubspotWebhooksEntity {
-		return entity.NewWebhooksCollectionResponseSubscriptionResponseNoPagingEntity(client, entopts)
-	}
 	core.NewWebhooksCrmObjectSnapshotBatchEntityFunc = func(client *core.HubspotWebhooksSDK, entopts map[string]any) core.HubspotWebhooksEntity {
 		return entity.NewWebhooksCrmObjectSnapshotBatchEntity(client, entopts)
 	}
@@ -79,9 +76,6 @@ func init() {
 	}
 	core.NewWebhooksSubscriptionEntityFunc = func(client *core.HubspotWebhooksSDK, entopts map[string]any) core.HubspotWebhooksEntity {
 		return entity.NewWebhooksSubscriptionEntity(client, entopts)
-	}
-	core.NewWebhooksSubscriptionListEntityFunc = func(client *core.HubspotWebhooksSDK, entopts map[string]any) core.HubspotWebhooksEntity {
-		return entity.NewWebhooksSubscriptionListEntity(client, entopts)
 	}
 	core.NewWebhooksSubscriptionResponse1EntityFunc = func(client *core.HubspotWebhooksSDK, entopts map[string]any) core.HubspotWebhooksEntity {
 		return entity.NewWebhooksSubscriptionResponse1Entity(client, entopts)

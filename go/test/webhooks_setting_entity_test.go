@@ -119,7 +119,7 @@ func webhooks_settingBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"webhooks_setting01", "webhooks_setting02", "webhooks_setting03", "2026_0901", "2026_0902", "2026_0903"},
+		[]any{"webhooks_setting01", "webhooks_setting02", "webhooks_setting03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

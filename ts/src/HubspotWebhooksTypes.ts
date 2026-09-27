@@ -1,7 +1,7 @@
 // Typed models for the HubspotWebhooks SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
@@ -62,42 +62,6 @@ export interface WebhooksBatchResponseSubscriptionCreateData {
   results: any[]
   startedAt: string
   status: string
-}
-
-export interface WebhooksCollectionResponseSubscriptionResponseNoPaging {
-  actionOverrides?: Record<string, any>
-  actions: any[]
-  appId: number
-  associatedObjectTypeIds?: any[]
-  createdAt: string
-  createdBy?: number
-  deletedAt?: string
-  id: number
-  listIds?: any[]
-  objectIds?: any[]
-  objectTypeId: string
-  portalId?: number
-  properties?: any[]
-  subscriptionType: string
-  updatedAt: string
-}
-
-export interface WebhooksCollectionResponseSubscriptionResponseNoPagingListMatch {
-  actionOverrides?: Record<string, any>
-  actions?: any[]
-  appId?: number
-  associatedObjectTypeIds?: any[]
-  createdAt?: string
-  createdBy?: number
-  deletedAt?: string
-  id?: number
-  listIds?: any[]
-  objectIds?: any[]
-  objectTypeId?: string
-  portalId?: number
-  properties?: any[]
-  subscriptionType?: string
-  updatedAt?: string
 }
 
 export interface WebhooksCrmObjectSnapshotBatch {
@@ -178,6 +142,10 @@ export interface WebhooksSubscriptionLoadMatch {
   id: number
 }
 
+export interface WebhooksSubscriptionListMatch {
+  app_id: number
+}
+
 export interface WebhooksSubscriptionCreateData {
   app_id: number
   active: boolean
@@ -202,21 +170,6 @@ export interface WebhooksSubscriptionUpdateData {
   updatedAt?: string
 }
 
-export interface WebhooksSubscriptionList {
-  active: boolean
-  createdAt: string
-  eventType: string
-  eventTypeName?: string
-  id: string
-  objectTypeId?: string
-  propertyName?: string
-  updatedAt?: string
-}
-
-export interface WebhooksSubscriptionListListMatch {
-  app_id: number
-}
-
 export interface WebhooksSubscriptionResponse1 {
   actionOverrides?: Record<string, any>
   actions: any[]
@@ -237,6 +190,24 @@ export interface WebhooksSubscriptionResponse1 {
 
 export interface WebhooksSubscriptionResponse1LoadMatch {
   subscription_id: number
+}
+
+export interface WebhooksSubscriptionResponse1ListMatch {
+  actionOverrides?: Record<string, any>
+  actions?: any[]
+  appId?: number
+  associatedObjectTypeIds?: any[]
+  createdAt?: string
+  createdBy?: number
+  deletedAt?: string
+  id?: number
+  listIds?: any[]
+  objectIds?: any[]
+  objectTypeId?: string
+  portalId?: number
+  properties?: any[]
+  subscriptionType?: string
+  updatedAt?: string
 }
 
 export interface WebhooksSubscriptionResponse1CreateData {

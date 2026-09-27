@@ -1,13 +1,11 @@
 import { BasicEntity } from './entity/BasicEntity';
 import { WebhooksBatchResponseJournalFetchEntity } from './entity/WebhooksBatchResponseJournalFetchEntity';
 import { WebhooksBatchResponseSubscriptionEntity } from './entity/WebhooksBatchResponseSubscriptionEntity';
-import { WebhooksCollectionResponseSubscriptionResponseNoPagingEntity } from './entity/WebhooksCollectionResponseSubscriptionResponseNoPagingEntity';
 import { WebhooksCrmObjectSnapshotBatchEntity } from './entity/WebhooksCrmObjectSnapshotBatchEntity';
 import { WebhooksFilterEntity } from './entity/WebhooksFilterEntity';
 import { WebhooksSettingEntity } from './entity/WebhooksSettingEntity';
 import { WebhooksSnapshotStatusEntity } from './entity/WebhooksSnapshotStatusEntity';
 import { WebhooksSubscriptionEntity } from './entity/WebhooksSubscriptionEntity';
-import { WebhooksSubscriptionListEntity } from './entity/WebhooksSubscriptionListEntity';
 import { WebhooksSubscriptionResponse1Entity } from './entity/WebhooksSubscriptionResponse1Entity';
 export type * from './HubspotWebhooksTypes';
 import { inspect } from 'node:util';
@@ -57,13 +55,11 @@ declare class HubspotWebhooksSDK {
     Basic(entopts?: Record<string, any>): BasicEntity;
     WebhooksBatchResponseJournalFetch(entopts?: Record<string, any>): WebhooksBatchResponseJournalFetchEntity;
     WebhooksBatchResponseSubscription(entopts?: Record<string, any>): WebhooksBatchResponseSubscriptionEntity;
-    WebhooksCollectionResponseSubscriptionResponseNoPaging(entopts?: Record<string, any>): WebhooksCollectionResponseSubscriptionResponseNoPagingEntity;
     WebhooksCrmObjectSnapshotBatch(entopts?: Record<string, any>): WebhooksCrmObjectSnapshotBatchEntity;
     WebhooksFilter(entopts?: Record<string, any>): WebhooksFilterEntity;
     WebhooksSetting(entopts?: Record<string, any>): WebhooksSettingEntity;
     WebhooksSnapshotStatus(entopts?: Record<string, any>): WebhooksSnapshotStatusEntity;
     WebhooksSubscription(entopts?: Record<string, any>): WebhooksSubscriptionEntity;
-    WebhooksSubscriptionList(entopts?: Record<string, any>): WebhooksSubscriptionListEntity;
     WebhooksSubscriptionResponse1(entopts?: Record<string, any>): WebhooksSubscriptionResponse1Entity;
     static test(testoptsarg?: any, sdkoptsarg?: any): HubspotWebhooksSDK;
     tester(testopts?: any, sdkopts?: any): HubspotWebhooksSDK;

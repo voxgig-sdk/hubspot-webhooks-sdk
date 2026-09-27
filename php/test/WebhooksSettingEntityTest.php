@@ -83,7 +83,7 @@ function webhooks_setting_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhooks_setting01", "webhooks_setting02", "webhooks_setting03", "2026_0901", "2026_0902", "2026_0903"] as $k) {
+    foreach (["webhooks_setting01", "webhooks_setting02", "webhooks_setting03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

@@ -85,18 +85,6 @@ Create a new `WebhooksBatchResponseSubscription` entity instance.
 
 **Returns:** `WebhooksBatchResponseSubscriptionEntity` instance.
 
-#### `WebhooksCollectionResponseSubscriptionResponseNoPaging(data?: object)`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPaging` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance.
-
 #### `WebhooksCrmObjectSnapshotBatch(data?: object)`
 
 Create a new `WebhooksCrmObjectSnapshotBatch` entity instance.
@@ -156,18 +144,6 @@ Create a new `WebhooksSubscription` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `WebhooksSubscriptionEntity` instance.
-
-#### `WebhooksSubscriptionList(data?: object)`
-
-Create a new `WebhooksSubscriptionList` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `WebhooksSubscriptionListEntity` instance.
 
 #### `WebhooksSubscriptionResponse1(data?: object)`
 
@@ -399,70 +375,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `HubspotWebhooksSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
-
-```ts
-const webhooks_collection_response_subscription_response_no_paging = client.WebhooksCollectionResponseSubscriptionResponseNoPaging()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actionOverrides` | `Object` | No | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `actions` | `Array` | Yes | A list of actions that trigger the subscription. |
-| `appId` | `number` | Yes | The unique identifier for the app associated with the subscription. |
-| `associatedObjectTypeIds` | `Array` | No | A list of associated object type IDs. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `createdBy` | `number` | No | The ID of the user who created the subscription. |
-| `deletedAt` | `string` | No | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `id` | `number` | Yes | The unique identifier for the subscription. |
-| `listIds` | `Array` | No | A list of list IDs associated with the subscription. |
-| `objectIds` | `Array` | No | A list of object IDs associated with the subscription. |
-| `objectTypeId` | `string` | Yes | The identifier for the object type associated with the subscription. |
-| `portalId` | `number` | No | The unique identifier for the portal associated with the subscription. |
-| `properties` | `Array` | No | A list of property names associated with the subscription. |
-| `subscriptionType` | `string` | Yes | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `updatedAt` | `string` | Yes | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.WebhooksCollectionResponseSubscriptionResponseNoPaging().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -739,16 +651,16 @@ const webhooks_subscription = client.WebhooksSubscription()
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `active` | - | - | Yes |
-| `createdAt` | - | - | - |
-| `eventType` | - | - | - |
-| `eventTypeName` | - | - | - |
-| `id` | - | - | - |
-| `objectTypeId` | - | - | - |
-| `propertyName` | - | - | - |
-| `updatedAt` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active` | - | - | - | Yes |
+| `createdAt` | - | - | - | - |
+| `eventType` | - | - | - | - |
+| `eventTypeName` | - | - | - | - |
+| `id` | - | - | - | - |
+| `objectTypeId` | - | - | - | - |
+| `propertyName` | - | - | - | - |
+| `updatedAt` | - | - | - | - |
 
 ### Operations
 
@@ -764,6 +676,14 @@ const result = await client.WebhooksSubscription().create({
   eventType: 'example_eventType',
   id: 'example_id',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.WebhooksSubscription().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -801,63 +721,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `WebhooksSubscriptionEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `HubspotWebhooksSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## WebhooksSubscriptionListEntity
-
-```ts
-const webhooks_subscription_list = client.WebhooksSubscriptionList()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active` | `boolean` | Yes | A boolean indicating whether the subscription is currently active. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `eventType` | `string` | Yes | The type of event that triggers the subscription. |
-| `eventTypeName` | `string` | No | The name of the event type for the subscription. |
-| `id` | `string` | Yes | The unique identifier for the subscription. |
-| `objectTypeId` | `string` | No | The identifier for the object type associated with the subscription. |
-| `propertyName` | `string` | No | The name of the property associated with the subscription event, if applicable. |
-| `updatedAt` | `string` | No | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.WebhooksSubscriptionList().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `WebhooksSubscriptionListEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -915,6 +778,14 @@ const result = await client.WebhooksSubscriptionResponse1().create({
 })
 ```
 
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.WebhooksSubscriptionResponse1().list()
+```
+
 #### `load(match: object, ctrl?: object)`
 
 Load a single entity matching the given criteria.
@@ -955,14 +826,14 @@ Return a copy of the entity options.
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -1008,7 +879,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -1039,7 +910,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -1070,7 +941,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -1098,7 +969,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -1133,7 +1004,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -1164,7 +1035,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -1198,7 +1069,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -1229,7 +1100,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

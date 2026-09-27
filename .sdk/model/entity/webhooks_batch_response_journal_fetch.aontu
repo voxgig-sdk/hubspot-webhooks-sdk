@@ -1,0 +1,572 @@
+# Entity: webhooks_batch_response_journal_fetch
+
+main: kit: entity: webhooks_batch_response_journal_fetch: {
+
+  alias: field: {}
+
+  fields: {
+    completedAt: {
+      fo: "date-time"
+      h: "Completed At"
+      n: "completedAt"
+      r: true
+      sh: "The date and time when the batch operation was completed, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    inputs: {
+      h: "Inputs"
+      n: "inputs"
+      r: true
+      sh: "An array of strings to be processed."
+      t: "`$ARRAY`"
+    }
+    links: {
+      h: "Links"
+      n: "links"
+      r: false
+      sh: "A map of link names to associated URIs related to the batch operation."
+      t: "`$OBJECT`"
+    }
+    requestedAt: {
+      fo: "date-time"
+      h: "Requested At"
+      n: "requestedAt"
+      r: false
+      sh: "The date and time when the batch operation was requested, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      sh: "An array of results from the batch operation, each represented as a JournalFetchResponse object."
+      t: "`$ARRAY`"
+    }
+    startedAt: {
+      fo: "date-time"
+      h: "Started At"
+      n: "startedAt"
+      r: true
+      sh: "The date and time when the batch operation started, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The current status of the batch operation."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "webhooks_batch_response_journal_fetch"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /webhooks-journal/journal-local/2026-09/batch/read"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/webhooks-journal/journal-local/2026-09/batch/read"
+          q: {
+            exist: [
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "read"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /webhooks-journal/journal/2026-09/batch/read"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/webhooks-journal/journal/2026-09/batch/read"
+          q: {
+            exist: [
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "read"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "batch_id"
+                or: "offset"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "param"
+                n: "count"
+                or: "count"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}"
+          q: {
+            exist: [
+              "batch_id"
+              "count"
+              "install_portal_id"
+            ]
+          }
+          r: {
+            param: {
+              offset: "batch_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              var: "batch_id"
+            }
+            {
+              lit: "next"
+            }
+            {
+              var: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/batch/{offset}/next/{count}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "batch_id"
+                or: "offset"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "param"
+                n: "count"
+                or: "count"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/batch/{offset}/next/{count}"
+          q: {
+            exist: [
+              "batch_id"
+              "count"
+              "install_portal_id"
+            ]
+          }
+          r: {
+            param: {
+              offset: "batch_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              var: "batch_id"
+            }
+            {
+              lit: "next"
+            }
+            {
+              var: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/batch/earliest/{count}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "count"
+                or: "count"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/batch/earliest/{count}"
+          q: {
+            exist: [
+              "count"
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "earliest"
+            }
+            {
+              var: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/batch/latest/{count}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "count"
+                or: "count"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/batch/latest/{count}"
+          q: {
+            exist: [
+              "count"
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "latest"
+            }
+            {
+              var: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/batch/earliest/{count}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "count"
+                or: "count"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/batch/earliest/{count}"
+          q: {
+            exist: [
+              "count"
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "earliest"
+            }
+            {
+              var: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/batch/latest/{count}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "count"
+                or: "count"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/batch/latest/{count}"
+          q: {
+            exist: [
+              "count"
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "latest"
+            }
+            {
+              var: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,211 @@
+# Entity: webhooks_filter
+
+main: kit: entity: webhooks_filter: {
+
+  alias: field: {}
+
+  fields: {
+    conditions: {
+      h: "Conditions"
+      n: "conditions"
+      r: true
+      sh: "An array of conditions that define the criteria for the filter."
+      t: "`$ARRAY`"
+    }
+    createdAt: {
+      fo: "int64"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "A Unix timestamp in milliseconds indicating when the filter was created."
+      t: "`$INTEGER`"
+    }
+    filter: {
+      h: "Filter"
+      n: "filter"
+      r: true
+      sh: "Defines a single condition for searching CRM objects, specifying the property to filter on, the operator to use (such as equals, greater than, or contains), and the value(s) to compare against."
+      t: "`$OBJECT`"
+    }
+    filterId: {
+      fo: "int64"
+      h: "Filter Id"
+      n: "filterId"
+      r: true
+      sh: "The unique identifier for the created filter."
+      t: "`$INTEGER`"
+    }
+    id: {
+      fo: "int64"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The unique identifier for the filter."
+      t: "`$INTEGER`"
+    }
+    subscriptionId: {
+      fo: "int64"
+      h: "Subscription Id"
+      n: "subscriptionId"
+      r: true
+      sh: "The unique identifier of the subscription to which the filter will be applied."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "webhooks_filter"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /webhooks-journal/subscriptions/2026-09/filters"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/webhooks-journal/subscriptions/2026-09/filters"
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "filters"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks-journal/subscriptions/2026-09/filters/{filterId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "id"
+                or: "filter_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/subscriptions/2026-09/filters/{filterId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              filterId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "filters"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.filter`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              subscriptionId: "subscription_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "filters"
+            }
+            {
+              lit: "subscription"
+            }
+            {
+              var: "subscription_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

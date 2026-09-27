@@ -86,7 +86,7 @@ function webhooks_setting_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhooks_setting01", "webhooks_setting02", "webhooks_setting03", "2026_0901", "2026_0902", "2026_0903" },
+    { "webhooks_setting01", "webhooks_setting02", "webhooks_setting03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

@@ -3,13 +3,11 @@
 const { BasicEntity } = require('./entity/BasicEntity')
 const { WebhooksBatchResponseJournalFetchEntity } = require('./entity/WebhooksBatchResponseJournalFetchEntity')
 const { WebhooksBatchResponseSubscriptionEntity } = require('./entity/WebhooksBatchResponseSubscriptionEntity')
-const { WebhooksCollectionResponseSubscriptionResponseNoPagingEntity } = require('./entity/WebhooksCollectionResponseSubscriptionResponseNoPagingEntity')
 const { WebhooksCrmObjectSnapshotBatchEntity } = require('./entity/WebhooksCrmObjectSnapshotBatchEntity')
 const { WebhooksFilterEntity } = require('./entity/WebhooksFilterEntity')
 const { WebhooksSettingEntity } = require('./entity/WebhooksSettingEntity')
 const { WebhooksSnapshotStatusEntity } = require('./entity/WebhooksSnapshotStatusEntity')
 const { WebhooksSubscriptionEntity } = require('./entity/WebhooksSubscriptionEntity')
-const { WebhooksSubscriptionListEntity } = require('./entity/WebhooksSubscriptionListEntity')
 const { WebhooksSubscriptionResponse1Entity } = require('./entity/WebhooksSubscriptionResponse1Entity')
 
 
@@ -330,15 +328,6 @@ class HubspotWebhooksSDK {
   }
 
 
-  // Entity access: `client.WebhooksCollectionResponseSubscriptionResponseNoPaging().list()` / `client.WebhooksCollectionResponseSubscriptionResponseNoPaging().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  WebhooksCollectionResponseSubscriptionResponseNoPaging(entopts) {
-    const self = this
-    return new WebhooksCollectionResponseSubscriptionResponseNoPagingEntity(self, entopts)
-  }
-
-
   // Entity access: `client.WebhooksCrmObjectSnapshotBatch().list()` / `client.WebhooksCrmObjectSnapshotBatch().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -381,15 +370,6 @@ class HubspotWebhooksSDK {
   WebhooksSubscription(entopts) {
     const self = this
     return new WebhooksSubscriptionEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.WebhooksSubscriptionList().list()` / `client.WebhooksSubscriptionList().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  WebhooksSubscriptionList(entopts) {
-    const self = this
-    return new WebhooksSubscriptionListEntity(self, entopts)
   }
 
 

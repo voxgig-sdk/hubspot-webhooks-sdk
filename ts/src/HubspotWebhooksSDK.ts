@@ -3,13 +3,11 @@
 import { BasicEntity } from './entity/BasicEntity'
 import { WebhooksBatchResponseJournalFetchEntity } from './entity/WebhooksBatchResponseJournalFetchEntity'
 import { WebhooksBatchResponseSubscriptionEntity } from './entity/WebhooksBatchResponseSubscriptionEntity'
-import { WebhooksCollectionResponseSubscriptionResponseNoPagingEntity } from './entity/WebhooksCollectionResponseSubscriptionResponseNoPagingEntity'
 import { WebhooksCrmObjectSnapshotBatchEntity } from './entity/WebhooksCrmObjectSnapshotBatchEntity'
 import { WebhooksFilterEntity } from './entity/WebhooksFilterEntity'
 import { WebhooksSettingEntity } from './entity/WebhooksSettingEntity'
 import { WebhooksSnapshotStatusEntity } from './entity/WebhooksSnapshotStatusEntity'
 import { WebhooksSubscriptionEntity } from './entity/WebhooksSubscriptionEntity'
-import { WebhooksSubscriptionListEntity } from './entity/WebhooksSubscriptionListEntity'
 import { WebhooksSubscriptionResponse1Entity } from './entity/WebhooksSubscriptionResponse1Entity'
 
 export type * from './HubspotWebhooksTypes'
@@ -134,7 +132,6 @@ class HubspotWebhooksSDK {
 
     const options = this._options
 
-    // Build spec directly from SDK options + user-provided fetch args.
     const spec: any = {
       base: options.base,
       prefix: options.prefix,
@@ -150,7 +147,6 @@ class HubspotWebhooksSDK {
 
     ctx.spec = spec
 
-    // Merge user-provided headers over SDK defaults.
     if (fetchargs.headers) {
       const uheaders = fetchargs.headers
       for (let key in uheaders) {
@@ -160,7 +156,6 @@ class HubspotWebhooksSDK {
 
     
 
-    // Apply SDK auth (apikey, auth prefix, etc.)
     const authResult = prepareAuth(ctx)
     if (authResult instanceof Error) {
       return authResult
@@ -253,18 +248,6 @@ class HubspotWebhooksSDK {
 
 
 
-  // Raw GraphQL access: the pressure valve that makes the generated
-  // surface's deliberate omissions (per-call selection sets, typed filter
-  // builders, batching, subscriptions) livable — the whole schema stays
-  // reachable.
-  //
-  // Thin wrapper over the same prepare/fetch path `direct` uses, with the
-  // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
-  // HTTP 200 as a top-level `errors` array, so status alone would report a
-  // failed query as ok.
-  //
-  // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
-  // ratelimit or paging features apply.
   async graphql(query: string, variables?: any, ctrl?: any) {
     const options = this._options
 
@@ -334,15 +317,6 @@ class HubspotWebhooksSDK {
   }
 
 
-  // Entity access: `client.WebhooksCollectionResponseSubscriptionResponseNoPaging().list()` / `client.WebhooksCollectionResponseSubscriptionResponseNoPaging().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  WebhooksCollectionResponseSubscriptionResponseNoPaging(entopts?: Record<string, any>) {
-    const self = this
-    return new WebhooksCollectionResponseSubscriptionResponseNoPagingEntity(self, entopts)
-  }
-
-
   // Entity access: `client.WebhooksCrmObjectSnapshotBatch().list()` / `client.WebhooksCrmObjectSnapshotBatch().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -385,15 +359,6 @@ class HubspotWebhooksSDK {
   WebhooksSubscription(entopts?: Record<string, any>) {
     const self = this
     return new WebhooksSubscriptionEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.WebhooksSubscriptionList().list()` / `client.WebhooksSubscriptionList().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  WebhooksSubscriptionList(entopts?: Record<string, any>) {
-    const self = this
-    return new WebhooksSubscriptionListEntity(self, entopts)
   }
 
 

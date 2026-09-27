@@ -1,0 +1,44 @@
+# BasicWebhooksBatchResponseJournalFetchFlow
+
+main: kit: flow: BasicWebhooksBatchResponseJournalFetchFlow:
+{
+  entity: "webhooks_batch_response_journal_fetch",
+  kind: "basic",
+  name: "BasicWebhooksBatchResponseJournalFetchFlow",
+  step: [
+    {
+      i: {
+        ref: "webhooks_batch_response_journal_fetch_ref01"
+      }
+
+      m: {
+        batch_id: "batch01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "webhooks_batch_response_journal_fetch_ref01",
+        srcdatavar: "webhooks_batch_response_journal_fetch_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "webhooks_batch_response_journal_fetch01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_batch_response_journal_fetch_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksBatchResponseJournalFetchFlow"
+}

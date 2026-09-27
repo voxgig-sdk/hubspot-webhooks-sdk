@@ -11,6 +11,97 @@ import (
 )
 
 func TestWebhooksSubscriptionDirect(t *testing.T) {
+	t.Run("direct-list-webhooks_subscription", func(t *testing.T) {
+		setup := webhooks_subscriptionDirectSetup([]any{
+			map[string]any{"id": "direct01"},
+			map[string]any{"id": "direct02"},
+		})
+		_mode := "unit"
+		if setup.live {
+			_mode = "live"
+		}
+		if _shouldSkip, _reason := isControlSkipped("direct", "direct-list-webhooks_subscription", _mode); _shouldSkip {
+			if _reason == "" {
+				_reason = "skipped via sdk-test-control.json"
+			}
+			t.Skip(_reason)
+			return
+		}
+		if setup.live {
+			for _, _liveKey := range []string{"app01"} {
+				if v := setup.idmap[_liveKey]; v == nil {
+					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
+					return
+				}
+			}
+		}
+		client := setup.client
+
+		params := map[string]any{}
+		if setup.live {
+			params["app_id"] = setup.idmap["app01"]
+		} else {
+			params["app_id"] = "direct01"
+		}
+
+		result, err := client.Direct(map[string]any{
+			"path":   "app-webhooks/2026-09/{app_id}/subscriptions",
+			"method": "GET",
+			"params": params,
+		})
+		if setup.live {
+			// Live-mode leniency is a model decision
+			// (main.kit.test.live.strict): synthetic IDs 4xx constantly
+			// against an arbitrary public API, so the default SKIPS here.
+			// A project that owns its test server sets strict and FAILS.
+			if err != nil {
+				t.Fatalf("list call failed (likely synthetic IDs against live API): %v", err)
+			}
+			if result["ok"] != true {
+				t.Fatalf("list call not ok (likely synthetic IDs against live API): %v", result)
+			}
+			status := core.ToInt(result["status"])
+			if status < 200 || status >= 300 {
+				t.Fatalf("expected 2xx status, got %v", result["status"])
+			}
+		} else {
+			if err != nil {
+				t.Fatalf("direct failed: %v", err)
+			}
+			if result["ok"] != true {
+				t.Fatalf("expected ok to be true, got %v", result["ok"])
+			}
+			if core.ToInt(result["status"]) != 200 {
+				t.Fatalf("expected status 200, got %v", result["status"])
+			}
+		}
+
+		if !setup.live {
+			if dataList, ok := result["data"].([]any); ok {
+				if len(dataList) != 2 {
+					t.Fatalf("expected 2 items, got %d", len(dataList))
+				}
+			} else {
+				t.Fatalf("expected data to be an array, got %T", result["data"])
+			}
+
+			if len(*setup.calls) != 1 {
+				t.Fatalf("expected 1 call, got %d", len(*setup.calls))
+			}
+			call := (*setup.calls)[0]
+			if initMap, ok := call["init"].(map[string]any); ok {
+				if initMap["method"] != "GET" {
+					t.Fatalf("expected method GET, got %v", initMap["method"])
+				}
+			}
+			if url, ok := call["url"].(string); ok {
+				if !strings.Contains(url, "direct01") {
+					t.Fatalf("expected url to contain direct01, got %v", url)
+				}
+			}
+		}
+	})
+
 	t.Run("direct-load-webhooks_subscription", func(t *testing.T) {
 		setup := webhooks_subscriptionDirectSetup(map[string]any{"id": "direct01"})
 		_mode := "unit"
@@ -25,7 +116,7 @@ func TestWebhooksSubscriptionDirect(t *testing.T) {
 			return
 		}
 		if setup.live {
-			for _, _liveKey := range []string{"app_id01", "id01"} {
+			for _, _liveKey := range []string{"app01"} {
 				if v := setup.idmap[_liveKey]; v == nil {
 					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
 					return
@@ -37,6 +128,28 @@ func TestWebhooksSubscriptionDirect(t *testing.T) {
 		params := map[string]any{}
 		query := map[string]any{}
 		if setup.live {
+			listParams := map[string]any{}
+			listParams["app_id"] = setup.idmap["app01"]
+			listResult, listErr := client.Direct(map[string]any{
+				"path":   "app-webhooks/2026-09/{app_id}/subscriptions",
+				"method": "GET",
+				"params": listParams,
+			})
+			if listErr != nil {
+				t.Fatalf("list call failed (likely synthetic IDs against live API): %v", listErr)
+			}
+			if listResult["ok"] != true {
+				t.Fatalf("list call not ok (likely synthetic IDs against live API): %v", listResult)
+			}
+
+			// Get first entity ID from list
+			listData, _ := listResult["data"].([]any)
+			if len(listData) == 0 {
+				t.Skip("no entities to load in live mode")
+			}
+			firstEnt := core.ToMapAny(listData[0])
+			params["id"] = firstEnt["id"]
+			params["app_id"] = setup.idmap["app01"]
 		} else {
 			params["app_id"] = "direct01"
 			params["id"] = "direct02"

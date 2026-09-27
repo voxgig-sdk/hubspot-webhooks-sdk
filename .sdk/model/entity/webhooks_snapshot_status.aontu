@@ -1,0 +1,175 @@
+# Entity: webhooks_snapshot_status
+
+main: kit: entity: webhooks_snapshot_status: {
+
+  alias: field: {}
+
+  fields: {
+    completedAt: {
+      fo: "int64"
+      h: "Completed At"
+      n: "completedAt"
+      r: false
+      sh: "The timestamp indicating when the snapshot operation was completed, represented as a Unix timestamp in milliseconds."
+      t: "`$INTEGER`"
+    }
+    errorCode: {
+      h: "Error Code"
+      n: "errorCode"
+      r: false
+      sh: "A code representing the error that occurred, if any."
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The unique identifier for the snapshot operation, represented as a UUID."
+      t: "`$STRING`"
+    }
+    initiatedAt: {
+      fo: "int64"
+      h: "Initiated At"
+      n: "initiatedAt"
+      r: true
+      sh: "The timestamp indicating when the snapshot operation was initiated, represented as a Unix timestamp in milliseconds."
+      t: "`$INTEGER`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: false
+      sh: "A descriptive message providing additional information about the snapshot operation or error."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The current status of the snapshot."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "webhooks_snapshot_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/status/{statusId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "id"
+                or: "status_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/status/{statusId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              statusId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "status"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/status/{statusId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "id"
+                or: "status_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/status/{statusId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              statusId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "status"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

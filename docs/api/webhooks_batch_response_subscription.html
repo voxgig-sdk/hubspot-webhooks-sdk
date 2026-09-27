@@ -9,13 +9,11 @@
 <a href="../api/basic.html">Basic</a>
 <a href="../api/webhooks_batch_response_journal_fetch.html">WebhooksBatchResponseJournalFetch</a>
 <a aria-current="page" href="../api/webhooks_batch_response_subscription.html">WebhooksBatchResponseSubscription</a><div class="nav-sections"><a class="nav-section" href="#post-app-webhooks2026-09appidsubscriptionsbatchupdate">POST /app-webhooks/2026-09/{appId}/subscriptions/batch/update</a></div>
-<a href="../api/webhooks_collection_response_subscription_response_no_paging.html">WebhooksCollectionResponseSubscriptionResponseNoPaging</a>
 <a href="../api/webhooks_crm_object_snapshot_batch.html">WebhooksCrmObjectSnapshotBatch</a>
 <a href="../api/webhooks_filter.html">WebhooksFilter</a>
 <a href="../api/webhooks_setting.html">WebhooksSetting</a>
 <a href="../api/webhooks_snapshot_status.html">WebhooksSnapshotStatus</a>
 <a href="../api/webhooks_subscription.html">WebhooksSubscription</a>
-<a href="../api/webhooks_subscription_list.html">WebhooksSubscriptionList</a>
 <a href="../api/webhooks_subscription_response_1.html">WebhooksSubscriptionResponse1</a></details>
 <details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
 <a href="../guides/first-call.html">Make your first API call</a>
@@ -29,14 +27,14 @@
 <a href="../sdks/ts.html">TypeScript</a></details>
 <details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
 <a href="../tools/go-mcp.html">Go MCP server</a></details>
-<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
-<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
-<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
-<a href="../features/paging.html">Pagination signals for list operations</a>
-<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
-<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
-<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
-<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhooksbatchresponsesubscription">WebhooksBatchResponseSubscription</h1>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhooksbatchresponsesubscription">WebhooksBatchResponseSubscription</h1>
 <h2 id="operations">Operations</h2>
 <p>Every route this entity exposes. Each route links to its own reference on this page.</p>
 <table>
@@ -57,6 +55,36 @@
 </tr>
 </tbody>
 </table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.WebhooksBatchResponseSubscription(nil).Create(map[string]any{&quot;app_id&quot;: 1, &quot;completedAt&quot;: &quot;example&quot;, &quot;inputs&quot;: []any{}, &quot;results&quot;: []any{}, &quot;startedAt&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const created = await client.WebhooksBatchResponseSubscription().create({ app_id: 1, completedAt: &quot;example&quot;, inputs: [], results: [], startedAt: &quot;example&quot;, status: &quot;example&quot; })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:WebhooksBatchResponseSubscription():create({ app_id = 1, completedAt = &quot;example&quot;, inputs = {}, results = {}, startedAt = &quot;example&quot;, status = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;WebhooksBatchResponseSubscription()-&gt;create([&quot;app_id&quot; =&gt; 1, &quot;completedAt&quot; =&gt; &quot;example&quot;, &quot;inputs&quot; =&gt; [], &quot;results&quot; =&gt; [], &quot;startedAt&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.WebhooksBatchResponseSubscription().create({ &quot;app_id&quot;: 1, &quot;completedAt&quot;: &quot;example&quot;, &quot;inputs&quot;: [], &quot;results&quot;: [], &quot;startedAt&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.WebhooksBatchResponseSubscription().create({ app_id: 1, completedAt: &quot;example&quot;, inputs: [], results: [], startedAt: &quot;example&quot;, status: &quot;example&quot; })
+</code></pre>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -378,10 +406,52 @@
 <td>An array of SubscriptionResponse objects representing the results of each subscription update processed in the batch.</td>
 </tr>
 <tr>
-<td><code>results[].$ref</code></td>
-<td><code>any</code></td>
+<td><code>results[].active</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>A boolean indicating whether the subscription is currently active.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the subscription was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].eventType</code></td>
+<td><code>enum: company.associationChange, company.creation, company.deletion, company.merge, company.propertyChange, company.restore, ...</code></td>
+<td>Yes</td>
+<td>The type of event that triggers the subscription. Valid values include various property changes, creations, deletions, merges, restores, and association changes for different HubSpot objects.</td>
+</tr>
+<tr>
+<td><code>results[].eventTypeName</code></td>
+<td><code>string</code></td>
 <td>No</td>
-<td></td>
+<td>The name of the event type for the subscription.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The unique identifier for the subscription. It is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].objectTypeId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The identifier for the object type associated with the subscription. It is a string.</td>
+</tr>
+<tr>
+<td><code>results[].propertyName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the property associated with the subscription event, if applicable.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the subscription was last updated, in ISO 8601 format.</td>
 </tr>
 <tr>
 <td><code>startedAt</code></td>
@@ -434,10 +504,34 @@
 <td>further information about the error</td>
 </tr>
 <tr>
-<td><code>errors[].$ref</code></td>
-<td><code>any</code></td>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
 <td>No</td>
-<td></td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
 </tr>
 <tr>
 <td><code>links</code></td>

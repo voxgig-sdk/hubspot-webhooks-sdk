@@ -1,0 +1,145 @@
+# Entity: webhooks_setting
+
+main: kit: entity: webhooks_setting: {
+
+  alias: field: {}
+
+  fields: {
+    maxConcurrentRequests: {
+      fo: "int32"
+      h: "Max Concurrent Requests"
+      n: "maxConcurrentRequests"
+      r: true
+      sh: "The maximum number of concurrent requests allowed."
+      t: "`$INTEGER`"
+    }
+    targetUrl: {
+      h: "Target Url"
+      n: "targetUrl"
+      r: true
+      sh: "The URL to which webhook events will be sent."
+      t: "`$STRING`"
+    }
+    throttling: {
+      h: "Throttling"
+      n: "throttling"
+      r: true
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "webhooks_setting"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /app-webhooks/2026-09/{appId}/settings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/app-webhooks/2026-09/{appId}/settings"
+          q: {
+            exist: [
+              "app_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "settings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.throttling`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /app-webhooks/2026-09/{appId}/settings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/app-webhooks/2026-09/{appId}/settings"
+          q: {
+            exist: [
+              "app_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "settings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.throttling`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

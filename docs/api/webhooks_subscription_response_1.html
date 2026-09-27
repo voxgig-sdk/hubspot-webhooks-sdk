@@ -9,14 +9,13 @@
 <a href="../api/basic.html">Basic</a>
 <a href="../api/webhooks_batch_response_journal_fetch.html">WebhooksBatchResponseJournalFetch</a>
 <a href="../api/webhooks_batch_response_subscription.html">WebhooksBatchResponseSubscription</a>
-<a href="../api/webhooks_collection_response_subscription_response_no_paging.html">WebhooksCollectionResponseSubscriptionResponseNoPaging</a>
 <a href="../api/webhooks_crm_object_snapshot_batch.html">WebhooksCrmObjectSnapshotBatch</a>
 <a href="../api/webhooks_filter.html">WebhooksFilter</a>
 <a href="../api/webhooks_setting.html">WebhooksSetting</a>
 <a href="../api/webhooks_snapshot_status.html">WebhooksSnapshotStatus</a>
 <a href="../api/webhooks_subscription.html">WebhooksSubscription</a>
-<a href="../api/webhooks_subscription_list.html">WebhooksSubscriptionList</a>
 <a aria-current="page" href="../api/webhooks_subscription_response_1.html">WebhooksSubscriptionResponse1</a><div class="nav-sections"><a class="nav-section" href="#post-webhooks-journalsubscriptions2026-09">POST /webhooks-journal/subscriptions/2026-09</a>
+<a class="nav-section" href="#get-webhooks-journalsubscriptions2026-09">GET /webhooks-journal/subscriptions/2026-09</a>
 <a class="nav-section" href="#get-webhooks-journalsubscriptions2026-09subscriptionid">GET /webhooks-journal/subscriptions/2026-09/{subscriptionId}</a></div></details>
 <details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
 <a href="../guides/first-call.html">Make your first API call</a>
@@ -30,14 +29,14 @@
 <a href="../sdks/ts.html">TypeScript</a></details>
 <details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
 <a href="../tools/go-mcp.html">Go MCP server</a></details>
-<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
-<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
-<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
-<a href="../features/paging.html">Pagination signals for list operations</a>
-<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
-<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
-<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
-<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhookssubscriptionresponse1">WebhooksSubscriptionResponse1</h1>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhookssubscriptionresponse1">WebhooksSubscriptionResponse1</h1>
 <h2 id="operations">Operations</h2>
 <p>Every route this entity exposes. Each route links to its own reference on this page.</p>
 <table>
@@ -58,12 +57,68 @@
 </tr>
 <tr>
 <td><code>GET</code></td>
+<td><a href="#get-webhooks-journalsubscriptions2026-09"><code>/webhooks-journal/subscriptions/2026-09</code></a></td>
+<td><code>list</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
 <td><a href="#get-webhooks-journalsubscriptions2026-09subscriptionid"><code>/webhooks-journal/subscriptions/2026-09/{subscriptionId}</code></a></td>
 <td><code>load</code></td>
 <td>successful operation</td>
 </tr>
 </tbody>
 </table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">webhooks_subscription_response_1s, err := client.WebhooksSubscriptionResponse1(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(webhooks_subscription_response_1s)
+webhooks_subscription_response_1, err := client.WebhooksSubscriptionResponse1(nil).Load(map[string]any{&quot;subscription_id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(webhooks_subscription_response_1)
+created, err := client.WebhooksSubscriptionResponse1(nil).Create(map[string]any{&quot;actions&quot;: []any{}, &quot;appId&quot;: 1, &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: 1, &quot;objectTypeId&quot;: &quot;example&quot;, &quot;subscriptionType&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const webhooks_subscription_response_1s = await client.WebhooksSubscriptionResponse1().list()
+const webhooks_subscription_response_1 = await client.WebhooksSubscriptionResponse1().load({ subscription_id: 1 })
+const created = await client.WebhooksSubscriptionResponse1().create({ actions: [], appId: 1, createdAt: &quot;example&quot;, id: 1, objectTypeId: &quot;example&quot;, subscriptionType: &quot;example&quot;, updatedAt: &quot;example&quot; })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local webhooks_subscription_response_1s, err = client:WebhooksSubscriptionResponse1():list()
+local webhooks_subscription_response_1, err = client:WebhooksSubscriptionResponse1():load({ subscription_id = 1 })
+local created, err = client:WebhooksSubscriptionResponse1():create({ actions = {}, appId = 1, createdAt = &quot;example&quot;, id = 1, objectTypeId = &quot;example&quot;, subscriptionType = &quot;example&quot;, updatedAt = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$webhooks_subscription_response_1s = $client-&gt;WebhooksSubscriptionResponse1()-&gt;list();
+$webhooks_subscription_response_1 = $client-&gt;WebhooksSubscriptionResponse1()-&gt;load([&quot;subscription_id&quot; =&gt; 1]);
+$created = $client-&gt;WebhooksSubscriptionResponse1()-&gt;create([&quot;actions&quot; =&gt; [], &quot;appId&quot; =&gt; 1, &quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; 1, &quot;objectTypeId&quot; =&gt; &quot;example&quot;, &quot;subscriptionType&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">webhooks_subscription_response_1s = client.WebhooksSubscriptionResponse1().list()
+webhooks_subscription_response_1 = client.WebhooksSubscriptionResponse1().load({&quot;subscription_id&quot;: 1})
+created = client.WebhooksSubscriptionResponse1().create({ &quot;actions&quot;: [], &quot;appId&quot;: 1, &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: 1, &quot;objectTypeId&quot;: &quot;example&quot;, &quot;subscriptionType&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const webhooks_subscription_response_1s = await client.WebhooksSubscriptionResponse1().list()
+const webhooks_subscription_response_1 = await client.WebhooksSubscriptionResponse1().load({ subscription_id: 1 })
+const created = await client.WebhooksSubscriptionResponse1().create({ actions: [], appId: 1, createdAt: &quot;example&quot;, id: 1, objectTypeId: &quot;example&quot;, subscriptionType: &quot;example&quot;, updatedAt: &quot;example&quot; })
+</code></pre>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -157,7 +212,7 @@
 <td><code>subscriptionType</code></td>
 <td><code>string</code></td>
 <td>Yes</td>
-<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.</td>
+<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', '<code>APP_LIFECYCLE_EVENT</code>', '<code>LIST_MEMBERSHIP</code>', or '<code>GDPR_PRIVACY_DELETION</code>'.</td>
 </tr>
 <tr>
 <td><code>updatedAt</code></td>
@@ -197,7 +252,7 @@
 <td><code>actions</code></td>
 <td><code>array of enum: CREATE, UPDATE, DELETE, MERGE, RESTORE, ASSOCIATION_ADDED, ...</code></td>
 <td>Yes</td>
-<td>A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', 'ASSOCIATION_ADDED', 'ASSOCIATION_REMOVED', 'SNAPSHOT', 'APP_INSTALL', 'APP_UNINSTALL', 'ADDED_TO_LIST', 'REMOVED_FROM_LIST', and 'GDPR_DELETE'.</td>
+<td>A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', '<code>ASSOCIATION_ADDED</code>', '<code>ASSOCIATION_REMOVED</code>', 'SNAPSHOT', '<code>APP_INSTALL</code>', '<code>APP_UNINSTALL</code>', '<code>ADDED_TO_LIST</code>', '<code>REMOVED_FROM_LIST</code>', and '<code>GDPR_DELETE</code>'.</td>
 </tr>
 <tr>
 <td><code>appId</code></td>
@@ -269,7 +324,7 @@
 <td><code>subscriptionType</code></td>
 <td><code>enum: APP_LIFECYCLE_EVENT, ASSOCIATION, EVENT, GDPR_PRIVACY_DELETION, LIST_MEMBERSHIP, OBJECT</code></td>
 <td>Yes</td>
-<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.</td>
+<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', '<code>APP_LIFECYCLE_EVENT</code>', '<code>LIST_MEMBERSHIP</code>', or '<code>GDPR_PRIVACY_DELETION</code>'.</td>
 </tr>
 <tr>
 <td><code>updatedAt</code></td>
@@ -365,6 +420,207 @@
 </tr>
 </tbody>
 </table>
+<h2 id="list">list</h2>
+<h3 id="get-webhooks-journalsubscriptions2026-09" class="operation" data-method="get"><code>GET</code> /webhooks-journal/subscriptions/2026-09</h3>
+<p>Operation ID: <code>get-/webhooks-journal/subscriptions/2026-09_/webhooks-journal/subscriptions/2026-03</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-successful-operation-1" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of SubscriptionResponse objects, each representing a subscription's details such as actions, appId, createdAt, and other relevant properties.</td>
+</tr>
+<tr>
+<td><code>results[].actionOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.</td>
+</tr>
+<tr>
+<td><code>results[].actions</code></td>
+<td><code>array of enum: CREATE, UPDATE, DELETE, MERGE, RESTORE, ASSOCIATION_ADDED, ...</code></td>
+<td>Yes</td>
+<td>A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', '<code>ASSOCIATION_ADDED</code>', '<code>ASSOCIATION_REMOVED</code>', 'SNAPSHOT', '<code>APP_INSTALL</code>', '<code>APP_UNINSTALL</code>', '<code>ADDED_TO_LIST</code>', '<code>REMOVED_FROM_LIST</code>', and '<code>GDPR_DELETE</code>'.</td>
+</tr>
+<tr>
+<td><code>results[].appId</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the app associated with the subscription. It is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].associatedObjectTypeIds</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of associated object type IDs. Each ID is a string.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the subscription was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].createdBy</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The ID of the user who created the subscription. It is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].deletedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the subscription was deleted, in ISO 8601 format, if applicable.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>The unique identifier for the subscription. It is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].listIds</code></td>
+<td><code>array of integer (int64)</code></td>
+<td>No</td>
+<td>A list of list IDs associated with the subscription. Each ID is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].objectIds</code></td>
+<td><code>array of integer (int64)</code></td>
+<td>No</td>
+<td>A list of object IDs associated with the subscription. Each ID is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].objectTypeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The identifier for the object type associated with the subscription. It is a string.</td>
+</tr>
+<tr>
+<td><code>results[].portalId</code></td>
+<td><code>integer (int64)</code></td>
+<td>No</td>
+<td>The unique identifier for the portal associated with the subscription. It is an integer formatted as int64.</td>
+</tr>
+<tr>
+<td><code>results[].properties</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of property names associated with the subscription. Each property is a string.</td>
+</tr>
+<tr>
+<td><code>results[].subscriptionType</code></td>
+<td><code>enum: APP_LIFECYCLE_EVENT, ASSOCIATION, EVENT, GDPR_PRIVACY_DELETION, LIST_MEMBERSHIP, OBJECT</code></td>
+<td>Yes</td>
+<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', '<code>APP_LIFECYCLE_EVENT</code>', '<code>LIST_MEMBERSHIP</code>', or '<code>GDPR_PRIVACY_DELETION</code>'.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the subscription was last updated, in ISO 8601 format.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-1">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request. Include this value with any error reports or support tickets</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>further information about the error</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error</td>
+</tr>
+</tbody>
+</table>
 <h2 id="load">load</h2>
 <h3 id="get-webhooks-journalsubscriptions2026-09subscriptionid" class="operation" data-method="get"><code>GET</code> /webhooks-journal/subscriptions/2026-09/{subscriptionId}</h3>
 <p>Operation ID: <code>get-/webhooks-journal/subscriptions/2026-09/{subscriptionId}_/webhooks-journal/subscriptions/2026-03/{subscriptionId}</code>.</p>
@@ -373,8 +629,8 @@
 <p>| Parameter | In | Type | Required | Description |
 | --- | --- | --- | --- |
 | <code>subscriptionId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The unique identifier of the subscription to retrieve. It is an integer value. |</p>
-<h4 id="responses-1">Responses</h4>
-<h5 id="200-successful-operation-1" class="status" data-status="2xx">200: successful operation</h5>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-successful-operation-2" class="status" data-status="2xx">200: successful operation</h5>
 <p><code>application/json</code></p>
 <table>
 <thead>
@@ -396,7 +652,7 @@
 <td><code>actions</code></td>
 <td><code>array of enum: CREATE, UPDATE, DELETE, MERGE, RESTORE, ASSOCIATION_ADDED, ...</code></td>
 <td>Yes</td>
-<td>A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', 'ASSOCIATION_ADDED', 'ASSOCIATION_REMOVED', 'SNAPSHOT', 'APP_INSTALL', 'APP_UNINSTALL', 'ADDED_TO_LIST', 'REMOVED_FROM_LIST', and 'GDPR_DELETE'.</td>
+<td>A list of actions that trigger the subscription. Possible values include 'CREATE', 'UPDATE', 'DELETE', 'MERGE', 'RESTORE', '<code>ASSOCIATION_ADDED</code>', '<code>ASSOCIATION_REMOVED</code>', 'SNAPSHOT', '<code>APP_INSTALL</code>', '<code>APP_UNINSTALL</code>', '<code>ADDED_TO_LIST</code>', '<code>REMOVED_FROM_LIST</code>', and '<code>GDPR_DELETE</code>'.</td>
 </tr>
 <tr>
 <td><code>appId</code></td>
@@ -468,7 +724,7 @@
 <td><code>subscriptionType</code></td>
 <td><code>enum: APP_LIFECYCLE_EVENT, ASSOCIATION, EVENT, GDPR_PRIVACY_DELETION, LIST_MEMBERSHIP, OBJECT</code></td>
 <td>Yes</td>
-<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.</td>
+<td>The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', '<code>APP_LIFECYCLE_EVENT</code>', '<code>LIST_MEMBERSHIP</code>', or '<code>GDPR_PRIVACY_DELETION</code>'.</td>
 </tr>
 <tr>
 <td><code>updatedAt</code></td>
@@ -478,7 +734,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="default-1">default</h5>
+<h5 id="default-2">default</h5>
 <p><code>*/*</code></p>
 <table>
 <thead>

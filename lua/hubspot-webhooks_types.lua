@@ -1,7 +1,7 @@
 -- Typed models for the HubspotWebhooks SDK (LuaLS annotations).
 --
--- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
--- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
 -- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 -- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 -- edit by hand.
@@ -56,40 +56,6 @@
 ---@field results table
 ---@field startedAt string
 ---@field status string
-
----@class WebhooksCollectionResponseSubscriptionResponseNoPaging
----@field actionOverrides? table
----@field actions table
----@field appId number
----@field associatedObjectTypeIds? table
----@field createdAt string
----@field createdBy? number
----@field deletedAt? string
----@field id number
----@field listIds? table
----@field objectIds? table
----@field objectTypeId string
----@field portalId? number
----@field properties? table
----@field subscriptionType string
----@field updatedAt string
-
----@class WebhooksCollectionResponseSubscriptionResponseNoPagingListMatch
----@field actionOverrides? table
----@field actions? table
----@field appId? number
----@field associatedObjectTypeIds? table
----@field createdAt? string
----@field createdBy? number
----@field deletedAt? string
----@field id? number
----@field listIds? table
----@field objectIds? table
----@field objectTypeId? string
----@field portalId? number
----@field properties? table
----@field subscriptionType? string
----@field updatedAt? string
 
 ---@class WebhooksCrmObjectSnapshotBatch
 ---@field snapshotRequests table
@@ -157,6 +123,9 @@
 ---@field app_id number
 ---@field id number
 
+---@class WebhooksSubscriptionListMatch
+---@field app_id number
+
 ---@class WebhooksSubscriptionCreateData
 ---@field app_id number
 ---@field active boolean
@@ -179,19 +148,6 @@
 ---@field propertyName? string
 ---@field updatedAt? string
 
----@class WebhooksSubscriptionList
----@field active boolean
----@field createdAt string
----@field eventType string
----@field eventTypeName? string
----@field id string
----@field objectTypeId? string
----@field propertyName? string
----@field updatedAt? string
-
----@class WebhooksSubscriptionListListMatch
----@field app_id number
-
 ---@class WebhooksSubscriptionResponse1
 ---@field actionOverrides? table
 ---@field actions table
@@ -211,6 +167,23 @@
 
 ---@class WebhooksSubscriptionResponse1LoadMatch
 ---@field subscription_id number
+
+---@class WebhooksSubscriptionResponse1ListMatch
+---@field actionOverrides? table
+---@field actions? table
+---@field appId? number
+---@field associatedObjectTypeIds? table
+---@field createdAt? string
+---@field createdBy? number
+---@field deletedAt? string
+---@field id? number
+---@field listIds? table
+---@field objectIds? table
+---@field objectTypeId? string
+---@field portalId? number
+---@field properties? table
+---@field subscriptionType? string
+---@field updatedAt? string
 
 ---@class WebhooksSubscriptionResponse1CreateData
 ---@field actionOverrides? table

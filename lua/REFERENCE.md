@@ -53,10 +53,6 @@ Create a new `WebhooksBatchResponseJournalFetch` entity instance. Pass `nil` for
 
 Create a new `WebhooksBatchResponseSubscription` entity instance. Pass `nil` for no initial data.
 
-#### `WebhooksCollectionResponseSubscriptionResponseNoPaging(data)`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPaging` entity instance. Pass `nil` for no initial data.
-
 #### `WebhooksCrmObjectSnapshotBatch(data)`
 
 Create a new `WebhooksCrmObjectSnapshotBatch` entity instance. Pass `nil` for no initial data.
@@ -76,10 +72,6 @@ Create a new `WebhooksSnapshotStatus` entity instance. Pass `nil` for no initial
 #### `WebhooksSubscription(data)`
 
 Create a new `WebhooksSubscription` entity instance. Pass `nil` for no initial data.
-
-#### `WebhooksSubscriptionList(data)`
-
-Create a new `WebhooksSubscriptionList` entity instance. Pass `nil` for no initial data.
 
 #### `WebhooksSubscriptionResponse1(data)`
 
@@ -303,72 +295,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
-
-```lua
-local webhooks_collection_response_subscription_response_no_paging = client:WebhooksCollectionResponseSubscriptionResponseNoPaging(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actionOverrides` | `table` | No | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `actions` | `table` | Yes | A list of actions that trigger the subscription. |
-| `appId` | `number` | Yes | The unique identifier for the app associated with the subscription. |
-| `associatedObjectTypeIds` | `table` | No | A list of associated object type IDs. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `createdBy` | `number` | No | The ID of the user who created the subscription. |
-| `deletedAt` | `string` | No | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `id` | `number` | Yes | The unique identifier for the subscription. |
-| `listIds` | `table` | No | A list of list IDs associated with the subscription. |
-| `objectIds` | `table` | No | A list of object IDs associated with the subscription. |
-| `objectTypeId` | `string` | Yes | The identifier for the object type associated with the subscription. |
-| `portalId` | `number` | No | The unique identifier for the portal associated with the subscription. |
-| `properties` | `table` | No | A list of property names associated with the subscription. |
-| `subscriptionType` | `string` | Yes | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `updatedAt` | `string` | Yes | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:WebhooksCollectionResponseSubscriptionResponseNoPaging():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -649,16 +575,16 @@ local webhooks_subscription = client:WebhooksSubscription(nil)
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `active` | - | - | Yes |
-| `createdAt` | - | - | - |
-| `eventType` | - | - | - |
-| `eventTypeName` | - | - | - |
-| `id` | - | - | - |
-| `objectTypeId` | - | - | - |
-| `propertyName` | - | - | - |
-| `updatedAt` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active` | - | - | - | Yes |
+| `createdAt` | - | - | - | - |
+| `eventType` | - | - | - | - |
+| `eventTypeName` | - | - | - | - |
+| `id` | - | - | - | - |
+| `objectTypeId` | - | - | - | - |
+| `propertyName` | - | - | - | - |
+| `updatedAt` | - | - | - | - |
 
 ### Operations
 
@@ -674,6 +600,14 @@ local result, err = client:WebhooksSubscription():create({
   eventType = --[[ string ]],
   id = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:WebhooksSubscription():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -717,65 +651,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `WebhooksSubscriptionEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## WebhooksSubscriptionListEntity
-
-```lua
-local webhooks_subscription_list = client:WebhooksSubscriptionList(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active` | `boolean` | Yes | A boolean indicating whether the subscription is currently active. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `eventType` | `string` | Yes | The type of event that triggers the subscription. |
-| `eventTypeName` | `string` | No | The name of the event type for the subscription. |
-| `id` | `string` | Yes | The unique identifier for the subscription. |
-| `objectTypeId` | `string` | No | The identifier for the object type associated with the subscription. |
-| `propertyName` | `string` | No | The name of the property associated with the subscription event, if applicable. |
-| `updatedAt` | `string` | No | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:WebhooksSubscriptionList():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `WebhooksSubscriptionListEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -829,6 +704,14 @@ local result, err = client:WebhooksSubscriptionResponse1():create({
 })
 ```
 
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:WebhooksSubscriptionResponse1():list()
+```
+
 #### `load(reqmatch, ctrl) -> any, err`
 
 Load a single entity matching the given criteria.
@@ -871,14 +754,14 @@ Return the entity name.
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -924,7 +807,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -955,7 +838,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -986,7 +869,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -1014,7 +897,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -1049,7 +932,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -1080,7 +963,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -1114,7 +997,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -1145,7 +1028,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

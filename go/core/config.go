@@ -161,13 +161,11 @@ func MakeConfig() map[string]any {
 				"basic": map[string]any{},
 				"webhooks_batch_response_journal_fetch": map[string]any{},
 				"webhooks_batch_response_subscription": map[string]any{},
-				"webhooks_collection_response_subscription_response_no_paging": map[string]any{},
 				"webhooks_crm_object_snapshot_batch": map[string]any{},
 				"webhooks_filter": map[string]any{},
 				"webhooks_setting": map[string]any{},
 				"webhooks_snapshot_status": map[string]any{},
 				"webhooks_subscription": map[string]any{},
-				"webhooks_subscription_list": map[string]any{},
 				"webhooks_subscription_response_1": map[string]any{},
 			},
 		},
@@ -181,35 +179,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "offset_id",
-											"orig": "offset",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "install_portal_id",
-											"orig": "install_portal_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/offset/{offset}/next",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"offset": "offset_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -230,16 +202,6 @@ func MakeConfig() map[string]any {
 										"lit": "next",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-										"offset_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
@@ -248,37 +210,47 @@ func MakeConfig() map[string]any {
 									"{offset_id}",
 									"next",
 								},
-							},
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "offset_id",
-											"orig": "offset",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "install_portal_id",
-											"orig": "install_portal_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/webhooks-journal/journal/2026-09/offset/{offset}/next",
 								"rename": map[string]any{
 									"param": map[string]any{
 										"offset": "offset_id",
 									},
 								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "offset_id",
+											"orig": "offset",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "install_portal_id",
+											"orig": "install_portal_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+										"offset_id",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/webhooks-journal/journal/2026-09/offset/{offset}/next",
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -299,16 +271,6 @@ func MakeConfig() map[string]any {
 										"lit": "next",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-										"offset_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
@@ -317,19 +279,44 @@ func MakeConfig() map[string]any {
 									"{offset_id}",
 									"next",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"offset": "offset_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "offset_id",
+											"orig": "offset",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+										"offset_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/earliest",
@@ -347,34 +334,35 @@ func MakeConfig() map[string]any {
 										"lit": "earliest",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
 									"2026-09",
 									"earliest",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/latest",
@@ -392,34 +380,35 @@ func MakeConfig() map[string]any {
 										"lit": "latest",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
 									"2026-09",
 									"latest",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal/2026-09/earliest",
@@ -437,34 +426,35 @@ func MakeConfig() map[string]any {
 										"lit": "earliest",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
 									"2026-09",
 									"earliest",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal/2026-09/latest",
@@ -482,20 +472,32 @@ func MakeConfig() map[string]any {
 										"lit": "latest",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
 									"2026-09",
 									"latest",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "install_portal_id",
+											"orig": "install_portal_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+									},
 								},
 							},
 						},
@@ -505,35 +507,9 @@ func MakeConfig() map[string]any {
 						"name": "remove",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "subscription_id",
-											"orig": "subscription_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "DELETE",
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-										"subscriptionId": "subscription_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -551,16 +527,6 @@ func MakeConfig() map[string]any {
 										"var": "subscription_id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
-										"subscription_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
@@ -568,28 +534,47 @@ func MakeConfig() map[string]any {
 									"subscriptions",
 									"{subscription_id}",
 								},
-							},
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "DELETE",
-								"orig": "/app-webhooks/2026-09/{appId}/settings",
 								"rename": map[string]any{
 									"param": map[string]any{
 										"appId": "app_id",
+										"subscriptionId": "subscription_id",
 									},
 								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
+											"name": "subscription_id",
+											"orig": "subscription_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+										"subscription_id",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "DELETE",
+								"orig": "/app-webhooks/2026-09/{appId}/settings",
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -604,43 +589,43 @@ func MakeConfig() map[string]any {
 										"lit": "settings",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
 									"{app_id}",
 									"settings",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "filter_id",
-											"orig": "filter_id",
-											"reqd": true,
+											"name": "app_id",
+											"orig": "app_id",
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "DELETE",
 								"orig": "/webhooks-journal/subscriptions/2026-09/filters/{filterId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"filterId": "filter_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -658,15 +643,6 @@ func MakeConfig() map[string]any {
 										"var": "filter_id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"filter_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
@@ -674,28 +650,37 @@ func MakeConfig() map[string]any {
 									"filters",
 									"{filter_id}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"filterId": "filter_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "portal_id",
-											"orig": "portal_id",
-											"reqd": true,
+											"name": "filter_id",
+											"orig": "filter_id",
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"filter_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "DELETE",
 								"orig": "/webhooks-journal/subscriptions/2026-09/portals/{portalId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"portalId": "portal_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -713,15 +698,6 @@ func MakeConfig() map[string]any {
 										"var": "portal_id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
@@ -729,28 +705,37 @@ func MakeConfig() map[string]any {
 									"portals",
 									"{portal_id}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"portalId": "portal_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "subscription_id",
-											"orig": "subscription_id",
-											"reqd": true,
+											"name": "portal_id",
+											"orig": "portal_id",
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "DELETE",
 								"orig": "/webhooks-journal/subscriptions/2026-09/{subscriptionId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"subscriptionId": "subscription_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -765,90 +750,97 @@ func MakeConfig() map[string]any {
 										"var": "subscription_id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"subscription_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
 									"2026-09",
 									"{subscription_id}",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"subscriptionId": "subscription_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "subscription_id",
+											"orig": "subscription_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"subscription_id",
+									},
+								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"offset",
-						},
-						[]any{
-							"filter",
-						},
-						[]any{
-							"portal",
-						},
-						[]any{
-							"2026_09",
-						},
-						[]any{
-							"2026_09",
-							"subscription",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 			"webhooks_batch_response_journal_fetch": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "completedAt",
+						"title": "Completed At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation was completed, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of strings to be processed.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "links",
-						"short": "A map of link names to associated URIs related to the batch operation.",
+						"title": "Links",
 						"type": "`$OBJECT`",
+						"short": "A map of link names to associated URIs related to the batch operation.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "requestedAt",
-						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"title": "Requested At",
 						"type": "`$STRING`",
+						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "results",
+						"title": "Results",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of results from the batch operation, each represented as a JournalFetchResponse object.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "startedAt",
+						"title": "Started At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation started, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The current status of the batch operation.",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "webhooks_batch_response_journal_fetch",
@@ -858,17 +850,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "install_portal_id",
-											"orig": "install_portal_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/webhooks-journal/journal-local/2026-09/batch/read",
@@ -889,15 +870,6 @@ func MakeConfig() map[string]any {
 										"lit": "read",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
@@ -905,19 +877,29 @@ func MakeConfig() map[string]any {
 									"batch",
 									"read",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "POST",
 								"orig": "/webhooks-journal/journal/2026-09/batch/read",
@@ -938,21 +920,33 @@ func MakeConfig() map[string]any {
 										"lit": "read",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
 									"2026-09",
 									"batch",
 									"read",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "install_portal_id",
+											"orig": "install_portal_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"install_portal_id",
+									},
 								},
 							},
 						},
@@ -962,43 +956,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "batch_id",
-											"orig": "offset",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "count",
-											"orig": "count",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "install_portal_id",
-											"orig": "install_portal_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/batch/{offset}/next/{count}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"offset": "batch_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -1022,17 +982,6 @@ func MakeConfig() map[string]any {
 										"var": "count",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"batch_id",
-										"count",
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
@@ -1042,45 +991,56 @@ func MakeConfig() map[string]any {
 									"next",
 									"{count}",
 								},
-							},
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "batch_id",
-											"orig": "offset",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "count",
-											"orig": "count",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "install_portal_id",
-											"orig": "install_portal_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/webhooks-journal/journal/2026-09/batch/{offset}/next/{count}",
 								"rename": map[string]any{
 									"param": map[string]any{
 										"offset": "batch_id",
 									},
 								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "batch_id",
+											"orig": "offset",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
+											"name": "count",
+											"orig": "count",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "install_portal_id",
+											"orig": "install_portal_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"batch_id",
+										"count",
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/webhooks-journal/journal/2026-09/batch/{offset}/next/{count}",
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -1104,17 +1064,6 @@ func MakeConfig() map[string]any {
 										"var": "count",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"batch_id",
-										"count",
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
@@ -1124,29 +1073,53 @@ func MakeConfig() map[string]any {
 									"next",
 									"{count}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"offset": "batch_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
+											"name": "batch_id",
+											"orig": "offset",
+											"type": "`$STRING`",
 											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
 											"name": "count",
 											"orig": "count",
-											"reqd": true,
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"batch_id",
+										"count",
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/batch/earliest/{count}",
@@ -1170,16 +1143,6 @@ func MakeConfig() map[string]any {
 										"var": "count",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"count",
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
@@ -1188,29 +1151,40 @@ func MakeConfig() map[string]any {
 									"earliest",
 									"{count}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
 											"name": "count",
 											"orig": "count",
-											"reqd": true,
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"count",
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/batch/latest/{count}",
@@ -1234,16 +1208,6 @@ func MakeConfig() map[string]any {
 										"var": "count",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"count",
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
@@ -1252,29 +1216,40 @@ func MakeConfig() map[string]any {
 									"latest",
 									"{count}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
 											"name": "count",
 											"orig": "count",
-											"reqd": true,
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"count",
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal/2026-09/batch/earliest/{count}",
@@ -1298,16 +1273,6 @@ func MakeConfig() map[string]any {
 										"var": "count",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"count",
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
@@ -1316,29 +1281,40 @@ func MakeConfig() map[string]any {
 									"earliest",
 									"{count}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
 											"name": "count",
 											"orig": "count",
-											"reqd": true,
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 									"query": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "query",
 											"name": "install_portal_id",
 											"orig": "install_portal_id",
 											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"count",
+										"install_portal_id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal/2026-09/batch/latest/{count}",
@@ -1362,16 +1338,6 @@ func MakeConfig() map[string]any {
 										"var": "count",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"count",
-										"install_portal_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
@@ -1380,69 +1346,97 @@ func MakeConfig() map[string]any {
 									"latest",
 									"{count}",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "count",
+											"orig": "count",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "install_portal_id",
+											"orig": "install_portal_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"count",
+										"install_portal_id",
+									},
+								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"earliest",
-						},
-						[]any{
-							"latest",
-						},
-						[]any{
-							"batch",
-							"next",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 			"webhooks_batch_response_subscription": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "completedAt",
+						"title": "Completed At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation was completed, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of SubscriptionBatchUpdateRequest objects, each representing a subscription to be updated.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "links",
-						"short": "A map of link names to associated URIs providing additional information about the batch operation.",
+						"title": "Links",
 						"type": "`$OBJECT`",
+						"short": "A map of link names to associated URIs providing additional information about the batch operation.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "requestedAt",
-						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"title": "Requested At",
 						"type": "`$STRING`",
+						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "results",
+						"title": "Results",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array containing the results of the batch operation, with each item representing an individual subscription response.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "startedAt",
+						"title": "Started At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation started, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The current status of the batch operation.",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "webhooks_batch_response_subscription",
@@ -1452,26 +1446,9 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/batch/update",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -1492,15 +1469,6 @@ func MakeConfig() map[string]any {
 										"lit": "update",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
@@ -1509,145 +1477,31 @@ func MakeConfig() map[string]any {
 									"batch",
 									"update",
 								},
-							},
-						},
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"2026_09",
-						},
-					},
-				},
-			},
-			"webhooks_collection_response_subscription_response_no_paging": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "actionOverrides",
-						"short": "An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.",
-						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "actions",
-						"req": true,
-						"short": "A list of actions that trigger the subscription.",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"format": "int64",
-						"name": "appId",
-						"req": true,
-						"short": "The unique identifier for the app associated with the subscription.",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "associatedObjectTypeIds",
-						"short": "A list of associated object type IDs.",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"format": "date-time",
-						"name": "createdAt",
-						"req": true,
-						"short": "The date and time when the subscription was created, in ISO 8601 format.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"format": "int64",
-						"name": "createdBy",
-						"short": "The ID of the user who created the subscription.",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"format": "date-time",
-						"name": "deletedAt",
-						"short": "The date and time when the subscription was deleted, in ISO 8601 format, if applicable.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"format": "int64",
-						"name": "id",
-						"req": true,
-						"short": "The unique identifier for the subscription.",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "listIds",
-						"short": "A list of list IDs associated with the subscription.",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "objectIds",
-						"short": "A list of object IDs associated with the subscription.",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "objectTypeId",
-						"req": true,
-						"short": "The identifier for the object type associated with the subscription.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"format": "int64",
-						"name": "portalId",
-						"short": "The unique identifier for the portal associated with the subscription.",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "properties",
-						"short": "A list of property names associated with the subscription.",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "subscriptionType",
-						"req": true,
-						"short": "The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"format": "date-time",
-						"name": "updatedAt",
-						"req": true,
-						"short": "The date and time when the subscription was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
-					},
-				},
-				"id": map[string]any{
-					"field": "id",
-					"name": "id",
-				},
-				"name": "webhooks_collection_response_subscription_response_no_paging",
-				"op": map[string]any{
-					"list": map[string]any{
-						"input": "data",
-						"name": "list",
-						"points": []any{
-							map[string]any{
-								"args": map[string]any{},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/webhooks-journal/subscriptions/2026-09",
-								"segments": []any{
-									map[string]any{
-										"lit": "webhooks-journal",
-									},
-									map[string]any{
-										"lit": "subscriptions",
-									},
-									map[string]any{
-										"lit": "2026-09",
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
 									},
 								},
-								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.results`",
+									"res": "`body`",
 								},
-								"parts": []any{
-									"webhooks-journal",
-									"subscriptions",
-									"2026-09",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+									},
 								},
 							},
 						},
@@ -1661,15 +1515,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "snapshotRequests",
+						"title": "Snapshot Requests",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of CrmObjectSnapshotRequest objects, each representing a request to create a snapshot for a specific CRM object.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "snapshotResponses",
+						"title": "Snapshot Responses",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of CrmObjectSnapshotResponse objects, each representing the result of a snapshot operation for a specific CRM object.",
-						"type": "`$ARRAY`",
 					},
 				},
 				"name": "webhooks_crm_object_snapshot_batch",
@@ -1679,7 +1535,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/webhooks-journal/snapshots/2026-09/crm",
@@ -1697,17 +1552,19 @@ func MakeConfig() map[string]any {
 										"lit": "crm",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"snapshots",
 									"2026-09",
 									"crm",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1720,43 +1577,49 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "conditions",
+						"title": "Conditions",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of conditions that define the criteria for the filter.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "A Unix timestamp in milliseconds indicating when the filter was created.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 					map[string]any{
 						"name": "filter",
+						"title": "Filter",
+						"type": "`$OBJECT`",
 						"req": true,
 						"short": "Defines a single condition for searching CRM objects, specifying the property to filter on, the operator to use (such as equals, greater than, or contains), and the value(s) to compare against.",
-						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "filterId",
+						"title": "Filter Id",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The unique identifier for the created filter.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "id",
+						"title": "Id",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The unique identifier for the filter.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "subscriptionId",
+						"title": "Subscription Id",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The unique identifier of the subscription to which the filter will be applied.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 				},
 				"id": map[string]any{
@@ -1770,7 +1633,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/webhooks-journal/subscriptions/2026-09/filters",
@@ -1788,17 +1650,19 @@ func MakeConfig() map[string]any {
 										"lit": "filters",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
 									"2026-09",
 									"filters",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1807,26 +1671,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "filter_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/subscriptions/2026-09/filters/{filterId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"filterId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -1844,15 +1691,6 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.filter`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
@@ -1860,28 +1698,37 @@ func MakeConfig() map[string]any {
 									"filters",
 									"{id}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{
+									"param": map[string]any{
+										"filterId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.filter`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "subscription_id",
-											"orig": "subscription_id",
-											"reqd": true,
+											"name": "id",
+											"orig": "filter_id",
 											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/subscriptions/2026-09/filters/subscription/{subscriptionId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"subscriptionId": "subscription_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -1902,15 +1749,6 @@ func MakeConfig() map[string]any {
 										"var": "subscription_id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"subscription_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
@@ -1919,37 +1757,62 @@ func MakeConfig() map[string]any {
 									"subscription",
 									"{subscription_id}",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"subscriptionId": "subscription_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "subscription_id",
+											"orig": "subscription_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"subscription_id",
+									},
+								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"subscription",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 			"webhooks_setting": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "int32",
 						"name": "maxConcurrentRequests",
+						"title": "Max Concurrent Requests",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The maximum number of concurrent requests allowed.",
-						"type": "`$INTEGER`",
+						"format": "int32",
 					},
 					map[string]any{
 						"name": "targetUrl",
+						"title": "Target Url",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The URL to which webhook events will be sent.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "throttling",
-						"req": true,
+						"title": "Throttling",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 				},
 				"name": "webhooks_setting",
@@ -1959,26 +1822,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/app-webhooks/2026-09/{appId}/settings",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -1993,20 +1839,37 @@ func MakeConfig() map[string]any {
 										"lit": "settings",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
+								"parts": []any{
+									"app-webhooks",
+									"2026-09",
+									"{app_id}",
+									"settings",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.throttling`",
 								},
-								"parts": []any{
-									"app-webhooks",
-									"2026-09",
-									"{app_id}",
-									"settings",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+									},
 								},
 							},
 						},
@@ -2016,26 +1879,9 @@ func MakeConfig() map[string]any {
 						"name": "update",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "PUT",
 								"orig": "/app-webhooks/2026-09/{appId}/settings",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -2050,70 +1896,89 @@ func MakeConfig() map[string]any {
 										"lit": "settings",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.throttling`",
-								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
 									"{app_id}",
 									"settings",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.throttling`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+									},
+								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"2026_09",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 			"webhooks_snapshot_status": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "int64",
 						"name": "completedAt",
-						"short": "The timestamp indicating when the snapshot operation was completed, represented as a Unix timestamp in milliseconds.",
+						"title": "Completed At",
 						"type": "`$INTEGER`",
+						"short": "The timestamp indicating when the snapshot operation was completed, represented as a Unix timestamp in milliseconds.",
+						"format": "int64",
 					},
 					map[string]any{
 						"name": "errorCode",
-						"short": "A code representing the error that occurred, if any.",
+						"title": "Error Code",
 						"type": "`$STRING`",
+						"short": "A code representing the error that occurred, if any.",
 					},
 					map[string]any{
-						"format": "uuid",
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The unique identifier for the snapshot operation, represented as a UUID.",
-						"type": "`$STRING`",
+						"format": "uuid",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "initiatedAt",
+						"title": "Initiated At",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The timestamp indicating when the snapshot operation was initiated, represented as a Unix timestamp in milliseconds.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 					map[string]any{
 						"name": "message",
-						"short": "A descriptive message providing additional information about the snapshot operation or error.",
+						"title": "Message",
 						"type": "`$STRING`",
+						"short": "A descriptive message providing additional information about the snapshot operation or error.",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The current status of the snapshot.",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -2127,26 +1992,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "status_id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/journal-local/2026-09/status/{statusId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"statusId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -2164,15 +2012,6 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal-local",
@@ -2180,28 +2019,37 @@ func MakeConfig() map[string]any {
 									"status",
 									"{id}",
 								},
-							},
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "status_id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/webhooks-journal/journal/2026-09/status/{statusId}",
 								"rename": map[string]any{
 									"param": map[string]any{
 										"statusId": "id",
 									},
 								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "status_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/webhooks-journal/journal/2026-09/status/{statusId}",
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -2219,21 +2067,38 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"journal",
 									"2026-09",
 									"status",
 									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"statusId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "status_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -2247,54 +2112,62 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "active",
+						"title": "Active",
+						"type": "`$BOOLEAN`",
+						"req": true,
 						"op": map[string]any{
 							"update": map[string]any{
 								"type": "`$BOOLEAN`",
 							},
 						},
-						"req": true,
 						"short": "A boolean indicating whether the subscription is currently active.",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the subscription was created, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "eventType",
+						"title": "Event Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of event that triggers the subscription.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "eventTypeName",
-						"short": "The name of the event type for the subscription.",
+						"title": "Event Type Name",
 						"type": "`$STRING`",
+						"short": "The name of the event type for the subscription.",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The unique identifier for the subscription.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "objectTypeId",
-						"short": "The identifier for the object type associated with the subscription.",
+						"title": "Object Type Id",
 						"type": "`$STRING`",
+						"short": "The identifier for the object type associated with the subscription.",
 					},
 					map[string]any{
 						"name": "propertyName",
-						"short": "The name of the property associated with the subscription event, if applicable.",
+						"title": "Property Name",
 						"type": "`$STRING`",
+						"short": "The name of the property associated with the subscription event, if applicable.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
-						"short": "The date and time when the subscription was last updated, in ISO 8601 format.",
+						"title": "Updated At",
 						"type": "`$STRING`",
+						"short": "The date and time when the subscription was last updated, in ISO 8601 format.",
+						"format": "date-time",
 					},
 				},
 				"id": map[string]any{
@@ -2308,26 +2181,9 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -2342,20 +2198,94 @@ func MakeConfig() map[string]any {
 										"lit": "subscriptions",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
+								"parts": []any{
+									"app-webhooks",
+									"2026-09",
+									"{app_id}",
+									"subscriptions",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+									},
+								},
+							},
+						},
+					},
+					"list": map[string]any{
+						"input": "data",
+						"name": "list",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/app-webhooks/2026-09/{appId}/subscriptions",
+								"segments": []any{
+									map[string]any{
+										"lit": "app-webhooks",
+									},
+									map[string]any{
+										"lit": "2026-09",
+									},
+									map[string]any{
+										"var": "app_id",
+									},
+									map[string]any{
+										"lit": "subscriptions",
+									},
+								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
 									"{app_id}",
 									"subscriptions",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.results`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+									},
 								},
 							},
 						},
@@ -2365,35 +2295,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "subscription_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-										"subscriptionId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -2411,22 +2315,48 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
 									"{app_id}",
 									"subscriptions",
 									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"appId": "app_id",
+										"subscriptionId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "subscription_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"app_id",
+										"id",
+									},
 								},
 							},
 						},
@@ -2436,35 +2366,9 @@ func MakeConfig() map[string]any {
 						"name": "update",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "subscription_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "PATCH",
 								"orig": "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"appId": "app_id",
-										"subscriptionId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "app-webhooks",
@@ -2482,16 +2386,6 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"app_id",
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"app-webhooks",
 									"2026-09",
@@ -2499,229 +2393,155 @@ func MakeConfig() map[string]any {
 									"subscriptions",
 									"{id}",
 								},
-							},
-						},
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"2026_09",
-						},
-					},
-				},
-			},
-			"webhooks_subscription_list": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "active",
-						"req": true,
-						"short": "A boolean indicating whether the subscription is currently active.",
-						"type": "`$BOOLEAN`",
-					},
-					map[string]any{
-						"format": "date-time",
-						"name": "createdAt",
-						"req": true,
-						"short": "The date and time when the subscription was created, in ISO 8601 format.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "eventType",
-						"req": true,
-						"short": "The type of event that triggers the subscription.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "eventTypeName",
-						"short": "The name of the event type for the subscription.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "id",
-						"req": true,
-						"short": "The unique identifier for the subscription.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "objectTypeId",
-						"short": "The identifier for the object type associated with the subscription.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "propertyName",
-						"short": "The name of the property associated with the subscription event, if applicable.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"format": "date-time",
-						"name": "updatedAt",
-						"short": "The date and time when the subscription was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
-					},
-				},
-				"id": map[string]any{
-					"field": "id",
-					"name": "id",
-				},
-				"name": "webhooks_subscription_list",
-				"op": map[string]any{
-					"list": map[string]any{
-						"input": "data",
-						"name": "list",
-						"points": []any{
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "app_id",
-											"orig": "app_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/app-webhooks/2026-09/{appId}/subscriptions",
 								"rename": map[string]any{
 									"param": map[string]any{
 										"appId": "app_id",
+										"subscriptionId": "id",
 									},
 								},
-								"segments": []any{
-									map[string]any{
-										"lit": "app-webhooks",
-									},
-									map[string]any{
-										"lit": "2026-09",
-									},
-									map[string]any{
-										"var": "app_id",
-									},
-									map[string]any{
-										"lit": "subscriptions",
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "app_id",
+											"orig": "app_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "subscription_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
 									},
 								},
 								"select": map[string]any{
 									"exist": []any{
 										"app_id",
+										"id",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.results`",
-								},
-								"parts": []any{
-									"app-webhooks",
-									"2026-09",
-									"{app_id}",
-									"subscriptions",
 								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"2026_09",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 			"webhooks_subscription_response_1": map[string]any{
 				"fields": []any{
 					map[string]any{
 						"name": "actionOverrides",
-						"short": "An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.",
+						"title": "Action Overrides",
 						"type": "`$OBJECT`",
+						"short": "An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.",
 					},
 					map[string]any{
 						"name": "actions",
+						"title": "Actions",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "A list of actions that trigger the subscription.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "appId",
+						"title": "App Id",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The unique identifier for the app associated with the subscription.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 					map[string]any{
 						"name": "associatedObjectTypeIds",
-						"short": "A list of associated object type IDs.",
+						"title": "Associated Object Type Ids",
 						"type": "`$ARRAY`",
+						"short": "A list of associated object type IDs.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the subscription was created, in ISO 8601 format.",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"format": "int64",
-						"name": "createdBy",
-						"short": "The ID of the user who created the subscription.",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
 						"format": "date-time",
-						"name": "deletedAt",
-						"short": "The date and time when the subscription was deleted, in ISO 8601 format, if applicable.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
+						"name": "createdBy",
+						"title": "Created By",
+						"type": "`$INTEGER`",
+						"short": "The ID of the user who created the subscription.",
 						"format": "int64",
+					},
+					map[string]any{
+						"name": "deletedAt",
+						"title": "Deleted At",
+						"type": "`$STRING`",
+						"short": "The date and time when the subscription was deleted, in ISO 8601 format, if applicable.",
+						"format": "date-time",
+					},
+					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "The unique identifier for the subscription.",
-						"type": "`$INTEGER`",
+						"format": "int64",
 					},
 					map[string]any{
 						"name": "listIds",
-						"short": "A list of list IDs associated with the subscription.",
+						"title": "List Ids",
 						"type": "`$ARRAY`",
+						"short": "A list of list IDs associated with the subscription.",
 					},
 					map[string]any{
 						"name": "objectIds",
-						"short": "A list of object IDs associated with the subscription.",
+						"title": "Object Ids",
 						"type": "`$ARRAY`",
+						"short": "A list of object IDs associated with the subscription.",
 					},
 					map[string]any{
 						"name": "objectTypeId",
+						"title": "Object Type Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The identifier for the object type associated with the subscription.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "int64",
 						"name": "portalId",
-						"short": "The unique identifier for the portal associated with the subscription.",
+						"title": "Portal Id",
 						"type": "`$INTEGER`",
+						"short": "The unique identifier for the portal associated with the subscription.",
+						"format": "int64",
 					},
 					map[string]any{
 						"name": "properties",
-						"short": "A list of property names associated with the subscription.",
+						"title": "Properties",
 						"type": "`$ARRAY`",
+						"short": "A list of property names associated with the subscription.",
 					},
 					map[string]any{
 						"name": "subscriptionType",
+						"title": "Subscription Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
+						"title": "Updated At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the subscription was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 				},
 				"id": map[string]any{
@@ -2735,7 +2555,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/webhooks-journal/subscriptions/2026-09",
@@ -2750,16 +2569,52 @@ func MakeConfig() map[string]any {
 										"lit": "2026-09",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"webhooks-journal",
+									"subscriptions",
+									"2026-09",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
+							},
+						},
+					},
+					"list": map[string]any{
+						"input": "data",
+						"name": "list",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/webhooks-journal/subscriptions/2026-09",
+								"segments": []any{
+									map[string]any{
+										"lit": "webhooks-journal",
+									},
+									map[string]any{
+										"lit": "subscriptions",
+									},
+									map[string]any{
+										"lit": "2026-09",
+									},
 								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
 									"2026-09",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.results`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -2768,26 +2623,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "subscription_id",
-											"orig": "subscription_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/webhooks-journal/subscriptions/2026-09/{subscriptionId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"subscriptionId": "subscription_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "webhooks-journal",
@@ -2802,31 +2640,44 @@ func MakeConfig() map[string]any {
 										"var": "subscription_id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"subscription_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"webhooks-journal",
 									"subscriptions",
 									"2026-09",
 									"{subscription_id}",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"subscriptionId": "subscription_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "subscription_id",
+											"orig": "subscription_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"subscription_id",
+									},
+								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"2026_09",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 		},

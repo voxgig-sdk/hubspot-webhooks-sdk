@@ -395,20 +395,6 @@ function HubspotWebhooksSDK:WebhooksBatchResponseSubscription(data)
 end
 
 
--- Idiomatic facade: client:WebhooksCollectionResponseSubscriptionResponseNoPaging():list() / client:WebhooksCollectionResponseSubscriptionResponseNoPaging():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function HubspotWebhooksSDK:WebhooksCollectionResponseSubscriptionResponseNoPaging(data)
-  local EntityMod = require("entity.webhooks_collection_response_subscription_response_no_paging_entity")
-  if data == nil then
-    if self._webhooks_collection_response_subscription_response_no_paging == nil then
-      self._webhooks_collection_response_subscription_response_no_paging = EntityMod.new(self, nil)
-    end
-    return self._webhooks_collection_response_subscription_response_no_paging
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:WebhooksCrmObjectSnapshotBatch():list() / client:WebhooksCrmObjectSnapshotBatch():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function HubspotWebhooksSDK:WebhooksCrmObjectSnapshotBatch(data)
@@ -474,20 +460,6 @@ function HubspotWebhooksSDK:WebhooksSubscription(data)
       self._webhooks_subscription = EntityMod.new(self, nil)
     end
     return self._webhooks_subscription
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:WebhooksSubscriptionList():list() / client:WebhooksSubscriptionList():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function HubspotWebhooksSDK:WebhooksSubscriptionList(data)
-  local EntityMod = require("entity.webhooks_subscription_list_entity")
-  if data == nil then
-    if self._webhooks_subscription_list == nil then
-      self._webhooks_subscription_list = EntityMod.new(self, nil)
-    end
-    return self._webhooks_subscription_list
   end
   return EntityMod.new(self, data)
 end

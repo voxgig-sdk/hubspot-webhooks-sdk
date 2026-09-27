@@ -1,7 +1,7 @@
 # Typed models for the HubspotWebhooks SDK.
 #
-# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-# params (op.<name>.points[].args.params[]). Field/param types come from the
+# GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+# params (op.<name>.points[].g.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
 #
@@ -91,45 +91,6 @@ class WebhooksBatchResponseSubscriptionCreateData(WebhooksBatchResponseSubscript
     requestedAt: str
 
 
-class WebhooksCollectionResponseSubscriptionResponseNoPagingRequired(TypedDict):
-    actions: list
-    appId: int
-    createdAt: str
-    id: int
-    objectTypeId: str
-    subscriptionType: str
-    updatedAt: str
-
-
-class WebhooksCollectionResponseSubscriptionResponseNoPaging(WebhooksCollectionResponseSubscriptionResponseNoPagingRequired, total=False):
-    actionOverrides: dict
-    associatedObjectTypeIds: list
-    createdBy: int
-    deletedAt: str
-    listIds: list
-    objectIds: list
-    portalId: int
-    properties: list
-
-
-class WebhooksCollectionResponseSubscriptionResponseNoPagingListMatch(TypedDict, total=False):
-    actionOverrides: dict
-    actions: list
-    appId: int
-    associatedObjectTypeIds: list
-    createdAt: str
-    createdBy: int
-    deletedAt: str
-    id: int
-    listIds: list
-    objectIds: list
-    objectTypeId: str
-    portalId: int
-    properties: list
-    subscriptionType: str
-    updatedAt: str
-
-
 class WebhooksCrmObjectSnapshotBatch(TypedDict):
     snapshotRequests: list
     snapshotResponses: list
@@ -217,6 +178,10 @@ class WebhooksSubscriptionLoadMatch(TypedDict):
     id: int
 
 
+class WebhooksSubscriptionListMatch(TypedDict):
+    app_id: int
+
+
 class WebhooksSubscriptionCreateDataRequired(TypedDict):
     app_id: int
     active: bool
@@ -247,24 +212,6 @@ class WebhooksSubscriptionUpdateData(WebhooksSubscriptionUpdateDataRequired, tot
     updatedAt: str
 
 
-class WebhooksSubscriptionListRequired(TypedDict):
-    active: bool
-    createdAt: str
-    eventType: str
-    id: str
-
-
-class WebhooksSubscriptionList(WebhooksSubscriptionListRequired, total=False):
-    eventTypeName: str
-    objectTypeId: str
-    propertyName: str
-    updatedAt: str
-
-
-class WebhooksSubscriptionListListMatch(TypedDict):
-    app_id: int
-
-
 class WebhooksSubscriptionResponse1Required(TypedDict):
     actions: list
     appId: int
@@ -288,6 +235,24 @@ class WebhooksSubscriptionResponse1(WebhooksSubscriptionResponse1Required, total
 
 class WebhooksSubscriptionResponse1LoadMatch(TypedDict):
     subscription_id: int
+
+
+class WebhooksSubscriptionResponse1ListMatch(TypedDict, total=False):
+    actionOverrides: dict
+    actions: list
+    appId: int
+    associatedObjectTypeIds: list
+    createdAt: str
+    createdBy: int
+    deletedAt: str
+    id: int
+    listIds: list
+    objectIds: list
+    objectTypeId: str
+    portalId: int
+    properties: list
+    subscriptionType: str
+    updatedAt: str
 
 
 class WebhooksSubscriptionResponse1CreateDataRequired(TypedDict):

@@ -233,13 +233,11 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Basic` | `(data map[string]any) HubspotWebhooksEntity` | Create a Basic entity instance. |
 | `WebhooksBatchResponseJournalFetch` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksBatchResponseJournalFetch entity instance. |
 | `WebhooksBatchResponseSubscription` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksBatchResponseSubscription entity instance. |
-| `WebhooksCollectionResponseSubscriptionResponseNoPaging` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksCollectionResponseSubscriptionResponseNoPaging entity instance. |
 | `WebhooksCrmObjectSnapshotBatch` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksCrmObjectSnapshotBatch entity instance. |
 | `WebhooksFilter` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksFilter entity instance. |
 | `WebhooksSetting` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksSetting entity instance. |
 | `WebhooksSnapshotStatus` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksSnapshotStatus entity instance. |
 | `WebhooksSubscription` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksSubscription entity instance. |
-| `WebhooksSubscriptionList` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksSubscriptionList entity instance. |
 | `WebhooksSubscriptionResponse1` | `(data map[string]any) HubspotWebhooksEntity` | Create a WebhooksSubscriptionResponse1 entity instance. |
 
 ### Entity interface (HubspotWebhooksEntity)
@@ -322,30 +320,6 @@ Operations: Create.
 
 API path: `/app-webhooks/2026-09/{appId}/subscriptions/batch/update`
 
-#### WebhooksCollectionResponseSubscriptionResponseNoPaging
-
-| Field | Description |
-| --- | --- |
-| `"actionOverrides"` | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `"actions"` | A list of actions that trigger the subscription. |
-| `"appId"` | The unique identifier for the app associated with the subscription. |
-| `"associatedObjectTypeIds"` | A list of associated object type IDs. |
-| `"createdAt"` | The date and time when the subscription was created, in ISO 8601 format. |
-| `"createdBy"` | The ID of the user who created the subscription. |
-| `"deletedAt"` | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `"id"` | The unique identifier for the subscription. |
-| `"listIds"` | A list of list IDs associated with the subscription. |
-| `"objectIds"` | A list of object IDs associated with the subscription. |
-| `"objectTypeId"` | The identifier for the object type associated with the subscription. |
-| `"portalId"` | The unique identifier for the portal associated with the subscription. |
-| `"properties"` | A list of property names associated with the subscription. |
-| `"subscriptionType"` | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `"updatedAt"` | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-Operations: List.
-
-API path: `/webhooks-journal/subscriptions/2026-09`
-
 #### WebhooksCrmObjectSnapshotBatch
 
 | Field | Description |
@@ -412,24 +386,7 @@ API path: `/webhooks-journal/journal-local/2026-09/status/{statusId}`
 | `"propertyName"` | The name of the property associated with the subscription event, if applicable. |
 | `"updatedAt"` | The date and time when the subscription was last updated, in ISO 8601 format. |
 
-Operations: Create, Load, Update.
-
-API path: `/app-webhooks/2026-09/{appId}/subscriptions`
-
-#### WebhooksSubscriptionList
-
-| Field | Description |
-| --- | --- |
-| `"active"` | A boolean indicating whether the subscription is currently active. |
-| `"createdAt"` | The date and time when the subscription was created, in ISO 8601 format. |
-| `"eventType"` | The type of event that triggers the subscription. |
-| `"eventTypeName"` | The name of the event type for the subscription. |
-| `"id"` | The unique identifier for the subscription. |
-| `"objectTypeId"` | The identifier for the object type associated with the subscription. |
-| `"propertyName"` | The name of the property associated with the subscription event, if applicable. |
-| `"updatedAt"` | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-Operations: List.
+Operations: Create, List, Load, Update.
 
 API path: `/app-webhooks/2026-09/{appId}/subscriptions`
 
@@ -453,7 +410,7 @@ API path: `/app-webhooks/2026-09/{appId}/subscriptions`
 | `"subscriptionType"` | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
 | `"updatedAt"` | The date and time when the subscription was last updated, in ISO 8601 format. |
 
-Operations: Create, Load.
+Operations: Create, List, Load.
 
 API path: `/webhooks-journal/subscriptions/2026-09`
 
@@ -571,47 +528,6 @@ if err != nil {
     panic(err)
 }
 fmt.Println(result)
-```
-
-
-### WebhooksCollectionResponseSubscriptionResponseNoPaging
-
-Create an instance: `webhooksCollectionResponseSubscriptionResponseNoPaging := client.WebhooksCollectionResponseSubscriptionResponseNoPaging(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `actionOverrides` | `map[string]any` | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `actions` | `[]any` | A list of actions that trigger the subscription. |
-| `appId` | `int` | The unique identifier for the app associated with the subscription. |
-| `associatedObjectTypeIds` | `[]any` | A list of associated object type IDs. |
-| `createdAt` | `string` | The date and time when the subscription was created, in ISO 8601 format. |
-| `createdBy` | `int` | The ID of the user who created the subscription. |
-| `deletedAt` | `string` | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `id` | `int` | The unique identifier for the subscription. |
-| `listIds` | `[]any` | A list of list IDs associated with the subscription. |
-| `objectIds` | `[]any` | A list of object IDs associated with the subscription. |
-| `objectTypeId` | `string` | The identifier for the object type associated with the subscription. |
-| `portalId` | `int` | The unique identifier for the portal associated with the subscription. |
-| `properties` | `[]any` | A list of property names associated with the subscription. |
-| `subscriptionType` | `string` | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `updatedAt` | `string` | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-#### Example: List
-
-```go
-webhooksCollectionResponseSubscriptionResponseNoPagings, err := client.WebhooksCollectionResponseSubscriptionResponseNoPaging(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(webhooksCollectionResponseSubscriptionResponseNoPagings) // the array of records
 ```
 
 
@@ -766,6 +682,7 @@ Create an instance: `webhooksSubscription := client.WebhooksSubscription(nil)`
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Update(data, ctrl)` | Update an existing entity. |
@@ -793,6 +710,16 @@ if err != nil {
 fmt.Println(webhooksSubscription) // the loaded record
 ```
 
+#### Example: List
+
+```go
+webhooksSubscriptions, err := client.WebhooksSubscription(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(webhooksSubscriptions) // the array of records
+```
+
 #### Example: Create
 
 ```go
@@ -810,40 +737,6 @@ fmt.Println(result)
 ```
 
 
-### WebhooksSubscriptionList
-
-Create an instance: `webhooksSubscriptionList := client.WebhooksSubscriptionList(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `active` | `bool` | A boolean indicating whether the subscription is currently active. |
-| `createdAt` | `string` | The date and time when the subscription was created, in ISO 8601 format. |
-| `eventType` | `string` | The type of event that triggers the subscription. |
-| `eventTypeName` | `string` | The name of the event type for the subscription. |
-| `id` | `string` | The unique identifier for the subscription. |
-| `objectTypeId` | `string` | The identifier for the object type associated with the subscription. |
-| `propertyName` | `string` | The name of the property associated with the subscription event, if applicable. |
-| `updatedAt` | `string` | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-#### Example: List
-
-```go
-webhooksSubscriptionLists, err := client.WebhooksSubscriptionList(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(webhooksSubscriptionLists) // the array of records
-```
-
-
 ### WebhooksSubscriptionResponse1
 
 Create an instance: `webhooksSubscriptionResponse1 := client.WebhooksSubscriptionResponse1(nil)`
@@ -852,6 +745,7 @@ Create an instance: `webhooksSubscriptionResponse1 := client.WebhooksSubscriptio
 
 | Method | Description |
 | --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 | `Create(data, ctrl)` | Create a new entity with the given data. |
 
@@ -885,6 +779,16 @@ if err != nil {
 fmt.Println(webhooksSubscriptionResponse1) // the loaded record
 ```
 
+#### Example: List
+
+```go
+webhooksSubscriptionResponse1s, err := client.WebhooksSubscriptionResponse1(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(webhooksSubscriptionResponse1s) // the array of records
+```
+
 #### Example: Create
 
 ```go
@@ -914,14 +818,14 @@ above:
 
 | Feature | What it does |
 |---|---|
-| [`debug`](#debug) | Request/response capture ring buffer for debugging |
-| [`idempotency`](#idempotency) | Idempotency keys for safe retries of mutating operations |
-| [`metrics`](#metrics) | Statistics capture: per-operation counters and latency |
-| [`paging`](#paging) | Pagination signals for list operations |
-| [`ratelimit`](#ratelimit) | Client-side rate limiting via a token bucket |
-| [`retry`](#retry) | Automatic retry of transient failures with exponential backoff |
-| [`test`](#test) | In-memory mock transport for testing without a live server |
-| [`timeout`](#timeout) | Per-request timeout with transport abort |
+| [`debug`](#debug) | Debug capture |
+| [`idempotency`](#idempotency) | Idempotency |
+| [`metrics`](#metrics) | Metrics |
+| [`paging`](#paging) | Paging |
+| [`ratelimit`](#ratelimit) | Rate limiting |
+| [`retry`](#retry) | Retry |
+| [`test`](#test) | Test transport |
+| [`timeout`](#timeout) | Timeout |
 
 > **Order matters for `ratelimit`, `retry`, `timeout`.** These wrap the
 > transport, so each one wraps whatever is already installed: the order you
@@ -930,7 +834,7 @@ above:
 
 ### debug
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 | Option | Default |
 |---|---|
@@ -942,7 +846,7 @@ Set `feature.debug.active` to enable it, then override any of the options above.
 
 ### idempotency
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 | Option | Default |
 |---|---|
@@ -955,7 +859,7 @@ Set `feature.idempotency.active` to enable it, then override any of the options 
 
 ### metrics
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 | Option | Default |
 |---|---|
@@ -965,7 +869,7 @@ Set `feature.metrics.active` to enable it, then override any of the options abov
 
 ### paging
 
-Pagination signals for list operations.
+Paging.
 
 | Option | Default |
 |---|---|
@@ -981,7 +885,7 @@ Set `feature.paging.active` to enable it, then override any of the options above
 
 ### ratelimit
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 | Option | Default |
 |---|---|
@@ -997,7 +901,7 @@ activated earlier.
 
 ### retry
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 | Option | Default |
 |---|---|
@@ -1016,7 +920,7 @@ activated earlier.
 
 ### test
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 | Option | Default |
 |---|---|
@@ -1026,7 +930,7 @@ Set `feature.test.active` to enable it, then override any of the options above.
 
 ### timeout
 
-Per-request timeout with transport abort.
+Timeout.
 
 | Option | Default |
 |---|---|
@@ -1078,14 +982,14 @@ stage names.
 
 The SDK ships with built-in features:
 
-- **DebugFeature**: Request/response capture ring buffer for debugging
-- **IdempotencyFeature**: Idempotency keys for safe retries of mutating operations
-- **MetricsFeature**: Statistics capture: per-operation counters and latency
-- **PagingFeature**: Pagination signals for list operations
-- **RatelimitFeature**: Client-side rate limiting via a token bucket
-- **RetryFeature**: Automatic retry of transient failures with exponential backoff
-- **TestFeature**: In-memory mock transport for testing without a live server
-- **TimeoutFeature**: Per-request timeout with transport abort
+- **DebugFeature**: Debug capture
+- **IdempotencyFeature**: Idempotency
+- **MetricsFeature**: Metrics
+- **PagingFeature**: Paging
+- **RatelimitFeature**: Rate limiting
+- **RetryFeature**: Retry
+- **TestFeature**: Test transport
+- **TimeoutFeature**: Timeout
 
 Features are initialized in order. Hooks fire in the order features
 were added, so later features can override earlier ones.

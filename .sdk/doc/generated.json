@@ -1,7 +1,18 @@
 {
+  "version": 2,
+  "roots": [
+    ".github/workflows/docgen.yml",
+    ".sdk/admin/setup-github-pages.sh",
+    ".sdk/doc/generated.json",
+    ".sdk/doc/qa",
+    ".sdk/doc/qa-manifest.json",
+    "SUMMARY.md",
+    "docs"
+  ],
   "files": [
     ".github/workflows/docgen.yml",
     ".sdk/admin/setup-github-pages.sh",
+    ".sdk/doc/generated.json",
     ".sdk/doc/qa-manifest.json",
     ".sdk/doc/qa/STYLE-GUIDE.md",
     ".sdk/doc/qa/pages-job.yml",
@@ -16,13 +27,11 @@
     "docs/api/index.html",
     "docs/api/webhooks_batch_response_journal_fetch.html",
     "docs/api/webhooks_batch_response_subscription.html",
-    "docs/api/webhooks_collection_response_subscription_response_no_paging.html",
     "docs/api/webhooks_crm_object_snapshot_batch.html",
     "docs/api/webhooks_filter.html",
     "docs/api/webhooks_setting.html",
     "docs/api/webhooks_snapshot_status.html",
     "docs/api/webhooks_subscription.html",
-    "docs/api/webhooks_subscription_list.html",
     "docs/api/webhooks_subscription_response_1.html",
     "docs/assets/nunito.woff2",
     "docs/assets/nunito.woff2.license.txt",

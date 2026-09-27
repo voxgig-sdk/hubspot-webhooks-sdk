@@ -1,0 +1,128 @@
+# Entity: webhooks_batch_response_subscription
+
+main: kit: entity: webhooks_batch_response_subscription: {
+
+  alias: field: {}
+
+  fields: {
+    completedAt: {
+      fo: "date-time"
+      h: "Completed At"
+      n: "completedAt"
+      r: true
+      sh: "The date and time when the batch operation was completed, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    inputs: {
+      h: "Inputs"
+      n: "inputs"
+      r: true
+      sh: "An array of SubscriptionBatchUpdateRequest objects, each representing a subscription to be updated."
+      t: "`$ARRAY`"
+    }
+    links: {
+      h: "Links"
+      n: "links"
+      r: false
+      sh: "A map of link names to associated URIs providing additional information about the batch operation."
+      t: "`$OBJECT`"
+    }
+    requestedAt: {
+      fo: "date-time"
+      h: "Requested At"
+      n: "requestedAt"
+      r: false
+      sh: "The date and time when the batch operation was requested, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      sh: "An array containing the results of the batch operation, with each item representing an individual subscription response."
+      t: "`$ARRAY`"
+    }
+    startedAt: {
+      fo: "date-time"
+      h: "Started At"
+      n: "startedAt"
+      r: true
+      sh: "The date and time when the batch operation started, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The current status of the batch operation."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "webhooks_batch_response_subscription"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /app-webhooks/2026-09/{appId}/subscriptions/batch/update"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/app-webhooks/2026-09/{appId}/subscriptions/batch/update"
+          q: {
+            exist: [
+              "app_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "update"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

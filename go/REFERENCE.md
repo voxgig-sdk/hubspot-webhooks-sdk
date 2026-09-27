@@ -60,10 +60,6 @@ Create a new `WebhooksBatchResponseJournalFetch` entity instance. Pass `nil` for
 
 Create a new `WebhooksBatchResponseSubscription` entity instance. Pass `nil` for no initial data.
 
-#### `WebhooksCollectionResponseSubscriptionResponseNoPaging(data map[string]any) HubspotWebhooksEntity`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPaging` entity instance. Pass `nil` for no initial data.
-
 #### `WebhooksCrmObjectSnapshotBatch(data map[string]any) HubspotWebhooksEntity`
 
 Create a new `WebhooksCrmObjectSnapshotBatch` entity instance. Pass `nil` for no initial data.
@@ -83,10 +79,6 @@ Create a new `WebhooksSnapshotStatus` entity instance. Pass `nil` for no initial
 #### `WebhooksSubscription(data map[string]any) HubspotWebhooksEntity`
 
 Create a new `WebhooksSubscription` entity instance. Pass `nil` for no initial data.
-
-#### `WebhooksSubscriptionList(data map[string]any) HubspotWebhooksEntity`
-
-Create a new `WebhooksSubscriptionList` entity instance. Pass `nil` for no initial data.
 
 #### `WebhooksSubscriptionResponse1(data map[string]any) HubspotWebhooksEntity`
 
@@ -315,71 +307,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
-
-```go
-webhooksCollectionResponseSubscriptionResponseNoPaging := client.WebhooksCollectionResponseSubscriptionResponseNoPaging(nil)
-fmt.Println(webhooksCollectionResponseSubscriptionResponseNoPaging.GetName()) // "webhooks_collection_response_subscription_response_no_paging"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actionOverrides` | `map[string]any` | No | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `actions` | `[]any` | Yes | A list of actions that trigger the subscription. |
-| `appId` | `int` | Yes | The unique identifier for the app associated with the subscription. |
-| `associatedObjectTypeIds` | `[]any` | No | A list of associated object type IDs. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `createdBy` | `int` | No | The ID of the user who created the subscription. |
-| `deletedAt` | `string` | No | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `id` | `int` | Yes | The unique identifier for the subscription. |
-| `listIds` | `[]any` | No | A list of list IDs associated with the subscription. |
-| `objectIds` | `[]any` | No | A list of object IDs associated with the subscription. |
-| `objectTypeId` | `string` | Yes | The identifier for the object type associated with the subscription. |
-| `portalId` | `int` | No | The unique identifier for the portal associated with the subscription. |
-| `properties` | `[]any` | No | A list of property names associated with the subscription. |
-| `subscriptionType` | `string` | Yes | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `updatedAt` | `string` | Yes | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.WebhooksCollectionResponseSubscriptionResponseNoPaging(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance with the same client and
 options.
 
 #### `GetName() string`
@@ -665,18 +592,30 @@ fmt.Println(webhooksSubscription.GetName()) // "webhooks_subscription"
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `active` | - | - | Yes |
-| `createdAt` | - | - | - |
-| `eventType` | - | - | - |
-| `eventTypeName` | - | - | - |
-| `id` | - | - | - |
-| `objectTypeId` | - | - | - |
-| `propertyName` | - | - | - |
-| `updatedAt` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active` | - | - | - | Yes |
+| `createdAt` | - | - | - | - |
+| `eventType` | - | - | - | - |
+| `eventTypeName` | - | - | - | - |
+| `id` | - | - | - | - |
+| `objectTypeId` | - | - | - | - |
+| `propertyName` | - | - | - | - |
+| `updatedAt` | - | - | - | - |
 
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.WebhooksSubscription(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
@@ -748,64 +687,6 @@ Return the entity name.
 
 ---
 
-## WebhooksSubscriptionListEntity
-
-```go
-webhooksSubscriptionList := client.WebhooksSubscriptionList(nil)
-fmt.Println(webhooksSubscriptionList.GetName()) // "webhooks_subscription_list"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active` | `bool` | Yes | A boolean indicating whether the subscription is currently active. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `eventType` | `string` | Yes | The type of event that triggers the subscription. |
-| `eventTypeName` | `string` | No | The name of the event type for the subscription. |
-| `id` | `string` | Yes | The unique identifier for the subscription. |
-| `objectTypeId` | `string` | No | The identifier for the object type associated with the subscription. |
-| `propertyName` | `string` | No | The name of the property associated with the subscription event, if applicable. |
-| `updatedAt` | `string` | No | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.WebhooksSubscriptionList(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `WebhooksSubscriptionListEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## WebhooksSubscriptionResponse1Entity
 
 ```go
@@ -834,6 +715,18 @@ fmt.Println(webhooksSubscriptionResponse1.GetName()) // "webhooks_subscription_r
 | `updatedAt` | `string` | Yes | The date and time when the subscription was last updated, in ISO 8601 format. |
 
 ### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.WebhooksSubscriptionResponse1(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
@@ -895,14 +788,14 @@ Return the entity name.
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -948,7 +841,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -979,7 +872,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -1010,7 +903,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -1038,7 +931,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -1073,7 +966,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -1104,7 +997,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -1138,7 +1031,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -1169,7 +1062,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

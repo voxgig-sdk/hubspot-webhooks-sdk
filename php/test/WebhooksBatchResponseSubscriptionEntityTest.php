@@ -66,7 +66,7 @@ function webhooks_batch_response_subscription_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"] as $k) {
+    foreach (["webhooks_batch_response_subscription01", "webhooks_batch_response_subscription02", "webhooks_batch_response_subscription03", "app01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

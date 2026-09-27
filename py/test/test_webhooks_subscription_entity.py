@@ -21,13 +21,47 @@ class TestWebhooksSubscriptionEntity:
         ent = testsdk.WebhooksSubscription(None)
         assert ent is not None
 
+    def test_should_stream(self):
+        # Feature #4: the entity stream(action, ...) method runs the op
+        # pipeline and yields result items. With the streaming feature active
+        # it yields the feature's incremental output; otherwise it falls back
+        # to the materialised list so stream always yields.
+        seed = {
+            "entity": {
+                "webhooks_subscription": {
+                    "s1": {"id": "s1"},
+                    "s2": {"id": "s2"},
+                    "s3": {"id": "s3"},
+                }
+            }
+        }
+
+        # Fallback: streaming inactive -> yields the materialised list items.
+        base = HubspotWebhooksSDK.test(seed, None)
+        seen = list(base.WebhooksSubscription(None).stream("list", None, None))
+        assert len(seen) == 3
+
+        # Inbound: streaming active -> yields each item from the feature.
+        from hubspotwebhooks_sdk.config import shared_config
+        cfg = shared_config()
+        if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
+            sdk = HubspotWebhooksSDK.test(
+                seed, {"feature": {"streaming": {"active": True}}})
+            got = []
+            for item in sdk.WebhooksSubscription(None).stream("list", None, None):
+                if isinstance(item, list):
+                    got.extend(item)
+                else:
+                    got.append(item)
+            assert len(got) == 3
+
     def test_should_run_basic_flow(self):
         setup = _webhooks_subscription_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "update", "load"]:
+        for _op in ["create", "list", "update", "load"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "webhooks_subscription." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -48,6 +82,19 @@ class TestWebhooksSubscriptionEntity:
         webhooks_subscription_ref01_data = helpers.to_map(runner.entity_data(webhooks_subscription_ref01_ent.create(webhooks_subscription_ref01_data, None)))
         assert webhooks_subscription_ref01_data is not None
         assert webhooks_subscription_ref01_data["id"] is not None
+
+        # LIST
+        webhooks_subscription_ref01_match = {
+            "app_id": setup["idmap"]["app01"],
+        }
+
+        webhooks_subscription_ref01_list_result = webhooks_subscription_ref01_ent.list(webhooks_subscription_ref01_match, None)
+        assert isinstance(webhooks_subscription_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(webhooks_subscription_ref01_list_result),
+            {"id": webhooks_subscription_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
         webhooks_subscription_ref01_data_up0_up = {
@@ -91,7 +138,7 @@ def _webhooks_subscription_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "2026_0901", "2026_0902", "2026_0903", "app01"],
+        ["webhooks_subscription01", "webhooks_subscription02", "webhooks_subscription03", "app01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

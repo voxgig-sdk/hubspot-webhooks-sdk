@@ -1,0 +1,28 @@
+# BasicBasicFlow
+
+main: kit: flow: BasicBasicFlow:
+{
+  entity: "basic",
+  kind: "basic",
+  name: "BasicBasicFlow",
+  step: [
+    {
+      i: {
+        ref: "basic_ref01",
+        srcdatavar: "basic_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-basic_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBasicFlow"
+}

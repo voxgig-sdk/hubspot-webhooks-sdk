@@ -1,0 +1,40 @@
+# BasicWebhooksFilterFlow
+
+main: kit: flow: BasicWebhooksFilterFlow:
+{
+  entity: "webhooks_filter",
+  kind: "basic",
+  name: "BasicWebhooksFilterFlow",
+  step: [
+    {
+      i: {
+        ref: "webhooks_filter_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "webhooks_filter_ref01",
+        srcdatavar: "webhooks_filter_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "webhooks_filter01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhooks_filter_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhooksFilterFlow"
+}

@@ -5,13 +5,11 @@ exports.SDK = exports.HubspotWebhooksSDK = exports.HubspotWebhooksEntityBase = e
 const BasicEntity_1 = require("./entity/BasicEntity");
 const WebhooksBatchResponseJournalFetchEntity_1 = require("./entity/WebhooksBatchResponseJournalFetchEntity");
 const WebhooksBatchResponseSubscriptionEntity_1 = require("./entity/WebhooksBatchResponseSubscriptionEntity");
-const WebhooksCollectionResponseSubscriptionResponseNoPagingEntity_1 = require("./entity/WebhooksCollectionResponseSubscriptionResponseNoPagingEntity");
 const WebhooksCrmObjectSnapshotBatchEntity_1 = require("./entity/WebhooksCrmObjectSnapshotBatchEntity");
 const WebhooksFilterEntity_1 = require("./entity/WebhooksFilterEntity");
 const WebhooksSettingEntity_1 = require("./entity/WebhooksSettingEntity");
 const WebhooksSnapshotStatusEntity_1 = require("./entity/WebhooksSnapshotStatusEntity");
 const WebhooksSubscriptionEntity_1 = require("./entity/WebhooksSubscriptionEntity");
-const WebhooksSubscriptionListEntity_1 = require("./entity/WebhooksSubscriptionListEntity");
 const WebhooksSubscriptionResponse1Entity_1 = require("./entity/WebhooksSubscriptionResponse1Entity");
 const node_util_1 = require("node:util");
 const Config_1 = require("./Config");
@@ -94,7 +92,6 @@ class HubspotWebhooksSDK {
             ctrl: fetchargs.ctrl || {},
         }, this._rootctx);
         const options = this._options;
-        // Build spec directly from SDK options + user-provided fetch args.
         const spec = {
             base: options.base,
             prefix: options.prefix,
@@ -108,14 +105,12 @@ class HubspotWebhooksSDK {
             step: 'start',
         };
         ctx.spec = spec;
-        // Merge user-provided headers over SDK defaults.
         if (fetchargs.headers) {
             const uheaders = fetchargs.headers;
             for (let key in uheaders) {
                 spec.headers[key] = uheaders[key];
             }
         }
-        // Apply SDK auth (apikey, auth prefix, etc.)
         const authResult = prepareAuth(ctx);
         if (authResult instanceof Error) {
             return authResult;
@@ -190,18 +185,6 @@ class HubspotWebhooksSDK {
             return { ok: false, err };
         }
     }
-    // Raw GraphQL access: the pressure valve that makes the generated
-    // surface's deliberate omissions (per-call selection sets, typed filter
-    // builders, batching, subscriptions) livable — the whole schema stays
-    // reachable.
-    //
-    // Thin wrapper over the same prepare/fetch path `direct` uses, with the
-    // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
-    // HTTP 200 as a top-level `errors` array, so status alone would report a
-    // failed query as ok.
-    //
-    // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
-    // ratelimit or paging features apply.
     async graphql(query, variables, ctrl) {
         const options = this._options;
         if (!options.allow.op.includes('graphql')) {
@@ -256,13 +239,6 @@ class HubspotWebhooksSDK {
         const self = this;
         return new WebhooksBatchResponseSubscriptionEntity_1.WebhooksBatchResponseSubscriptionEntity(self, entopts);
     }
-    // Entity access: `client.WebhooksCollectionResponseSubscriptionResponseNoPaging().list()` / `client.WebhooksCollectionResponseSubscriptionResponseNoPaging().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    WebhooksCollectionResponseSubscriptionResponseNoPaging(entopts) {
-        const self = this;
-        return new WebhooksCollectionResponseSubscriptionResponseNoPagingEntity_1.WebhooksCollectionResponseSubscriptionResponseNoPagingEntity(self, entopts);
-    }
     // Entity access: `client.WebhooksCrmObjectSnapshotBatch().list()` / `client.WebhooksCrmObjectSnapshotBatch().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -297,13 +273,6 @@ class HubspotWebhooksSDK {
     WebhooksSubscription(entopts) {
         const self = this;
         return new WebhooksSubscriptionEntity_1.WebhooksSubscriptionEntity(self, entopts);
-    }
-    // Entity access: `client.WebhooksSubscriptionList().list()` / `client.WebhooksSubscriptionList().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    WebhooksSubscriptionList(entopts) {
-        const self = this;
-        return new WebhooksSubscriptionListEntity_1.WebhooksSubscriptionListEntity(self, entopts);
     }
     // Entity access: `client.WebhooksSubscriptionResponse1().list()` / `client.WebhooksSubscriptionResponse1().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity

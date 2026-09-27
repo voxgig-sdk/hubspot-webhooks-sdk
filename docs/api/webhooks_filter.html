@@ -9,7 +9,6 @@
 <a href="../api/basic.html">Basic</a>
 <a href="../api/webhooks_batch_response_journal_fetch.html">WebhooksBatchResponseJournalFetch</a>
 <a href="../api/webhooks_batch_response_subscription.html">WebhooksBatchResponseSubscription</a>
-<a href="../api/webhooks_collection_response_subscription_response_no_paging.html">WebhooksCollectionResponseSubscriptionResponseNoPaging</a>
 <a href="../api/webhooks_crm_object_snapshot_batch.html">WebhooksCrmObjectSnapshotBatch</a>
 <a aria-current="page" href="../api/webhooks_filter.html">WebhooksFilter</a><div class="nav-sections"><a class="nav-section" href="#post-webhooks-journalsubscriptions2026-09filters">POST /webhooks-journal/subscriptions/2026-09/filters</a>
 <a class="nav-section" href="#get-webhooks-journalsubscriptions2026-09filtersfilterid">GET /webhooks-journal/subscriptions/2026-09/filters/{filterId}</a>
@@ -17,7 +16,6 @@
 <a href="../api/webhooks_setting.html">WebhooksSetting</a>
 <a href="../api/webhooks_snapshot_status.html">WebhooksSnapshotStatus</a>
 <a href="../api/webhooks_subscription.html">WebhooksSubscription</a>
-<a href="../api/webhooks_subscription_list.html">WebhooksSubscriptionList</a>
 <a href="../api/webhooks_subscription_response_1.html">WebhooksSubscriptionResponse1</a></details>
 <details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
 <a href="../guides/first-call.html">Make your first API call</a>
@@ -31,14 +29,14 @@
 <a href="../sdks/ts.html">TypeScript</a></details>
 <details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
 <a href="../tools/go-mcp.html">Go MCP server</a></details>
-<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
-<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
-<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
-<a href="../features/paging.html">Pagination signals for list operations</a>
-<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
-<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
-<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
-<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhooksfilter">WebhooksFilter</h1>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="webhooksfilter">WebhooksFilter</h1>
 <h2 id="operations">Operations</h2>
 <p>Every route this entity exposes. Each route links to its own reference on this page.</p>
 <table>
@@ -71,6 +69,46 @@
 </tr>
 </tbody>
 </table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">webhooks_filter, err := client.WebhooksFilter(nil).Load(map[string]any{&quot;id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(webhooks_filter)
+created, err := client.WebhooksFilter(nil).Create(map[string]any{&quot;conditions&quot;: []any{}, &quot;createdAt&quot;: 1, &quot;filter&quot;: map[string]any{}, &quot;filterId&quot;: 1, &quot;id&quot;: 1, &quot;subscriptionId&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const webhooks_filter = await client.WebhooksFilter().load({ id: 1 })
+const created = await client.WebhooksFilter().create({ conditions: [], createdAt: 1, filter: {}, filterId: 1, id: 1, subscriptionId: 1 })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local webhooks_filter, err = client:WebhooksFilter():load({ id = 1 })
+local created, err = client:WebhooksFilter():create({ conditions = {}, createdAt = 1, filter = {}, filterId = 1, id = 1, subscriptionId = 1 })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$webhooks_filter = $client-&gt;WebhooksFilter()-&gt;load([&quot;id&quot; =&gt; 1]);
+$created = $client-&gt;WebhooksFilter()-&gt;create([&quot;conditions&quot; =&gt; [], &quot;createdAt&quot; =&gt; 1, &quot;filter&quot; =&gt; [], &quot;filterId&quot; =&gt; 1, &quot;id&quot; =&gt; 1, &quot;subscriptionId&quot; =&gt; 1]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">webhooks_filter = client.WebhooksFilter().load({&quot;id&quot;: 1})
+created = client.WebhooksFilter().create({ &quot;conditions&quot;: [], &quot;createdAt&quot;: 1, &quot;filter&quot;: {}, &quot;filterId&quot;: 1, &quot;id&quot;: 1, &quot;subscriptionId&quot;: 1 })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const webhooks_filter = await client.WebhooksFilter().load({ id: 1 })
+const created = await client.WebhooksFilter().create({ conditions: [], createdAt: 1, filter: {}, filterId: 1, id: 1, subscriptionId: 1 })
+</code></pre>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -152,13 +190,13 @@
 <td><code>filter.conditions[].filterType</code></td>
 <td><code>enum: CRM_OBJECT_PROPERTY</code></td>
 <td>Yes</td>
-<td>A string indicating the type of filter being applied. Valid value is 'CRM_OBJECT_PROPERTY'.</td>
+<td>A string indicating the type of filter being applied. Valid value is '<code>CRM_OBJECT_PROPERTY</code>'.</td>
 </tr>
 <tr>
 <td><code>filter.conditions[].operator</code></td>
 <td><code>enum: CONTAINS, ENDS_WITH, EQ, GT, GTE, IN, ...</code></td>
 <td>Yes</td>
-<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', 'N_EQ', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH', 'IN', 'NOT_IN', 'IS_EMPTY', and 'IS_NOT_EMPTY'.</td>
+<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', '<code>N_EQ</code>', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', '<code>STARTS_WITH</code>', '<code>ENDS_WITH</code>', 'IN', '<code>NOT_IN</code>', '<code>IS_EMPTY</code>', and '<code>IS_NOT_EMPTY</code>'.</td>
 </tr>
 <tr>
 <td><code>filter.conditions[].property</code></td>
@@ -176,7 +214,7 @@
 <td><code>filter.conditions[].values</code></td>
 <td><code>array of string</code></td>
 <td>No</td>
-<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or 'NOT_IN'.</td>
+<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or '<code>NOT_IN</code>'.</td>
 </tr>
 <tr>
 <td><code>subscriptionId</code></td>
@@ -336,13 +374,13 @@
 <td><code>filter.conditions[].filterType</code></td>
 <td><code>enum: CRM_OBJECT_PROPERTY</code></td>
 <td>Yes</td>
-<td>A string indicating the type of filter being applied. Valid value is 'CRM_OBJECT_PROPERTY'.</td>
+<td>A string indicating the type of filter being applied. Valid value is '<code>CRM_OBJECT_PROPERTY</code>'.</td>
 </tr>
 <tr>
 <td><code>filter.conditions[].operator</code></td>
 <td><code>enum: CONTAINS, ENDS_WITH, EQ, GT, GTE, IN, ...</code></td>
 <td>Yes</td>
-<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', 'N_EQ', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH', 'IN', 'NOT_IN', 'IS_EMPTY', and 'IS_NOT_EMPTY'.</td>
+<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', '<code>N_EQ</code>', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', '<code>STARTS_WITH</code>', '<code>ENDS_WITH</code>', 'IN', '<code>NOT_IN</code>', '<code>IS_EMPTY</code>', and '<code>IS_NOT_EMPTY</code>'.</td>
 </tr>
 <tr>
 <td><code>filter.conditions[].property</code></td>
@@ -360,7 +398,7 @@
 <td><code>filter.conditions[].values</code></td>
 <td><code>array of string</code></td>
 <td>No</td>
-<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or 'NOT_IN'.</td>
+<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or '<code>NOT_IN</code>'.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -498,13 +536,13 @@
 <td><code>[].filter.conditions[].filterType</code></td>
 <td><code>enum: CRM_OBJECT_PROPERTY</code></td>
 <td>Yes</td>
-<td>A string indicating the type of filter being applied. Valid value is 'CRM_OBJECT_PROPERTY'.</td>
+<td>A string indicating the type of filter being applied. Valid value is '<code>CRM_OBJECT_PROPERTY</code>'.</td>
 </tr>
 <tr>
 <td><code>[].filter.conditions[].operator</code></td>
 <td><code>enum: CONTAINS, ENDS_WITH, EQ, GT, GTE, IN, ...</code></td>
 <td>Yes</td>
-<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', 'N_EQ', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH', 'IN', 'NOT_IN', 'IS_EMPTY', and 'IS_NOT_EMPTY'.</td>
+<td>A string specifying the operation to be performed in the condition. Valid values include 'EQ', '<code>N_EQ</code>', 'LT', 'GT', 'LTE', 'GTE', 'CONTAINS', '<code>STARTS_WITH</code>', '<code>ENDS_WITH</code>', 'IN', '<code>NOT_IN</code>', '<code>IS_EMPTY</code>', and '<code>IS_NOT_EMPTY</code>'.</td>
 </tr>
 <tr>
 <td><code>[].filter.conditions[].property</code></td>
@@ -522,7 +560,7 @@
 <td><code>[].filter.conditions[].values</code></td>
 <td><code>array of string</code></td>
 <td>No</td>
-<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or 'NOT_IN'.</td>
+<td>An array of strings used to specify multiple values for comparison when using operators that support multiple values, such as 'IN' or '<code>NOT_IN</code>'.</td>
 </tr>
 <tr>
 <td><code>[].id</code></td>

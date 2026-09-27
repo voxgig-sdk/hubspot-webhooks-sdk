@@ -1,0 +1,62 @@
+# Entity: webhooks_crm_object_snapshot_batch
+
+main: kit: entity: webhooks_crm_object_snapshot_batch: {
+
+  alias: field: {}
+
+  fields: {
+    snapshotRequests: {
+      h: "Snapshot Requests"
+      n: "snapshotRequests"
+      r: true
+      sh: "An array of CrmObjectSnapshotRequest objects, each representing a request to create a snapshot for a specific CRM object."
+      t: "`$ARRAY`"
+    }
+    snapshotResponses: {
+      h: "Snapshot Responses"
+      n: "snapshotResponses"
+      r: true
+      sh: "An array of CrmObjectSnapshotResponse objects, each representing the result of a snapshot operation for a specific CRM object."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "webhooks_crm_object_snapshot_batch"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /webhooks-journal/snapshots/2026-09/crm"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/webhooks-journal/snapshots/2026-09/crm"
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "snapshots"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "crm"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

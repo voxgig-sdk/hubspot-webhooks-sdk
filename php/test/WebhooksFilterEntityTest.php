@@ -75,7 +75,7 @@ function webhooks_filter_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["webhooks_filter01", "webhooks_filter02", "webhooks_filter03", "subscription01", "subscription02", "subscription03"] as $k) {
+    foreach (["webhooks_filter01", "webhooks_filter02", "webhooks_filter03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

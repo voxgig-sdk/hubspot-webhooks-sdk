@@ -1,0 +1,327 @@
+# Entity: webhooks_subscription
+
+main: kit: entity: webhooks_subscription: {
+
+  alias: field: {}
+
+  fields: {
+    active: {
+      h: "Active"
+      n: "active"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: true
+      sh: "A boolean indicating whether the subscription is currently active."
+      t: "`$BOOLEAN`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "The date and time when the subscription was created, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    eventType: {
+      h: "Event Type"
+      n: "eventType"
+      r: true
+      sh: "The type of event that triggers the subscription."
+      t: "`$STRING`"
+    }
+    eventTypeName: {
+      h: "Event Type Name"
+      n: "eventTypeName"
+      r: false
+      sh: "The name of the event type for the subscription."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The unique identifier for the subscription."
+      t: "`$STRING`"
+    }
+    objectTypeId: {
+      h: "Object Type Id"
+      n: "objectTypeId"
+      r: false
+      sh: "The identifier for the object type associated with the subscription."
+      t: "`$STRING`"
+    }
+    propertyName: {
+      h: "Property Name"
+      n: "propertyName"
+      r: false
+      sh: "The name of the property associated with the subscription event, if applicable."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: false
+      sh: "The date and time when the subscription was last updated, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "webhooks_subscription"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /app-webhooks/2026-09/{appId}/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/app-webhooks/2026-09/{appId}/subscriptions"
+          q: {
+            exist: [
+              "app_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /app-webhooks/2026-09/{appId}/subscriptions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/app-webhooks/2026-09/{appId}/subscriptions"
+          q: {
+            exist: [
+              "app_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                ex: null
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
+          q: {
+            exist: [
+              "app_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+              subscriptionId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                ex: null
+                k: "param"
+                n: "id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
+          q: {
+            exist: [
+              "app_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+              subscriptionId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

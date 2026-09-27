@@ -27,8 +27,8 @@ Tool-call arguments (what an agent sends):
 
 ```jsonc
 // hubspot-webhooks_list: first page of records
-{ "entity": "webhooks_collection_response_subscription_response_no_paging" }
-{ "entity": "webhooks_collection_response_subscription_response_no_paging", "query": { } }
+{ "entity": "webhooks_subscription" }
+{ "entity": "webhooks_subscription", "query": { } }
 
 // hubspot-webhooks_load: one record by id
 { "entity": "basic", "query": { "id": 1 } }
@@ -60,8 +60,8 @@ Tool-call arguments (what an agent sends):
    ```
 
 4. **Restart Claude Code.** The `hubspot-webhooks_list` and `hubspot-webhooks_load` tools now appear
-   in new sessions. Ask the agent to *"list webhooks_collection_response_subscription_response_no_paging using hubspot-webhooks"*
-   and it calls `hubspot-webhooks_list` with `{"entity":"webhooks_collection_response_subscription_response_no_paging"}`.
+   in new sessions. Ask the agent to *"list webhooks_subscription using hubspot-webhooks"*
+   and it calls `hubspot-webhooks_list` with `{"entity":"webhooks_subscription"}`.
 
 ## How-to guides
 
@@ -92,7 +92,7 @@ Args: `entity` (required), `query` (optional filter map). Returns the first
 page of records as JSON:
 
 ```jsonc
-{ "entity": "webhooks_collection_response_subscription_response_no_paging" }
+{ "entity": "webhooks_subscription" }
 ```
 
 ### Call the `hubspot-webhooks_load` tool
@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 11 supported entities (see below). |
+| `entity` | string | One of the 9 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 11 entities valid as the `entity` argument:
+The 9 entities valid as the `entity` argument:
 
-basic | webhooks_batch_response_journal_fetch | webhooks_batch_response_subscription | webhooks_collection_response_subscription_response_no_paging | webhooks_crm_object_snapshot_batch | webhooks_filter | webhooks_setting | webhooks_snapshot_status | webhooks_subscription | webhooks_subscription_list | webhooks_subscription_response_1
+basic | webhooks_batch_response_journal_fetch | webhooks_batch_response_subscription | webhooks_crm_object_snapshot_batch | webhooks_filter | webhooks_setting | webhooks_snapshot_status | webhooks_subscription | webhooks_subscription_response_1
 
 ### Smoke test via HTTP (raw JSON-RPC)
 

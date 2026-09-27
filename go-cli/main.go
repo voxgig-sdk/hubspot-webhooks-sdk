@@ -20,7 +20,7 @@ import (
 const prompt = "hubspot-webhooks"
 
 // entitiesHelp is the space-separated entity list shown by /help.
-const entitiesHelp = "basic webhooks_batch_response_journal_fetch webhooks_batch_response_subscription webhooks_collection_response_subscription_response_no_paging webhooks_crm_object_snapshot_batch webhooks_filter webhooks_setting webhooks_snapshot_status webhooks_subscription webhooks_subscription_list webhooks_subscription_response_1"
+const entitiesHelp = "basic webhooks_batch_response_journal_fetch webhooks_batch_response_subscription webhooks_crm_object_snapshot_batch webhooks_filter webhooks_setting webhooks_snapshot_status webhooks_subscription webhooks_subscription_response_1"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdin, os.Stdout, os.Stderr))

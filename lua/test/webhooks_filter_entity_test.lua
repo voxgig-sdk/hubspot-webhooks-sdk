@@ -78,7 +78,7 @@ function webhooks_filter_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhooks_filter01", "webhooks_filter02", "webhooks_filter03", "subscription01", "subscription02", "subscription03" },
+    { "webhooks_filter01", "webhooks_filter02", "webhooks_filter03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

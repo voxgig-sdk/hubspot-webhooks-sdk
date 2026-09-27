@@ -37,7 +37,7 @@ const SDK_NAME = 'HubspotWebhooksSDK'
 
 // A fixture for every entity, so list()/load() resolve offline with no
 // network. Snippet client construction is rewritten to seed this.
-const TEST_SEED = {"entity":{"basic":{"test01":{"id":"test01"}},"webhooks_batch_response_journal_fetch":{"test01":{"id":"test01"}},"webhooks_batch_response_subscription":{"test01":{"id":"test01"}},"webhooks_collection_response_subscription_response_no_paging":{"test01":{"id":"test01"}},"webhooks_crm_object_snapshot_batch":{"test01":{"id":"test01"}},"webhooks_filter":{"test01":{"id":"test01"}},"webhooks_setting":{"test01":{"id":"test01"}},"webhooks_snapshot_status":{"test01":{"id":"test01"}},"webhooks_subscription":{"test01":{"id":"test01"}},"webhooks_subscription_list":{"test01":{"id":"test01"}},"webhooks_subscription_response_1":{"test01":{"id":"test01"}}}}
+const TEST_SEED = {"entity":{"basic":{"test01":{"id":"test01"}},"webhooks_batch_response_journal_fetch":{"test01":{"id":"test01"}},"webhooks_batch_response_subscription":{"test01":{"id":"test01"}},"webhooks_crm_object_snapshot_batch":{"test01":{"id":"test01"}},"webhooks_filter":{"test01":{"id":"test01"}},"webhooks_setting":{"test01":{"id":"test01"}},"webhooks_snapshot_status":{"test01":{"id":"test01"}},"webhooks_subscription":{"test01":{"id":"test01"}},"webhooks_subscription_response_1":{"test01":{"id":"test01"}}}}
 const SEED_ARG = JSON.stringify(TEST_SEED)
 const SEEDED_CTOR = SDK_NAME + '.test(' + SEED_ARG + ')'
 

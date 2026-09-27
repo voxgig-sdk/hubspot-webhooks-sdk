@@ -49,40 +49,6 @@ export interface WebhooksBatchResponseSubscriptionCreateData {
     startedAt: string;
     status: string;
 }
-export interface WebhooksCollectionResponseSubscriptionResponseNoPaging {
-    actionOverrides?: Record<string, any>;
-    actions: any[];
-    appId: number;
-    associatedObjectTypeIds?: any[];
-    createdAt: string;
-    createdBy?: number;
-    deletedAt?: string;
-    id: number;
-    listIds?: any[];
-    objectIds?: any[];
-    objectTypeId: string;
-    portalId?: number;
-    properties?: any[];
-    subscriptionType: string;
-    updatedAt: string;
-}
-export interface WebhooksCollectionResponseSubscriptionResponseNoPagingListMatch {
-    actionOverrides?: Record<string, any>;
-    actions?: any[];
-    appId?: number;
-    associatedObjectTypeIds?: any[];
-    createdAt?: string;
-    createdBy?: number;
-    deletedAt?: string;
-    id?: number;
-    listIds?: any[];
-    objectIds?: any[];
-    objectTypeId?: string;
-    portalId?: number;
-    properties?: any[];
-    subscriptionType?: string;
-    updatedAt?: string;
-}
 export interface WebhooksCrmObjectSnapshotBatch {
     snapshotRequests: any[];
     snapshotResponses: any[];
@@ -149,6 +115,9 @@ export interface WebhooksSubscriptionLoadMatch {
     app_id: number;
     id: number;
 }
+export interface WebhooksSubscriptionListMatch {
+    app_id: number;
+}
 export interface WebhooksSubscriptionCreateData {
     app_id: number;
     active: boolean;
@@ -171,19 +140,6 @@ export interface WebhooksSubscriptionUpdateData {
     propertyName?: string;
     updatedAt?: string;
 }
-export interface WebhooksSubscriptionList {
-    active: boolean;
-    createdAt: string;
-    eventType: string;
-    eventTypeName?: string;
-    id: string;
-    objectTypeId?: string;
-    propertyName?: string;
-    updatedAt?: string;
-}
-export interface WebhooksSubscriptionListListMatch {
-    app_id: number;
-}
 export interface WebhooksSubscriptionResponse1 {
     actionOverrides?: Record<string, any>;
     actions: any[];
@@ -203,6 +159,23 @@ export interface WebhooksSubscriptionResponse1 {
 }
 export interface WebhooksSubscriptionResponse1LoadMatch {
     subscription_id: number;
+}
+export interface WebhooksSubscriptionResponse1ListMatch {
+    actionOverrides?: Record<string, any>;
+    actions?: any[];
+    appId?: number;
+    associatedObjectTypeIds?: any[];
+    createdAt?: string;
+    createdBy?: number;
+    deletedAt?: string;
+    id?: number;
+    listIds?: any[];
+    objectIds?: any[];
+    objectTypeId?: string;
+    portalId?: number;
+    properties?: any[];
+    subscriptionType?: string;
+    updatedAt?: string;
 }
 export interface WebhooksSubscriptionResponse1CreateData {
     actionOverrides?: Record<string, any>;

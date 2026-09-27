@@ -107,7 +107,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 11 entities.
+below — this SDK exposes 9 entities.
 
 ## Reference
 
@@ -162,9 +162,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 11 entities this SDK exposes (any is valid as `<entity>`):
+The 9 entities this SDK exposes (any is valid as `<entity>`):
 
-basic webhooks_batch_response_journal_fetch webhooks_batch_response_subscription webhooks_collection_response_subscription_response_no_paging webhooks_crm_object_snapshot_batch webhooks_filter webhooks_setting webhooks_snapshot_status webhooks_subscription webhooks_subscription_list webhooks_subscription_response_1
+basic webhooks_batch_response_journal_fetch webhooks_batch_response_subscription webhooks_crm_object_snapshot_batch webhooks_filter webhooks_setting webhooks_snapshot_status webhooks_subscription webhooks_subscription_response_1
 
 ## Explanation
 

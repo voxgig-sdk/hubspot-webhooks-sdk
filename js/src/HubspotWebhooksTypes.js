@@ -1,7 +1,7 @@
 // Typed models for the HubspotWebhooks SDK (JSDoc typedefs).
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 // edit by hand.
@@ -71,44 +71,6 @@
  * @property {Array} results
  * @property {string} startedAt
  * @property {string} status
- */
-
-/**
- * @typedef {Object} WebhooksCollectionResponseSubscriptionResponseNoPaging
- * @property {Object} [actionOverrides]
- * @property {Array} actions
- * @property {number} appId
- * @property {Array} [associatedObjectTypeIds]
- * @property {string} createdAt
- * @property {number} [createdBy]
- * @property {string} [deletedAt]
- * @property {number} id
- * @property {Array} [listIds]
- * @property {Array} [objectIds]
- * @property {string} objectTypeId
- * @property {number} [portalId]
- * @property {Array} [properties]
- * @property {string} subscriptionType
- * @property {string} updatedAt
- */
-
-/**
- * @typedef {Object} WebhooksCollectionResponseSubscriptionResponseNoPagingListMatch
- * @property {Object} [actionOverrides]
- * @property {Array} [actions]
- * @property {number} [appId]
- * @property {Array} [associatedObjectTypeIds]
- * @property {string} [createdAt]
- * @property {number} [createdBy]
- * @property {string} [deletedAt]
- * @property {number} [id]
- * @property {Array} [listIds]
- * @property {Array} [objectIds]
- * @property {string} [objectTypeId]
- * @property {number} [portalId]
- * @property {Array} [properties]
- * @property {string} [subscriptionType]
- * @property {string} [updatedAt]
  */
 
 /**
@@ -202,6 +164,11 @@
  */
 
 /**
+ * @typedef {Object} WebhooksSubscriptionListMatch
+ * @property {number} app_id
+ */
+
+/**
  * @typedef {Object} WebhooksSubscriptionCreateData
  * @property {number} app_id
  * @property {boolean} active
@@ -228,23 +195,6 @@
  */
 
 /**
- * @typedef {Object} WebhooksSubscriptionList
- * @property {boolean} active
- * @property {string} createdAt
- * @property {string} eventType
- * @property {string} [eventTypeName]
- * @property {string} id
- * @property {string} [objectTypeId]
- * @property {string} [propertyName]
- * @property {string} [updatedAt]
- */
-
-/**
- * @typedef {Object} WebhooksSubscriptionListListMatch
- * @property {number} app_id
- */
-
-/**
  * @typedef {Object} WebhooksSubscriptionResponse1
  * @property {Object} [actionOverrides]
  * @property {Array} actions
@@ -266,6 +216,25 @@
 /**
  * @typedef {Object} WebhooksSubscriptionResponse1LoadMatch
  * @property {number} subscription_id
+ */
+
+/**
+ * @typedef {Object} WebhooksSubscriptionResponse1ListMatch
+ * @property {Object} [actionOverrides]
+ * @property {Array} [actions]
+ * @property {number} [appId]
+ * @property {Array} [associatedObjectTypeIds]
+ * @property {string} [createdAt]
+ * @property {number} [createdBy]
+ * @property {string} [deletedAt]
+ * @property {number} [id]
+ * @property {Array} [listIds]
+ * @property {Array} [objectIds]
+ * @property {string} [objectTypeId]
+ * @property {number} [portalId]
+ * @property {Array} [properties]
+ * @property {string} [subscriptionType]
+ * @property {string} [updatedAt]
  */
 
 /**

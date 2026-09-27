@@ -1,0 +1,245 @@
+# Entity: webhooks_subscription_response_1
+
+main: kit: entity: webhooks_subscription_response_1: {
+
+  alias: field: {}
+
+  fields: {
+    actionOverrides: {
+      h: "Action Overrides"
+      n: "actionOverrides"
+      r: false
+      sh: "An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object."
+      t: "`$OBJECT`"
+    }
+    actions: {
+      h: "Actions"
+      n: "actions"
+      r: true
+      sh: "A list of actions that trigger the subscription."
+      t: "`$ARRAY`"
+    }
+    appId: {
+      fo: "int64"
+      h: "App Id"
+      n: "appId"
+      r: true
+      sh: "The unique identifier for the app associated with the subscription."
+      t: "`$INTEGER`"
+    }
+    associatedObjectTypeIds: {
+      h: "Associated Object Type Ids"
+      n: "associatedObjectTypeIds"
+      r: false
+      sh: "A list of associated object type IDs."
+      t: "`$ARRAY`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "The date and time when the subscription was created, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    createdBy: {
+      fo: "int64"
+      h: "Created By"
+      n: "createdBy"
+      r: false
+      sh: "The ID of the user who created the subscription."
+      t: "`$INTEGER`"
+    }
+    deletedAt: {
+      fo: "date-time"
+      h: "Deleted At"
+      n: "deletedAt"
+      r: false
+      sh: "The date and time when the subscription was deleted, in ISO 8601 format, if applicable."
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int64"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The unique identifier for the subscription."
+      t: "`$INTEGER`"
+    }
+    listIds: {
+      h: "List Ids"
+      n: "listIds"
+      r: false
+      sh: "A list of list IDs associated with the subscription."
+      t: "`$ARRAY`"
+    }
+    objectIds: {
+      h: "Object Ids"
+      n: "objectIds"
+      r: false
+      sh: "A list of object IDs associated with the subscription."
+      t: "`$ARRAY`"
+    }
+    objectTypeId: {
+      h: "Object Type Id"
+      n: "objectTypeId"
+      r: true
+      sh: "The identifier for the object type associated with the subscription."
+      t: "`$STRING`"
+    }
+    portalId: {
+      fo: "int64"
+      h: "Portal Id"
+      n: "portalId"
+      r: false
+      sh: "The unique identifier for the portal associated with the subscription."
+      t: "`$INTEGER`"
+    }
+    properties: {
+      h: "Properties"
+      n: "properties"
+      r: false
+      sh: "A list of property names associated with the subscription."
+      t: "`$ARRAY`"
+    }
+    subscriptionType: {
+      h: "Subscription Type"
+      n: "subscriptionType"
+      r: true
+      sh: "The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "The date and time when the subscription was last updated, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "webhooks_subscription_response_1"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /webhooks-journal/subscriptions/2026-09"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/webhooks-journal/subscriptions/2026-09"
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks-journal/subscriptions/2026-09"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/webhooks-journal/subscriptions/2026-09"
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks-journal/subscriptions/2026-09/{subscriptionId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/subscriptions/2026-09/{subscriptionId}"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              subscriptionId: "subscription_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "subscription_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

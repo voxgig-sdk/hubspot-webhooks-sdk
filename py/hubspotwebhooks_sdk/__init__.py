@@ -325,12 +325,6 @@ class HubspotWebhooksSDK:
         return WebhooksBatchResponseSubscriptionEntity(self, data)
 
 
-    def WebhooksCollectionResponseSubscriptionResponseNoPaging(self, data=None) -> "WebhooksCollectionResponseSubscriptionResponseNoPagingEntity":
-        """Entity factory: client.WebhooksCollectionResponseSubscriptionResponseNoPaging().list() / client.WebhooksCollectionResponseSubscriptionResponseNoPaging().load({"id": ...})."""
-        from hubspotwebhooks_sdk.entity.webhooks_collection_response_subscription_response_no_paging_entity import WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
-        return WebhooksCollectionResponseSubscriptionResponseNoPagingEntity(self, data)
-
-
     def WebhooksCrmObjectSnapshotBatch(self, data=None) -> "WebhooksCrmObjectSnapshotBatchEntity":
         """Entity factory: client.WebhooksCrmObjectSnapshotBatch().list() / client.WebhooksCrmObjectSnapshotBatch().load({"id": ...})."""
         from hubspotwebhooks_sdk.entity.webhooks_crm_object_snapshot_batch_entity import WebhooksCrmObjectSnapshotBatchEntity
@@ -359,12 +353,6 @@ class HubspotWebhooksSDK:
         """Entity factory: client.WebhooksSubscription().list() / client.WebhooksSubscription().load({"id": ...})."""
         from hubspotwebhooks_sdk.entity.webhooks_subscription_entity import WebhooksSubscriptionEntity
         return WebhooksSubscriptionEntity(self, data)
-
-
-    def WebhooksSubscriptionList(self, data=None) -> "WebhooksSubscriptionListEntity":
-        """Entity factory: client.WebhooksSubscriptionList().list() / client.WebhooksSubscriptionList().load({"id": ...})."""
-        from hubspotwebhooks_sdk.entity.webhooks_subscription_list_entity import WebhooksSubscriptionListEntity
-        return WebhooksSubscriptionListEntity(self, data)
 
 
     def WebhooksSubscriptionResponse1(self, data=None) -> "WebhooksSubscriptionResponse1Entity":
@@ -403,11 +391,9 @@ if TYPE_CHECKING:
     from hubspotwebhooks_sdk.entity.basic_entity import BasicEntity
     from hubspotwebhooks_sdk.entity.webhooks_batch_response_journal_fetch_entity import WebhooksBatchResponseJournalFetchEntity
     from hubspotwebhooks_sdk.entity.webhooks_batch_response_subscription_entity import WebhooksBatchResponseSubscriptionEntity
-    from hubspotwebhooks_sdk.entity.webhooks_collection_response_subscription_response_no_paging_entity import WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
     from hubspotwebhooks_sdk.entity.webhooks_crm_object_snapshot_batch_entity import WebhooksCrmObjectSnapshotBatchEntity
     from hubspotwebhooks_sdk.entity.webhooks_filter_entity import WebhooksFilterEntity
     from hubspotwebhooks_sdk.entity.webhooks_setting_entity import WebhooksSettingEntity
     from hubspotwebhooks_sdk.entity.webhooks_snapshot_status_entity import WebhooksSnapshotStatusEntity
     from hubspotwebhooks_sdk.entity.webhooks_subscription_entity import WebhooksSubscriptionEntity
-    from hubspotwebhooks_sdk.entity.webhooks_subscription_list_entity import WebhooksSubscriptionListEntity
     from hubspotwebhooks_sdk.entity.webhooks_subscription_response_1_entity import WebhooksSubscriptionResponse1Entity

@@ -395,24 +395,6 @@ class HubspotWebhooksSDK
     }
 
 
-    private $_webhooks_collection_response_subscription_response_no_paging = null;
-
-    // Canonical facade: $client->WebhooksCollectionResponseSubscriptionResponseNoPaging()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->webhooks_collection_response_subscription_response_no_paging()
-    // resolves here too.
-    public function WebhooksCollectionResponseSubscriptionResponseNoPaging($data = null)
-    {
-        require_once __DIR__ . '/entity/webhooks_collection_response_subscription_response_no_paging_entity.php';
-        if ($data === null) {
-            if ($this->_webhooks_collection_response_subscription_response_no_paging === null) {
-                $this->_webhooks_collection_response_subscription_response_no_paging = new WebhooksCollectionResponseSubscriptionResponseNoPagingEntity($this, null);
-            }
-            return $this->_webhooks_collection_response_subscription_response_no_paging;
-        }
-        return new WebhooksCollectionResponseSubscriptionResponseNoPagingEntity($this, $data);
-    }
-
-
     private $_webhooks_crm_object_snapshot_batch = null;
 
     // Canonical facade: $client->WebhooksCrmObjectSnapshotBatch()->list() / ->load(["id" => ...]).
@@ -500,24 +482,6 @@ class HubspotWebhooksSDK
             return $this->_webhooks_subscription;
         }
         return new WebhooksSubscriptionEntity($this, $data);
-    }
-
-
-    private $_webhooks_subscription_list = null;
-
-    // Canonical facade: $client->WebhooksSubscriptionList()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->webhooks_subscription_list()
-    // resolves here too.
-    public function WebhooksSubscriptionList($data = null)
-    {
-        require_once __DIR__ . '/entity/webhooks_subscription_list_entity.php';
-        if ($data === null) {
-            if ($this->_webhooks_subscription_list === null) {
-                $this->_webhooks_subscription_list = new WebhooksSubscriptionListEntity($this, null);
-            }
-            return $this->_webhooks_subscription_list;
-        }
-        return new WebhooksSubscriptionListEntity($this, $data);
     }
 
 

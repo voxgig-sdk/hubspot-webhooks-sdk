@@ -102,7 +102,7 @@ func webhooks_batch_response_journal_fetchBasicSetup(extra map[string]any) *enti
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"webhooks_batch_response_journal_fetch01", "webhooks_batch_response_journal_fetch02", "webhooks_batch_response_journal_fetch03", "earliest01", "earliest02", "earliest03", "latest01", "latest02", "latest03", "batch01", "batch02", "batch03", "next01", "next02", "next03"},
+		[]any{"webhooks_batch_response_journal_fetch01", "webhooks_batch_response_journal_fetch02", "webhooks_batch_response_journal_fetch03", "batch01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

@@ -54,10 +54,6 @@ Create a new `WebhooksBatchResponseJournalFetchEntity` instance. Pass `null` for
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance. Pass `null` for no initial data.
 
-#### `WebhooksCollectionResponseSubscriptionResponseNoPaging($data = null)`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance. Pass `null` for no initial data.
-
 #### `WebhooksCrmObjectSnapshotBatch($data = null)`
 
 Create a new `WebhooksCrmObjectSnapshotBatchEntity` instance. Pass `null` for no initial data.
@@ -77,10 +73,6 @@ Create a new `WebhooksSnapshotStatusEntity` instance. Pass `null` for no initial
 #### `WebhooksSubscription($data = null)`
 
 Create a new `WebhooksSubscriptionEntity` instance. Pass `null` for no initial data.
-
-#### `WebhooksSubscriptionList($data = null)`
-
-Create a new `WebhooksSubscriptionListEntity` instance. Pass `null` for no initial data.
 
 #### `WebhooksSubscriptionResponse1($data = null)`
 
@@ -305,72 +297,6 @@ Set the entity match criteria.
 #### `make(): WebhooksBatchResponseSubscriptionEntity`
 
 Create a new `WebhooksBatchResponseSubscriptionEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## WebhooksCollectionResponseSubscriptionResponseNoPagingEntity
-
-```php
-$webhooks_collection_response_subscription_response_no_paging = $client->WebhooksCollectionResponseSubscriptionResponseNoPaging();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `actionOverrides` | `array` | No | An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object. |
-| `actions` | `array` | Yes | A list of actions that trigger the subscription. |
-| `appId` | `int` | Yes | The unique identifier for the app associated with the subscription. |
-| `associatedObjectTypeIds` | `array` | No | A list of associated object type IDs. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `createdBy` | `int` | No | The ID of the user who created the subscription. |
-| `deletedAt` | `string` | No | The date and time when the subscription was deleted, in ISO 8601 format, if applicable. |
-| `id` | `int` | Yes | The unique identifier for the subscription. |
-| `listIds` | `array` | No | A list of list IDs associated with the subscription. |
-| `objectIds` | `array` | No | A list of object IDs associated with the subscription. |
-| `objectTypeId` | `string` | Yes | The identifier for the object type associated with the subscription. |
-| `portalId` | `int` | No | The unique identifier for the portal associated with the subscription. |
-| `properties` | `array` | No | A list of property names associated with the subscription. |
-| `subscriptionType` | `string` | Yes | The type of subscription, which can be one of the following: 'OBJECT', 'ASSOCIATION', 'EVENT', 'APP_LIFECYCLE_EVENT', 'LIST_MEMBERSHIP', or 'GDPR_PRIVACY_DELETION'. |
-| `updatedAt` | `string` | Yes | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->WebhooksCollectionResponseSubscriptionResponseNoPaging()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): WebhooksCollectionResponseSubscriptionResponseNoPagingEntity`
-
-Create a new `WebhooksCollectionResponseSubscriptionResponseNoPagingEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -651,16 +577,16 @@ $webhooks_subscription = $client->WebhooksSubscription();
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `active` | - | - | Yes |
-| `createdAt` | - | - | - |
-| `eventType` | - | - | - |
-| `eventTypeName` | - | - | - |
-| `id` | - | - | - |
-| `objectTypeId` | - | - | - |
-| `propertyName` | - | - | - |
-| `updatedAt` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active` | - | - | - | Yes |
+| `createdAt` | - | - | - | - |
+| `eventType` | - | - | - | - |
+| `eventTypeName` | - | - | - | - |
+| `id` | - | - | - | - |
+| `objectTypeId` | - | - | - | - |
+| `propertyName` | - | - | - | - |
+| `updatedAt` | - | - | - | - |
 
 ### Operations
 
@@ -676,6 +602,14 @@ $result = $client->WebhooksSubscription()->create([
   "eventType" => null, // string
   "id" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->WebhooksSubscription()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -719,65 +653,6 @@ Set the entity match criteria.
 #### `make(): WebhooksSubscriptionEntity`
 
 Create a new `WebhooksSubscriptionEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## WebhooksSubscriptionListEntity
-
-```php
-$webhooks_subscription_list = $client->WebhooksSubscriptionList();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active` | `bool` | Yes | A boolean indicating whether the subscription is currently active. |
-| `createdAt` | `string` | Yes | The date and time when the subscription was created, in ISO 8601 format. |
-| `eventType` | `string` | Yes | The type of event that triggers the subscription. |
-| `eventTypeName` | `string` | No | The name of the event type for the subscription. |
-| `id` | `string` | Yes | The unique identifier for the subscription. |
-| `objectTypeId` | `string` | No | The identifier for the object type associated with the subscription. |
-| `propertyName` | `string` | No | The name of the property associated with the subscription event, if applicable. |
-| `updatedAt` | `string` | No | The date and time when the subscription was last updated, in ISO 8601 format. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->WebhooksSubscriptionList()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): WebhooksSubscriptionListEntity`
-
-Create a new `WebhooksSubscriptionListEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -831,6 +706,14 @@ $result = $client->WebhooksSubscriptionResponse1()->create([
 ]);
 ```
 
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->WebhooksSubscriptionResponse1()->list();
+```
+
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
 Load a single entity matching the given criteria. Throws on error.
@@ -873,14 +756,14 @@ Return the entity name.
 
 | Feature | Version | Description |
 | --- | --- | --- |
-| `debug` | 0.0.1 | Request/response capture ring buffer for debugging |
-| `idempotency` | 0.0.1 | Idempotency keys for safe retries of mutating operations |
-| `metrics` | 0.0.1 | Statistics capture: per-operation counters and latency |
-| `paging` | 0.0.1 | Pagination signals for list operations |
-| `ratelimit` | 0.0.1 | Client-side rate limiting via a token bucket |
-| `retry` | 0.0.1 | Automatic retry of transient failures with exponential backoff |
-| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
-| `timeout` | 0.0.1 | Per-request timeout with transport abort |
+| `debug` | 0.0.1 | Debug capture |
+| `idempotency` | 0.0.1 | Idempotency |
+| `metrics` | 0.0.1 | Metrics |
+| `paging` | 0.0.1 | Paging |
+| `ratelimit` | 0.0.1 | Rate limiting |
+| `retry` | 0.0.1 | Retry |
+| `test` | 0.0.1 | Test transport |
+| `timeout` | 0.0.1 | Timeout |
 
 
 Features are activated via the `feature` option:
@@ -926,7 +809,7 @@ rather than the transport, so their order does not affect what they observe.
 
 #### `debug`
 
-Request/response capture ring buffer for debugging.
+Debug capture.
 
 **Configuration**
 
@@ -957,7 +840,7 @@ its default unless you name it.
 
 #### `idempotency`
 
-Idempotency keys for safe retries of mutating operations.
+Idempotency.
 
 **Configuration**
 
@@ -988,7 +871,7 @@ its default unless you name it.
 
 #### `metrics`
 
-Statistics capture: per-operation counters and latency.
+Metrics.
 
 **Configuration**
 
@@ -1016,7 +899,7 @@ its default unless you name it.
 
 #### `paging`
 
-Pagination signals for list operations.
+Paging.
 
 **Configuration**
 
@@ -1051,7 +934,7 @@ its default unless you name it.
 
 #### `ratelimit`
 
-Client-side rate limiting via a token bucket.
+Rate limiting.
 
 **Configuration**
 
@@ -1082,7 +965,7 @@ its default unless you name it.
 
 #### `retry`
 
-Automatic retry of transient failures with exponential backoff.
+Retry.
 
 **Configuration**
 
@@ -1116,7 +999,7 @@ its default unless you name it.
 
 #### `test`
 
-In-memory mock transport for testing without a live server.
+Test transport.
 
 **Configuration**
 
@@ -1147,7 +1030,7 @@ its default unless you name it.
 
 #### `timeout`
 
-Per-request timeout with transport abort.
+Timeout.
 
 **Configuration**
 

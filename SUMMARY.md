@@ -6,7 +6,7 @@ HubSpot Webhooks API, merged from the vendor&#39;s per-API OpenAPI documents.
 
 This guide introduces the API, the client libraries, and the companion tools in this repository. Start with the API capabilities, choose a client for your application, and use the linked reference when you need exact request and response details.
 
-The selected API surface contains 11 entities and 35 HTTP routes. There are 6 SDK targets and 2 companion tools.
+The selected API surface contains 9 entities and 35 HTTP routes. There are 6 SDK targets and 2 companion tools.
 
 An entity groups related API operations. An operation can have several routes with different inputs or authentication requirements. The SDK exposes the entity and its operations using the conventions of the selected language.
 
@@ -45,20 +45,6 @@ Key fields to recognise:
 - `links`: A map of link names to associated URIs providing additional information about the batch operation.
 - `requestedAt`: The date and time when the batch operation was requested, in ISO 8601 format.
 - `results`: An array containing the results of the batch operation, with each item representing an individual subscription response.
-
-### [WebhooksCollectionResponseSubscriptionResponseNoPaging](docs/api/webhooks_collection_response_subscription_response_no_paging.html)
-
-Results: successful operation.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `actionOverrides`: An object containing action overrides, where each key is an action and the value is an ActionOverrideRequest object.
-- `actions`: A list of actions that trigger the subscription. Possible values include &#39;CREATE&#39;, &#39;UPDATE&#39;, &#39;DELETE&#39;, &#39;MERGE&#39;, &#39;RESTORE&#39;, &#39;ASSOCIATION_ADDED&#39;, &#39;ASSOCIATION_REMOVED&#39;, &#39;SNAPSHOT&#39;, &#39;APP_INSTALL&#39;, &#39;APP_UNINSTALL&#39;, &#39;ADDED_TO_LIST&#39;, &#39;REMOVED_FROM_LIST&#39;, and &#39;GDPR_DELETE&#39;.
-- `appId`: The unique identifier for the app associated with the subscription. It is an integer formatted as int64.
-- `associatedObjectTypeIds`: A list of associated object type IDs. Each ID is a string.
-- `createdAt`: The date and time when the subscription was created, in ISO 8601 format.
 
 ### [WebhooksCrmObjectSnapshotBatch](docs/api/webhooks_crm_object_snapshot_batch.html)
 
@@ -114,21 +100,7 @@ Key fields to recognise:
 
 Results: successful operation.
 
-SDK operations: `create`, `load`, `update`.
-
-Key fields to recognise:
-
-- `active`: A boolean indicating whether the subscription is currently active.
-- `createdAt`: The date and time when the subscription was created, in ISO 8601 format.
-- `eventType`: The type of event that triggers the subscription. Valid values include various property changes, creations, deletions, merges, restores, and association changes for different HubSpot objects.
-- `eventTypeName`: The name of the event type for the subscription.
-- `id`: The unique identifier for the subscription. It is an integer formatted as int64.
-
-### [WebhooksSubscriptionList](docs/api/webhooks_subscription_list.html)
-
-Results: successful operation.
-
-SDK operations: `list`.
+SDK operations: `create`, `list`, `load`, `update`.
 
 Key fields to recognise:
 
@@ -142,7 +114,7 @@ Key fields to recognise:
 
 Results: successful operation.
 
-SDK operations: `create`, `load`.
+SDK operations: `create`, `list`, `load`.
 
 Key fields to recognise:
 
@@ -178,7 +150,6 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | [WebhooksBatchResponseJournalFetch](docs/api/webhooks_batch_response_journal_fetch.html) | `load` | `GET /webhooks-journal/journal/2026-09/batch/earliest/{count}` | Required |
 | [WebhooksBatchResponseJournalFetch](docs/api/webhooks_batch_response_journal_fetch.html) | `load` | `GET /webhooks-journal/journal/2026-09/batch/latest/{count}` | Required |
 | [WebhooksBatchResponseSubscription](docs/api/webhooks_batch_response_subscription.html) | `create` | `POST /app-webhooks/2026-09/{appId}/subscriptions/batch/update` | Required |
-| [WebhooksCollectionResponseSubscriptionResponseNoPaging](docs/api/webhooks_collection_response_subscription_response_no_paging.html) | `list` | `GET /webhooks-journal/subscriptions/2026-09` | Required |
 | [WebhooksCrmObjectSnapshotBatch](docs/api/webhooks_crm_object_snapshot_batch.html) | `create` | `POST /webhooks-journal/snapshots/2026-09/crm` | Required |
 | [WebhooksFilter](docs/api/webhooks_filter.html) | `create` | `POST /webhooks-journal/subscriptions/2026-09/filters` | Required |
 | [WebhooksFilter](docs/api/webhooks_filter.html) | `load` | `GET /webhooks-journal/subscriptions/2026-09/filters/{filterId}` | Required |
@@ -188,10 +159,11 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | [WebhooksSnapshotStatus](docs/api/webhooks_snapshot_status.html) | `load` | `GET /webhooks-journal/journal-local/2026-09/status/{statusId}` | Required |
 | [WebhooksSnapshotStatus](docs/api/webhooks_snapshot_status.html) | `load` | `GET /webhooks-journal/journal/2026-09/status/{statusId}` | Required |
 | [WebhooksSubscription](docs/api/webhooks_subscription.html) | `create` | `POST /app-webhooks/2026-09/{appId}/subscriptions` | Required |
+| [WebhooksSubscription](docs/api/webhooks_subscription.html) | `list` | `GET /app-webhooks/2026-09/{appId}/subscriptions` | Required |
 | [WebhooksSubscription](docs/api/webhooks_subscription.html) | `load` | `GET /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}` | Required |
 | [WebhooksSubscription](docs/api/webhooks_subscription.html) | `update` | `PATCH /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}` | Required |
-| [WebhooksSubscriptionList](docs/api/webhooks_subscription_list.html) | `list` | `GET /app-webhooks/2026-09/{appId}/subscriptions` | Required |
 | [WebhooksSubscriptionResponse1](docs/api/webhooks_subscription_response_1.html) | `create` | `POST /webhooks-journal/subscriptions/2026-09` | Required |
+| [WebhooksSubscriptionResponse1](docs/api/webhooks_subscription_response_1.html) | `list` | `GET /webhooks-journal/subscriptions/2026-09` | Required |
 | [WebhooksSubscriptionResponse1](docs/api/webhooks_subscription_response_1.html) | `load` | `GET /webhooks-journal/subscriptions/2026-09/{subscriptionId}` | Required |
 
 ## Connect to the API
@@ -242,7 +214,7 @@ Use the MCP server to expose supported API operations to an MCP client.
 
 Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
-- `hubspot-webhooks_list`: List records for an entity. Supported entities: `webhooks_collection_response_subscription_response_no_paging`, `webhooks_subscription_list`.
+- `hubspot-webhooks_list`: List records for an entity. Supported entities: `webhooks_subscription`, `webhooks_subscription_response_1`.
 - `hubspot-webhooks_load`: Load one record for an entity. Supported entities: `basic`, `webhooks_batch_response_journal_fetch`, `webhooks_filter`, `webhooks_setting`, `webhooks_snapshot_status`, `webhooks_subscription`, `webhooks_subscription_response_1`.
 
 ## Operational features

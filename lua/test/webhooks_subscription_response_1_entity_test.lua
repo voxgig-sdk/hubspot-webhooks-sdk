@@ -15,11 +15,52 @@ describe("WebhooksSubscriptionResponse1Entity", function()
     assert.is_not_nil(ent)
   end)
 
+  -- Feature #4: the entity stream(action, ...) method runs the op pipeline and
+  -- returns an iterator over result items. With the streaming feature active it
+  -- yields the feature's incremental output; otherwise it falls back to the
+  -- materialised list so stream always yields.
+  it("should stream", function()
+    local seed = {
+      entity = {
+        ["webhooks_subscription_response_1"] = {
+          s1 = { id = "s1" },
+          s2 = { id = "s2" },
+          s3 = { id = "s3" },
+        },
+      },
+    }
+
+    -- Fallback: streaming inactive -> yields the materialised list items.
+    local base = sdk.test(seed, nil)
+    local seen = {}
+    for item in base:WebhooksSubscriptionResponse1(nil):stream("list", nil, nil) do
+      table.insert(seen, item)
+    end
+    assert.are.equal(3, #seen)
+
+    -- Inbound: streaming active -> yields each item from the feature.
+    local config = require("config_shared")()
+    if type(config.feature) == "table" and config.feature.streaming ~= nil then
+      local streamsdk = sdk.test(seed, { feature = { streaming = { active = true } } })
+      local got = {}
+      for item in streamsdk:WebhooksSubscriptionResponse1(nil):stream("list", nil, nil) do
+        if vs.islist(item) then
+          for _, sub in ipairs(item) do
+            table.insert(got, sub)
+          end
+        else
+          table.insert(got, item)
+        end
+      end
+      assert.are.equal(3, #got)
+    end
+  end)
+
   it("should run basic flow", function()
     local setup = webhooks_subscription_response_1_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "load"}) do
+    for _, _op in ipairs({"create", "list", "load"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "webhooks_subscription_response_1." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -44,6 +85,18 @@ describe("WebhooksSubscriptionResponse1Entity", function()
     webhooks_subscription_response_1_ref01_data = helpers.to_map(type(webhooks_subscription_response_1_ref01_data_result) == 'table' and webhooks_subscription_response_1_ref01_data_result.data_get and webhooks_subscription_response_1_ref01_data_result:data_get() or webhooks_subscription_response_1_ref01_data_result)
     assert.is_not_nil(webhooks_subscription_response_1_ref01_data)
     assert.is_not_nil(webhooks_subscription_response_1_ref01_data["id"])
+
+    -- LIST
+    local webhooks_subscription_response_1_ref01_match = {}
+
+    local webhooks_subscription_response_1_ref01_list_result, err = webhooks_subscription_response_1_ref01_ent:list(webhooks_subscription_response_1_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(webhooks_subscription_response_1_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(webhooks_subscription_response_1_ref01_list_result),
+      { id = webhooks_subscription_response_1_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- LOAD
     local webhooks_subscription_response_1_ref01_match_dt0 = {
@@ -78,7 +131,7 @@ function webhooks_subscription_response_1_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "webhooks_subscription_response_101", "webhooks_subscription_response_102", "webhooks_subscription_response_103", "2026_0901", "2026_0902", "2026_0903" },
+    { "webhooks_subscription_response_101", "webhooks_subscription_response_102", "webhooks_subscription_response_103" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

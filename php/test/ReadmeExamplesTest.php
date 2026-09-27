@@ -43,13 +43,11 @@ class ReadmeExamplesTest extends TestCase
         "Basic" => "basic",
         "WebhooksBatchResponseJournalFetch" => "webhooks_batch_response_journal_fetch",
         "WebhooksBatchResponseSubscription" => "webhooks_batch_response_subscription",
-        "WebhooksCollectionResponseSubscriptionResponseNoPaging" => "webhooks_collection_response_subscription_response_no_paging",
         "WebhooksCrmObjectSnapshotBatch" => "webhooks_crm_object_snapshot_batch",
         "WebhooksFilter" => "webhooks_filter",
         "WebhooksSetting" => "webhooks_setting",
         "WebhooksSnapshotStatus" => "webhooks_snapshot_status",
         "WebhooksSubscription" => "webhooks_subscription",
-        "WebhooksSubscriptionList" => "webhooks_subscription_list",
         "WebhooksSubscriptionResponse1" => "webhooks_subscription_response_1",
     ];
 

@@ -20,7 +20,7 @@ local SDK_MODULE = "hubspot-webhooks_sdk"
 -- A test-mode client seeded with a fixture for every entity. The constructor
 -- of each runnable snippet is rewritten to this form so the offline mock has
 -- data to return.
-local TEST_SEED = '{ entity = { ["basic"] = { ["test01"] = { id = "test01" } }, ["webhooks_batch_response_journal_fetch"] = { ["test01"] = { id = "test01" } }, ["webhooks_batch_response_subscription"] = { ["test01"] = { id = "test01" } }, ["webhooks_collection_response_subscription_response_no_paging"] = { ["test01"] = { id = "test01" } }, ["webhooks_crm_object_snapshot_batch"] = { ["test01"] = { id = "test01" } }, ["webhooks_filter"] = { ["test01"] = { id = "test01" } }, ["webhooks_setting"] = { ["test01"] = { id = "test01" } }, ["webhooks_snapshot_status"] = { ["test01"] = { id = "test01" } }, ["webhooks_subscription"] = { ["test01"] = { id = "test01" } }, ["webhooks_subscription_list"] = { ["test01"] = { id = "test01" } }, ["webhooks_subscription_response_1"] = { ["test01"] = { id = "test01" } } } }'
+local TEST_SEED = '{ entity = { ["basic"] = { ["test01"] = { id = "test01" } }, ["webhooks_batch_response_journal_fetch"] = { ["test01"] = { id = "test01" } }, ["webhooks_batch_response_subscription"] = { ["test01"] = { id = "test01" } }, ["webhooks_crm_object_snapshot_batch"] = { ["test01"] = { id = "test01" } }, ["webhooks_filter"] = { ["test01"] = { id = "test01" } }, ["webhooks_setting"] = { ["test01"] = { id = "test01" } }, ["webhooks_snapshot_status"] = { ["test01"] = { id = "test01" } }, ["webhooks_subscription"] = { ["test01"] = { id = "test01" } }, ["webhooks_subscription_response_1"] = { ["test01"] = { id = "test01" } } } }'
 local TEST_CTOR = "sdk.test(" .. TEST_SEED .. ")"
 
 local function script_dir()

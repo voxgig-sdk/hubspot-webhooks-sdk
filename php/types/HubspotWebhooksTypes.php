@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 // Typed models for the HubspotWebhooks SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 //
@@ -85,46 +85,6 @@ class WebhooksBatchResponseSubscriptionCreateData
     public array $results;
     public string $startedAt;
     public string $status;
-}
-
-/** WebhooksCollectionResponseSubscriptionResponseNoPaging entity data model. */
-class WebhooksCollectionResponseSubscriptionResponseNoPaging
-{
-    public ?array $actionOverrides = null;
-    public array $actions;
-    public int $appId;
-    public ?array $associatedObjectTypeIds = null;
-    public string $createdAt;
-    public ?int $createdBy = null;
-    public ?string $deletedAt = null;
-    public int $id;
-    public ?array $listIds = null;
-    public ?array $objectIds = null;
-    public string $objectTypeId;
-    public ?int $portalId = null;
-    public ?array $properties = null;
-    public string $subscriptionType;
-    public string $updatedAt;
-}
-
-/** Request payload for WebhooksCollectionResponseSubscriptionResponseNoPaging#list. */
-class WebhooksCollectionResponseSubscriptionResponseNoPagingListMatch
-{
-    public ?array $actionOverrides = null;
-    public ?array $actions = null;
-    public ?int $appId = null;
-    public ?array $associatedObjectTypeIds = null;
-    public ?string $createdAt = null;
-    public ?int $createdBy = null;
-    public ?string $deletedAt = null;
-    public ?int $id = null;
-    public ?array $listIds = null;
-    public ?array $objectIds = null;
-    public ?string $objectTypeId = null;
-    public ?int $portalId = null;
-    public ?array $properties = null;
-    public ?string $subscriptionType = null;
-    public ?string $updatedAt = null;
 }
 
 /** WebhooksCrmObjectSnapshotBatch entity data model. */
@@ -229,6 +189,12 @@ class WebhooksSubscriptionLoadMatch
     public int $id;
 }
 
+/** Request payload for WebhooksSubscription#list. */
+class WebhooksSubscriptionListMatch
+{
+    public int $app_id;
+}
+
 /** Request payload for WebhooksSubscription#create. */
 class WebhooksSubscriptionCreateData
 {
@@ -257,25 +223,6 @@ class WebhooksSubscriptionUpdateData
     public ?string $updatedAt = null;
 }
 
-/** WebhooksSubscriptionList entity data model. */
-class WebhooksSubscriptionList
-{
-    public bool $active;
-    public string $createdAt;
-    public string $eventType;
-    public ?string $eventTypeName = null;
-    public string $id;
-    public ?string $objectTypeId = null;
-    public ?string $propertyName = null;
-    public ?string $updatedAt = null;
-}
-
-/** Request payload for WebhooksSubscriptionList#list. */
-class WebhooksSubscriptionListListMatch
-{
-    public int $app_id;
-}
-
 /** WebhooksSubscriptionResponse1 entity data model. */
 class WebhooksSubscriptionResponse1
 {
@@ -300,6 +247,26 @@ class WebhooksSubscriptionResponse1
 class WebhooksSubscriptionResponse1LoadMatch
 {
     public int $subscription_id;
+}
+
+/** Request payload for WebhooksSubscriptionResponse1#list. */
+class WebhooksSubscriptionResponse1ListMatch
+{
+    public ?array $actionOverrides = null;
+    public ?array $actions = null;
+    public ?int $appId = null;
+    public ?array $associatedObjectTypeIds = null;
+    public ?string $createdAt = null;
+    public ?int $createdBy = null;
+    public ?string $deletedAt = null;
+    public ?int $id = null;
+    public ?array $listIds = null;
+    public ?array $objectIds = null;
+    public ?string $objectTypeId = null;
+    public ?int $portalId = null;
+    public ?array $properties = null;
+    public ?string $subscriptionType = null;
+    public ?string $updatedAt = null;
 }
 
 /** Request payload for WebhooksSubscriptionResponse1#create. */

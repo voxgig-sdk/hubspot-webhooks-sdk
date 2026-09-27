@@ -26,8 +26,6 @@ var NewWebhooksBatchResponseJournalFetchEntityFunc func(client *HubspotWebhooksS
 
 var NewWebhooksBatchResponseSubscriptionEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
 
-var NewWebhooksCollectionResponseSubscriptionResponseNoPagingEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
-
 var NewWebhooksCrmObjectSnapshotBatchEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
 
 var NewWebhooksFilterEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
@@ -37,8 +35,6 @@ var NewWebhooksSettingEntityFunc func(client *HubspotWebhooksSDK, entopts map[st
 var NewWebhooksSnapshotStatusEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
 
 var NewWebhooksSubscriptionEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
-
-var NewWebhooksSubscriptionListEntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
 
 var NewWebhooksSubscriptionResponse1EntityFunc func(client *HubspotWebhooksSDK, entopts map[string]any) HubspotWebhooksEntity
 

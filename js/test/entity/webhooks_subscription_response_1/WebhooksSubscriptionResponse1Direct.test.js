@@ -40,7 +40,22 @@ describe('WebhooksSubscriptionResponse1Direct', async () => {
     const { client, calls } = setup
 
     const params = {}
-    if (!setup.live) {
+    if (setup.live) {
+      const listResult = await client.direct({
+        path: 'webhooks-journal/subscriptions/2026-09',
+        method: 'GET',
+        params: {
+
+        },
+      })
+      assert(listResult.ok === true)
+      const listData = listResult.data
+      if (!Array.isArray(listData) || listData.length === 0) {
+        throw new Error('Live load blocked: discovery returned no usable entities')
+      }
+      params.id = listData[0].id
+      params.subscription_id = setup.idmap['subscription01']
+    } else {
       params.subscription_id = 'direct01'
     }
 
@@ -59,6 +74,30 @@ describe('WebhooksSubscriptionResponse1Direct', async () => {
       assert(calls.length === 1)
       assert(calls[0].init.method === 'GET')
       assert(calls[0].url.includes('direct01'))
+    }
+  })
+
+  test('direct-list-webhooks_subscription_response_1', async (t) => {
+    if (liveScenariosActive()) { t.skip('Covered by live operation scenarios'); return }
+    const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }])
+    const { client, calls } = setup
+
+    const params = {}
+
+    const result = await client.direct({
+      path: 'webhooks-journal/subscriptions/2026-09',
+      method: 'GET',
+      params,
+    })
+
+    assert(result.ok === true)
+    assert(setup.live ? result.status >= 200 && result.status < 300 : result.status === 200)
+    assert(Array.isArray(result.data))
+
+    if (!setup.live) {
+      assert(result.data.length === 2)
+      assert(calls.length === 1)
+      assert(calls[0].init.method === 'GET')
     }
   })
 

@@ -1,0 +1,598 @@
+# Entity: basic
+
+main: kit: entity: basic: {
+
+  alias: field: {}
+
+  name: "basic"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/offset/{offset}/next"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "offset_id"
+                or: "offset"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/offset/{offset}/next"
+          q: {
+            exist: [
+              "install_portal_id"
+              "offset_id"
+            ]
+          }
+          r: {
+            param: {
+              offset: "offset_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "offset"
+            }
+            {
+              var: "offset_id"
+            }
+            {
+              lit: "next"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/offset/{offset}/next"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "offset_id"
+                or: "offset"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/offset/{offset}/next"
+          q: {
+            exist: [
+              "install_portal_id"
+              "offset_id"
+            ]
+          }
+          r: {
+            param: {
+              offset: "offset_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "offset"
+            }
+            {
+              var: "offset_id"
+            }
+            {
+              lit: "next"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/earliest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/earliest"
+          q: {
+            exist: [
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "earliest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal-local/2026-09/latest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal-local/2026-09/latest"
+          q: {
+            exist: [
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal-local"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "latest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/earliest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/earliest"
+          q: {
+            exist: [
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "earliest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /webhooks-journal/journal/2026-09/latest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "install_portal_id"
+                or: "install_portal_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/webhooks-journal/journal/2026-09/latest"
+          q: {
+            exist: [
+              "install_portal_id"
+            ]
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "journal"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "latest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                ex: null
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/app-webhooks/2026-09/{appId}/subscriptions/{subscriptionId}"
+          q: {
+            exist: [
+              "app_id"
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              var: "subscription_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /app-webhooks/2026-09/{appId}/settings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "app_id"
+                or: "app_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/app-webhooks/2026-09/{appId}/settings"
+          q: {
+            exist: [
+              "app_id"
+            ]
+          }
+          r: {
+            param: {
+              appId: "app_id"
+            }
+          }
+          s: [
+            {
+              lit: "app-webhooks"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "app_id"
+            }
+            {
+              lit: "settings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /webhooks-journal/subscriptions/2026-09/filters/{filterId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "filter_id"
+                or: "filter_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/webhooks-journal/subscriptions/2026-09/filters/{filterId}"
+          q: {
+            exist: [
+              "filter_id"
+            ]
+          }
+          r: {
+            param: {
+              filterId: "filter_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "filters"
+            }
+            {
+              var: "filter_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /webhooks-journal/subscriptions/2026-09/portals/{portalId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "portal_id"
+                or: "portal_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/webhooks-journal/subscriptions/2026-09/portals/{portalId}"
+          q: {
+            exist: [
+              "portal_id"
+            ]
+          }
+          r: {
+            param: {
+              portalId: "portal_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              lit: "portals"
+            }
+            {
+              var: "portal_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /webhooks-journal/subscriptions/2026-09/{subscriptionId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "subscription_id"
+                or: "subscription_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/webhooks-journal/subscriptions/2026-09/{subscriptionId}"
+          q: {
+            exist: [
+              "subscription_id"
+            ]
+          }
+          r: {
+            param: {
+              subscriptionId: "subscription_id"
+            }
+          }
+          s: [
+            {
+              lit: "webhooks-journal"
+            }
+            {
+              lit: "subscriptions"
+            }
+            {
+              lit: "2026-09"
+            }
+            {
+              var: "subscription_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}
